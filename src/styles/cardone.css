@@ -118,7 +118,7 @@ https://flickity.metafizzy.co
 
 /* ---- page dots ---- */
 
-.flickity-page-dots {
+/* .flickity-page-dots {
     position: absolute;
     width: 100%;
     bottom: -25px;
@@ -127,13 +127,13 @@ https://flickity.metafizzy.co
     list-style: none;
     text-align: center;
     line-height: 1;
-}
+} */
 
-.flickity-rtl .flickity-page-dots {
+/* .flickity-rtl .flickity-page-dots {
     direction: rtl;
-}
+} */
 
-.flickity-page-dots .dot {
+/* .flickity-page-dots .dot {
     display: inline-block;
     width: 8px;
     height: 8px;
@@ -142,8 +142,8 @@ https://flickity.metafizzy.co
     border-radius: 50%;
     opacity: 0.25;
     cursor: pointer;
-}
+} */
 
-.flickity-page-dots .dot.is-selected {
+/* .flickity-page-dots .dot.is-selected {
     opacity: 1;
-}
+} */

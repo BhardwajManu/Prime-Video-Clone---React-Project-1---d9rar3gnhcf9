@@ -2,7 +2,7 @@ import React from 'react'
 import firstImage from '../assets/images/firstimage.jpg'
 import smallImage from '../assets/images/small.jpg'
 
-const MainContent = () => {
+const Landingpage = () => {
     return (
         <>
             <div className='h-screen relative'>
@@ -30,4 +30,4 @@ const MainContent = () => {
     )
 }
 
-export default MainContent
+export default Landingpage

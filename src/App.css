@@ -1,5 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     background-color: #000;
     text-align: center;
 
+}
+
+
+.gradientToRight {
+    background: linear-gradient(to right, #000 0%, transparent 60%);
+}
+
+.avtar {
+    display: none;
+}
+
+.avtar-parent:hover .avtar {
+    display: block;
+}
+
+.home-list {
+    display: none;
+}
+
+.parent-homelist:hover .home-list {
+    display: block;
+}
+
+.store-list {
+    display: none;
+}
+
+.parent-storelist:hover .store-list {
+    display: block;
 }
