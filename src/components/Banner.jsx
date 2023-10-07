@@ -75,7 +75,7 @@ export default function Banner() {
     return (
         <>
             <div>
-                <h1 className='text-[#FFFFFF] text-[40px]  px-[72px] py-6 
+                <h1 className='text-[#FFFFFF] text-[2.5vw] text-auto  px-[72px] py-6 
                  font-bold tracking-wide lead-[45px] flex justify-start cursor-default'>Movies   </h1>
 
             </div>

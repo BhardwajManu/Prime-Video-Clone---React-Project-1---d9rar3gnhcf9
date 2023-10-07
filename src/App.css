@@ -7,7 +7,6 @@
 
 body {
     background-color: #000;
-    text-align: center;
 
 }
 
@@ -38,4 +37,45 @@ body {
 
 .parent-storelist:hover .store-list {
     display: block;
+}
+
+
+.parent-card:hover {
+    z-index: 50;
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+    transform: scale(1.25);
+    transition: 0.2s all;
+
+
+}
+
+.parent-card {
+    z-index: 0;
+    transition: 0.2s all;
+
+}
+
+.parent-card:hover {
+    z-index: 50;
+    transform: scale(1.05);
+}
+
+.parent-card .card {
+    opacity: 0;
+    transform: translate(20px);
+    transition: 0.2s;
+}
+
+.parent-card:hover .card {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.card {
+    display: none;
+}
+
+.parent-card:hover .card {
+    display: block;
+    z-index: 50;
 }
