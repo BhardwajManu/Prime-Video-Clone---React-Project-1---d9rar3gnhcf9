@@ -36,12 +36,12 @@ const CardOne = (props) => {
             }
         }
         fetchData();
-    }, []);
+    }, [props]);
 
     return (
         <>
             <div>
-                <section className='text-[#FFF] mt-14 ml-[4.5%]'>
+                <section className='text-[#FFF] mt-20 ml-[4.5%]'>
                     <h2 className='flex  pb-4 text-xl'>
                         <div>
                             <span className='font-bold text-[#1A98FF]'>Prime</span>
@@ -69,7 +69,7 @@ const CardOne = (props) => {
 
                             <img className='object-cover rounded-lg h-[145px] w-[259px]' src={item.thumbnail} alt='' />
 
-                            <div className='card h-40 w-64 '>
+                            <div className='child-card h-40 w-64 '>
                                 <div className='text-white  flex flex-col gap-2  py-7 '>
                                     <h3 className='flex text-white text-sm md:text-base px-[7px] py-[3px] ml-3.5 font-bold'>
                                         <img className='w-[22px] h-[22px] mr-2' src={checkbox} alt='' /> Watch with a free prime trail</h3>

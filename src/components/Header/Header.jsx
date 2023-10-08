@@ -2,17 +2,53 @@ import React from 'react';
 import headerlogo from '../../assets/images/Logo-min.png'
 import avatar from '../../assets/images/userImg.png'
 import search from '../../assets/images/search.png'
+import { useEffect, useState } from 'react';
 
 
 const Header = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+    // Add a scroll event listener to track scrolling
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    // Toggle mobile menu
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    // Check if the screen width is greater than 768px (adjust this value as needed)
+    const isLargeScreen = window.innerWidth > 768;
+
     return (
         <>
-            <nav className="bg-[rgb(0, 5, 13)]">
+            <nav className={`top-0 bg-[#000]   w-full ${isScrolled ? 'fixed rounded-lg z-50 mt-4 ml-64 max-w-5xl' : ''}
+                 ${isMobileMenuOpen ? '' : ''}`}>
                 <div className="mx-auto max-w-5xl h-12 px-2 sm:px-6 lg:px-8">
                     <div className="relative flex h-12 items-center justify-between">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                             {/* Mobile menu button */}
-                            <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-[#FFF] hover:bg-gray-800 hover:text-[#FFF] font-bold" aria-controls="mobile-menu" aria-expanded="false">
+                            {/* <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-[#FFF] hover:bg-gray-800 hover:text-[#FFF] font-bold" aria-controls="mobile-menu" aria-expanded="false"> */}
+                            <button
+                                type="button"
+                                onClick={toggleMobileMenu} // Add onClick to toggle the mobile menu
+                                className="relative inline-flex items-center justify-center rounded-md p-2 text-[#FFF] hover:bg-gray-800 hover:text-[#FFF] font-bold"
+                                aria-controls="mobile-menu"
+                                aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
+                            >
                                 <span className="absolute -inset-0.5"></span>
                                 <span className="sr-only">Open main menu</span>
                                 {/* Icon when menu is closed */}
@@ -25,11 +61,11 @@ const Header = () => {
                                 <img className="ml-2 h-5 w-auto" src={headerlogo} alt="Your Company" />
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
-                                <div className="  flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
+                                <div className=" z-index flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                                     <div className='parent-homelist'>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white px-4 py-2">Home</a>
-                                        <div className="z-50 absolute mt-[38px]  w-auto top-0 rounded-sm bg-[#191E25] py-2 ">
-                                            <ul className='home-list text-left'>
+                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-4 py-2">Home</a>
+                                        <div className="z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ">
+                                            <ul className='home-list text-left '>
                                                 <li><a href="#" className="block px-[17px] py-3 text-sm font-semibold text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">All</a></li>
                                                 <li><a href="#" className="block px-[17px] py-3 text-sm font-semibold text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">Movies</a></li>
                                                 <li><a href="#" className="block px-[17px] py-3 text-sm font-semibold text-[#AAAAAA] text-[18.7px] hover:bg-white whitespace-nowrap hover:text-black ">TV shows</a></li>
@@ -37,7 +73,7 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <div className='parent-storelist'>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white px-4 py-2">Store</a>
+                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-4 py-2">Store</a>
                                         <div className="z-50 absolute mt-[38px]  w-auto top-0 rounded-sm bg-[#191E25] py-2 font-semibold">
                                             <ul className='store-list text-left'>
                                                 <li><a href="#" className="block px-[17px] py-3 text-sm text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">All</a></li>
@@ -47,10 +83,10 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2">Live TV</a>
+                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-3 py-2">Live TV</a>
                                     </div>
                                     <div>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2">Categories</a>
+                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-3 py-2">Categories</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +101,7 @@ const Header = () => {
                             </button>
 
                             <div className="space-x-4 hidden sm:ml-6 sm:block text-[#AAA] text-[18.7px] font-semibold tracking-[1px]">
-                                <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2">Try for free</a>
+                                <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2 text-[1.2vw]">Try for free</a>
                                 <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2">EN</a>
                             </div>
 
@@ -93,8 +129,10 @@ const Header = () => {
                 </div>
 
                 {/* Mobile menu */}
-                <div className="sm:hidden" id="mobile-menu" >
-                    <div className="space-y-1 px-2 pb-3 pt-2 flex flex-col items-start">
+                <div className={`sm:hidden ${isMobileMenuOpen ? 'z-50' : ''}`} id="mobile-menu" >
+                    {/* <div className="space-y-1 px-2 pb-3 pt-2 flex flex-col items-start"> */}
+                    <div className={`space-y-1 px-2 pb-3 pt-2 flex flex-col items-start ${isMobileMenuOpen ? 'block' : 'hidden'}`} >
+
                         {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                         <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Home</a>
                         <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Store</a>
@@ -102,7 +140,7 @@ const Header = () => {
                         <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Categories</a>
                     </div>
                 </div>
-            </nav>
+            </nav >
         </>
     );
 };

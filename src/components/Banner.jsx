@@ -75,8 +75,8 @@ export default function Banner() {
     return (
         <>
             <div>
-                <h1 className='text-[#FFFFFF] text-[2.5vw] text-auto  px-[72px] py-6 
-                 font-bold tracking-wide lead-[45px] flex justify-start cursor-default'>Movies   </h1>
+                <h1 className='text-[#FFFFFF] text-[2.5vw] px-[72px]  mb-3
+                 font-bold tracking-wide  flex justify-start cursor-default'>Movies</h1>
 
             </div>
             <Flickity
@@ -89,9 +89,9 @@ export default function Banner() {
             >
                 {data.map((item, i) => (
 
-                    <div key={item._id} className='w-[91vw] m-auto  relative overflow-hidden'>
+                    <div key={item._id} className='w-[93vw] m-auto  relative overflow-hidden'>
                         <div className='absolute inset-0 gradientToRight'></div>
-                        <img className='aspect-[16/9] md:aspect-[18/6] lg:w-[90vw] w-full m-auto block cursor-pointer object-cover object-top leading-7 rounded-lg' src={images[i].bigImg} />
+                        <img className='aspect-[16/9] md:aspect-[18/6] lg:w-[91.2vw] w-full m-auto block cursor-pointer object-cover object-top leading-7 rounded-lg' src={images[i].bigImg} />
                         <section className='w-full lg:w-[40%] h-full absolute left-1 top-3 border-5 border-solid border-red md:pl-12 px-2 flex flex-col justify-around'>
                             <div>
                                 {

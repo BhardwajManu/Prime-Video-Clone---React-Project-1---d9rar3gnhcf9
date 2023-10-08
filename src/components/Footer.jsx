@@ -1,5 +1,5 @@
-import React from 'react'
-import footerImg from '../assets/images/footer.png'
+import React from 'react';
+import footerImg from '../assets/images/footer.png';
 
 const Footer = () => {
     return (
@@ -8,14 +8,23 @@ const Footer = () => {
                 <img src={footerImg} alt='footer-image' />
             </div>
             <div className='text-[#0f79af] text-[15px] flex gap-4 items-center justify-center'>
-                <a href='#'>Terms and Privacy Notice</a>
-                <a href='#'>Send us Feadback</a>
-                <a href='#'>Help</a>
+                <a href='#' className='text-sm md:text-base lg:text-lg'>
+                    Terms and Privacy Notice
+                </a>
+                <a href='#' className='text-sm md:text-base lg:text-lg'>
+                    Send us Feedback
+                </a>
+                <a href='#' className='text-sm md:text-base lg:text-lg'>
+                    Help
+                </a>
             </div>
             <div>
-                <p className='text-[#949494] text-center cursor-default text-base'>© 1996-2023, Amazon.com,Inc. or its affiliates</p>
+                <p className='text-[#949494] text-center cursor-default text-xs md:text-base lg:text-lg'>
+                    © 1996-2023, Amazon.com, Inc. or its affiliates
+                </p>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default Footer;

@@ -13,12 +13,12 @@ const WatchList = () => {
 
                 <div className='flex justify-between px-20'>
                     <div className='flex gap-3'>
-                        <button className='text-[1.5vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>All</button>
-                        <button className='text-[1.5vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>Movies</button>
-                        <button className='text-[1.5vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>TV shows</button>
+                        <button className='text-[1.3vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>All</button>
+                        <button className='text-[1.3vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>Movies</button>
+                        <button className='text-[1.3vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>TV shows</button>
                     </div>
 
-                    <button className='text-[1.5vw] flex justify-center items-center bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>Most recent addition <span className='mt-1 ml-1 font-bold'><FiChevronDown /></span></button>
+                    <button className='text-[1.3vw] flex justify-center items-center bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>Most recent addition <span className='mt-1 ml-1 font-bold'><FiChevronDown /></span></button>
                 </div>
             </div>
 
