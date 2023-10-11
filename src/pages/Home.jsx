@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from "../components/header/Header"
+import Header from "../components/Navbar/Header"
 import Banner from '../components/home/Banner'
 import CardOne from '../components/home/CardOne'
 
@@ -14,16 +14,12 @@ import SearchList from '../components/SearchList'
 import WatchList from '../components/WatchList'
 import Footer from '../components/Footer'
 
-import CategoryList from '../components/header/CatergoryList'
-import UserList from '../components/header/UserList'
-
 import Contentdetails from '../components/home/content/Contentdetails'
 
 const Home = () => {
     return (
         <div>
             <Header />
-
             <Banner />
             <Contentdetails />
             <CardOne title='movie' />
@@ -31,7 +27,7 @@ const Home = () => {
             <CardOne title='tv show' />
             <CardOne title='web series' />
             <CardOne title='video song' />
-            {/* <BannerProfitPage />
+            <BannerProfitPage />
             <CardsProfit />
             <SignUp />
             <SignIn />
@@ -40,7 +36,7 @@ const Home = () => {
             <Landingpage />
             <SearchList />
             <WatchList />
-            <Footer /> */}
+            <Footer />
         </div>
     )
 }
