@@ -1,8 +1,5 @@
 import React from 'react'
-import Header from "../components/Navbar/Header"
-import Banner from '../components/home/Banner'
-import CardOne from '../components/home/CardOne'
-
+import Header from "../components/header/Header"
 import BannerProfitPage from '../components/PrimeProfits/Bannerprofitpage'
 import CardsProfit from '../components/PrimeProfits/CardsProfit'
 import SignUp from '../components/userLogin/SignUp'
@@ -13,8 +10,9 @@ import Landingpage from '../components/Landingpage'
 import SearchList from '../components/SearchList'
 import WatchList from '../components/WatchList'
 import Footer from '../components/Footer'
-
-import Contentdetails from '../components/home/content/Contentdetails'
+import Banner from '../components/moviespage/Banner'
+import CardOne from '../components/moviespage/CardOne'
+import Contentdetails from '../components/moviespage/content/Contentdetails'
 
 const Home = () => {
     return (
@@ -27,6 +25,7 @@ const Home = () => {
             <CardOne title='tv show' />
             <CardOne title='web series' />
             <CardOne title='video song' />
+
             <BannerProfitPage />
             <CardsProfit />
             <SignUp />
