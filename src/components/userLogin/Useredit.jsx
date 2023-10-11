@@ -1,8 +1,8 @@
 import React from 'react';
-import headerLogo from '../../assets/images/logo.jpg';
+import headerLogo from '../../assets/images/Logo-min.png';
 import profile from '../../assets/images/user.png';
 
-const UserEditProfile = () => {
+const Useredit = () => {
     return (
         <div className='bg-[#0F171e] min-h-screen'>
 
@@ -81,4 +81,4 @@ const UserEditProfile = () => {
     );
 };
 
-export default UserEditProfile;
+export default Useredit;

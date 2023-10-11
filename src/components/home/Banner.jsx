@@ -1,31 +1,31 @@
-import Flickity from 'react-flickity-component'
-import rockyrani from '../assets/images/rokyrani.jpeg';
-import Sapta from '../assets/images/saptaEllo.jpeg';
-import Transformar from '../assets/images/transformers.jpeg';
-import Luckyman from '../assets/images/luckyman.jpeg';
-import Jailer from '../assets/images/jailer.jpeg';
-import Neeyat from '../assets/images/neeyat.jpeg';
-import Aadipurush from '../assets/images/adipurush.jpeg';
-import Meg2 from '../assets/images/meg2.jpeg';
-import Satyaprem from '../assets/images/satyaprem.jpeg';
-import kgf from '../assets/images/KGF.jpeg';
-import Spiderman from '../assets/images/spiderman.jpeg';
-import Spy from '../assets/images/spy.jpeg';
-import "../styles/banner.css";
+import Flickity from 'react-flickity-component';
+import rockyrani from '../../assets/images/rokyrani.jpeg';
+import Sapta from '../../assets/images/saptaEllo.jpeg';
+import Transformar from '../../assets/images/transformers.jpeg';
+import Luckyman from '../../assets/images/luckyman.jpeg';
+import Jailer from '../../assets/images/jailer.jpeg';
+import Neeyat from '../../assets/images/neeyat.jpeg';
+import Aadipurush from '../../assets/images/adipurush.jpeg';
+import Meg2 from '../../assets/images/meg2.jpeg';
+import Satyaprem from '../../assets/images/satyaprem.jpeg';
+import kgf from '../../assets/images/KGF.jpeg';
+import Spiderman from '../../assets/images/spiderman.jpeg';
+import Spy from '../../assets/images/spy.jpeg';
+import "../../styles/banner.css";
 import { PiPlusBold } from "react-icons/pi";
-import rokyranilogo from '../assets/images/rokyraniLogo.png'
-import checkbox from '../assets/images/checkbox.png'
-import saptalogo from '../assets/images/saptaLogo.png'
-import meglogo from '../assets/images/megLogo.png'
-import luckymanlogo from '../assets/images/luckymanLogo.png'
-import transformerlogo from '../assets/images/tFormerLogo.png'
-import jailerLogo from '../assets/images/jailerLogo.png'
-import neeyatlogo from '../assets/images/neeyatLogo.png'
-import adipurushlogo from '../assets/images/adipurushLogo.png'
-import kgflogo from '../assets/images/kgfLogo.png'
-import spidermanlogo from '../assets/images/spidermanLogo.png'
-import spylogo from '../assets/images/spyLogo.png'
-import Satyapremlogo from '../assets/images/satyaPremLogo.png'
+import rokyranilogo from '../../assets/images/rokyraniLogo.png'
+import checkbox from '../../assets/images/checkbox.png'
+import saptalogo from '../../assets/images/saptaLogo.png'
+import meglogo from '../../assets/images/megLogo.png'
+import luckymanlogo from '../../assets/images/luckymanLogo.png'
+import transformerlogo from '../../assets/images/tFormerLogo.png'
+import jailerLogo from '../../assets/images/jailerLogo.png'
+import neeyatlogo from '../../assets/images/neeyatLogo.png'
+import adipurushlogo from '../../assets/images/adipurushLogo.png'
+import kgflogo from '../../assets/images/kgfLogo.png'
+import spidermanlogo from '../../assets/images/spidermanLogo.png'
+import spylogo from '../../assets/images/spyLogo.png'
+import Satyapremlogo from '../../assets/images/satyaPremLogo.png'
 
 import { useEffect, useState } from 'react';
 

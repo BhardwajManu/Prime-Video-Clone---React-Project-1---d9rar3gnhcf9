@@ -1,23 +1,26 @@
 import React from 'react'
-import checkbox from "../assets/images/checkbox.png"
+import checkbox from "../../../assets/images/checkbox.png"
 import { PiPlusBold } from "react-icons/pi";
 import { MdCelebration } from "react-icons/md";
 import { TfiVideoClapper } from "react-icons/tfi";
 import { FiShare2 } from "react-icons/fi";
 import { LuDot } from "react-icons/lu";
-import rokiBig from "../assets/images/contentRokibig.jpeg"
-import rokiSmall from "../assets/images/contentRokismall.jpeg"
+import rokiBig from "../../../assets/images/contentRokibig.jpeg"
+import rokiSmall from "../../../assets/images/contentRokismall.jpeg"
+
+import Tabsforcontent from './Tabsforcontent';
 
 
-const ContentDetails = () => {
+
+const Contentdetails = () => {
+
     return (
         <>
-            <div className='flex flex-col gap-5 justify-start items-start ml-20 mt-24 h-screen relative'>
+            <div className='flex flex-col gap-4 justify-start items-start ml-20 mt-20 h-max relative pb-10'>
                 <h1 className='text-[#FFFFFF] text-5xl  font-extrabold tracking-wide max-w-lg leading-normal'>Rocky Aur Rani Kii Prem Kahaani</h1>
-                <span className='text-[#FFFFFF] text-xl mt-9 font-bold max-w-4xl'>A rollercoaster journey taking you through an epic love story in a new-age era, topped with hearty
+                <span className='text-[#FFFFFF] text-xl mt-5 font-bold max-w-4xl'>A rollercoaster journey taking you through an epic love story in a new-age era, topped with hearty
                     laughs and posing questions about love, family and the meaning of breaking away from generations of family
                     traditions in the name of love.</span>
-
 
                 <div className='text-white flex gap-3 '>
                     <span className='text-[#999999] text-xl font-semibold '>IMBD 6.0</span>
@@ -28,7 +31,6 @@ const ContentDetails = () => {
                     <span className='text-white bg-[#33373D] text-sm sm:text-base px-[7px] py[3px]  font-bold'>HDR</span>
                     <span className='text-white bg-[#33373D] text-sm sm:text-base px-[7px] py[3px]  font-bold'>UHD</span>
                     <span className='text-white bg-[#33373D] text-sm sm:text-base px-[7px] py[3px]  font-bold'>U/A 13+</span>
-
                 </div>
 
                 <div className='flex text-[#FFFFFF] text-xl underline font-semibold'>
@@ -69,9 +71,9 @@ const ContentDetails = () => {
                 </div>
                 <span className='text-[#AAAAAA] text-lg font-semibold'>Rentals include 30 days to start watching this video and 48 hours to finish once started.</span>
             </div>
+            <Tabsforcontent />
         </>
     )
 }
 
-
-export default ContentDetails
+export default Contentdetails

@@ -1,11 +1,26 @@
-import React from 'react';
-import headerlogo from '../../assets/images/Logo-min.png'
-import avatar from '../../assets/images/userImg.png'
-import search from '../../assets/images/search.png'
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import headerLogo from '../../assets/images/Logo-min.png';
+import { AiFillHome } from "react-icons/ai";
+import { TbCategory } from "react-icons/tb";
+import { MdLiveTv } from "react-icons/md";
+import { CgToolbox } from "react-icons/cg";
+import { FiChevronDown } from "react-icons/fi";
+import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
+
+import profile from '../../assets/images/LoginImage.png';
+import CategoriesList from './CatergoryList';
+import SearchButton from './SearchButton';
+import UserList from './UserList';
 
 
 const Header = () => {
+    const [isHomeHovered, setIsHomeHovered] = useState(false);
+    const [isStoreHovered, setIsStoreHovered] = useState(false);
+    const [isMyStuffHovered, setIsMyStuffHovered] = useState(false);
+    const [isCategoriesHovered, setCategoriesHovered] = useState(false);
+    const [isSearchComponentVisible, setSearchComponentVisible] = useState(false);
+    const [isSearchActive, setSearchActive] = useState(false);
+
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -26,121 +41,166 @@ const Header = () => {
         };
     }, []);
     // Toggle mobile menu
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
+    // const toggleMobileMenu = () => {
+    //     setIsMobileMenuOpen(!isMobileMenuOpen);
+    // };
 
     // Check if the screen width is greater than 768px (adjust this value as needed)
-    const isLargeScreen = window.innerWidth > 768;
+
+
+    // Function to handle hover events
+    const handleHomeHover = () => {
+        setIsHomeHovered(!isHomeHovered);
+    };
+    const handleStoreHover = () => {
+        setIsStoreHovered(!isStoreHovered);
+    };
+
+    const handleMyStuffHover = () => {
+        setIsMyStuffHovered(!isMyStuffHovered);
+    };
+    const handleCategoriesHover = () => {
+        setCategoriesHovered(!isCategoriesHovered);
+    };
+
+    // function that control the search button
+
+    const handleSearchIconClick = () => {
+        setSearchActive(!isSearchActive);
+        setSearchComponentVisible(!isSearchComponentVisible);
+    };
 
     return (
         <>
             <nav className={`top-0 bg-[#000]   w-full ${isScrolled ? 'fixed rounded-lg z-50 mt-4 ml-64 max-w-5xl' : ''}
                  ${isMobileMenuOpen ? '' : ''}`}>
-                <div className="mx-auto max-w-5xl h-12 px-2 sm:px-6 lg:px-8">
-                    <div className="relative flex h-12 items-center justify-between">
+                <div className="mx-auto max-w-[65rem] h-12 sm:px-6 lg:px-8">
+                    <div className="relative flex h-12 items-center justify-between max-w-[100%] max-h-[100%] flex-1">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                             {/* Mobile menu button */}
-                            {/* <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-[#FFF] hover:bg-gray-800 hover:text-[#FFF] font-bold" aria-controls="mobile-menu" aria-expanded="false"> */}
-                            <button
-                                type="button"
-                                onClick={toggleMobileMenu} // Add onClick to toggle the mobile menu
-                                className="relative inline-flex items-center justify-center rounded-md p-2 text-[#FFF] hover:bg-gray-800 hover:text-[#FFF] font-bold"
-                                aria-controls="mobile-menu"
-                                aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
-                            >
+                            <button type="button" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white">
                                 <span className="absolute -inset-0.5"></span>
                                 <span className="sr-only">Open main menu</span>
-                                {/* Icon when menu is closed */}
-                                <span className=''>Menu</span>
-                                {/* Icon when menu is open */}
+                                {/* Icon when the menu is closed */}
+                                <span className="tracking-[1px] font-semibold text-[16px] text-[#AAA]">Menu</span>
                             </button>
                         </div>
                         <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                             <div className="flex flex-shrink-0 items-center">
-                                <img className="ml-2 h-5 w-auto" src={headerlogo} alt="Your Company" />
+                                <img className="h-5 w-auto" src={headerLogo} alt="Your Company" />
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
-                                <div className=" z-index flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
-                                    <div className='parent-homelist'>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-4 py-2">Home</a>
-                                        <div className="z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ">
-                                            <ul className='home-list text-left '>
-                                                <li><a href="#" className="block px-[17px] py-3 text-sm font-semibold text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">All</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 text-sm font-semibold text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">Movies</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 text-sm font-semibold text-[#AAAAAA] text-[18.7px] hover:bg-white whitespace-nowrap hover:text-black ">TV shows</a></li>
+                                <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
+                                    <div className='parent-homelist' onMouseEnter={handleHomeHover} onMouseLeave={handleHomeHover}>
+                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
+                                            <span style={{ whiteSpace: 'nowrap' }}>Home</span>
+                                            <span className={`mt-2 transform ${isHomeHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
+                                        </a>
+                                        <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isHomeHovered ? 'block' : 'hidden'}`}>
+                                            <ul className='home-list'>
+                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</a></li>
+                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Movies</a></li>
+                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>TV shows</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div className='parent-storelist'>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-4 py-2">Store</a>
-                                        <div className="z-50 absolute mt-[38px]  w-auto top-0 rounded-sm bg-[#191E25] py-2 font-semibold">
-                                            <ul className='store-list text-left'>
-                                                <li><a href="#" className="block px-[17px] py-3 text-sm text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">All</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 text-sm text-[#AAAAAA] text-[18.7px] hover:bg-white hover:text-black  ">Movies</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 text-sm text-[#AAAAAA] text-[18.7px] hover:bg-white whitespace-nowrap hover:text-black ">TV shows</a></li>
+                                    <div className='parent-homelist' onMouseEnter={handleStoreHover} onMouseLeave={handleStoreHover}>
+                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
+                                            <span style={{ whiteSpace: 'nowrap' }}>Store</span>
+                                            <span className={`mt-2 transform ${isStoreHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
+                                        </a>
+                                        <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isStoreHovered ? 'block' : 'hidden'}`}>
+                                            <ul className='home-list'>
+                                                <li><a href="#" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</a></li>
+                                                <li><a href="#" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Watchlist</a></li>
+                                                <li><a href="#" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rentals</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-3 py-2">Live TV</a>
+                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Live TV<span className='mt-2'></span></a>
                                     </div>
-                                    <div>
-                                        <a href="#" className=" hover:bg-[#191E25] hover:text-white text-[1.2vw] px-3 py-2">Categories</a>
+                                    <div className='parent-homelist' onMouseEnter={handleCategoriesHover} onMouseLeave={handleCategoriesHover}>
+                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Categories<span className={`mt-2 transform ${isCategoriesHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></a>
+                                        <div className="z-50 absolute mt-[38px] w-auto right-0 top-0 rounded-sm bg-[#191E25] ">
+                                            <div className={`${isCategoriesHovered ? 'block' : 'hidden'}`}>
+
+                                                <CategoriesList className='home-list' />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='parent-homelist' onMouseEnter={handleMyStuffHover} onMouseLeave={handleMyStuffHover}>
+                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>My Stuff<span className={`mt-2 transform ${isMyStuffHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></a>
+                                        <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isMyStuffHovered ? 'block' : 'hidden'}`}>
+                                            <ul className='home-list'>
+                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</a></li>
+                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Movies</a></li>
+                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>TV shows</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 text-white">
-                            <button type="button" className="relative flex  text-base " id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                <span className="absolute -inset-1.5"></span>
-                                <span className="sr-only">Open user menu</span>
-                                <img className="h-9 w-9 " src={search} alt="" />
-                            </button>
-
-                            <div className="space-x-4 hidden sm:ml-6 sm:block text-[#AAA] text-[18.7px] font-semibold tracking-[1px]">
-                                <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2 text-[1.2vw]">Try for free</a>
-                                <a href="#" className=" hover:bg-[#191E25] hover:text-white px-3 py-2">EN</a>
+                        <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                            <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                <button type="button" onClick={handleSearchIconClick} className='relative rounded-full p-4 text-gray-400 hover:text-white '>
+                                    {isSearchActive ? (
+                                        <HiOutlineX className="h-7 w-7 mr-[72px]" />
+                                    ) : (
+                                        <HiOutlineSearch className="h-7 w-7 mr-[72px]" />
+                                    )}
+                                </button>
+                                {/* Conditional rendering of SearchComponent */}
+                                {isSearchComponentVisible && (
+                                    <span className='fixed top-12 left-0 right-0 z-50'>
+                                        <SearchButton />
+                                    </span>
+                                )}
                             </div>
-
                             {/* Profile dropdown */}
-                            <div className="relative ml-3 avtar-parent">
+                            <div className="relative ml-3 parent-homelist">
                                 <div>
-                                    <button type="button" className="relative flex rounded-full bg-gray-800 text-sm " id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                        <span className="absolute -inset-1.5"></span>
-                                        <span className="sr-only">Open user menu</span>
-                                        <img className="h-8 w-8 rounded-full" src={avatar} alt="" />
+                                    <button type="button" className="relative flex rounded-full text-sm">
+                                        <img className="h-8 w-8 hover:bg-[#191E25]" src={profile} alt="" />
                                     </button>
                                 </div>
-
                                 {/* Dropdown menu */}
+                                <div className="absolute home-list right-0 z-50 origin-top-right rounded-md bg-[#191E25] flex flex-col">
 
-                                <div className="avtar absolute text-left right-0 z-10 mt-3 w-56 origin-top-right rounded-md bg-[#222] py-3" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex="-1">
-                                    {/* Active: "bg-gray-100", Not Active: "" */}
-                                    <a href="#" className="block ml-5 mr-5 rounded-lg hover:bg-white hover:text-black px-5 py-3 text-[18.7px] font-semibold  text-gray-300" role="menuitem" tabIndex="-1" id="user-menu-item-0">Sign In</a>
-                                    <a href="#" className="block ml-5 mr-5 rounded-lg hover:bg-white hover:text-black px-5 py-3 text-[18.7px] font-semibold  text-gray-300" role="menuitem" tabIndex="-1" id="user-menu-item-1">Help</a>
-                                    <a href="#" className="block ml-5 mr-5  rounded-lg hover:bg-white hover:text-black px-5 py-3 text-[18.7px] font-semibold  text-gray-300" role="menuitem" tabIndex="-1" id="user-menu-item-2">Watch Anywhere</a>
+                                    {/* <ProfileCategories/> fixed at the bottom */}
+                                    <div className="self-end">
+                                        <UserList />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 {/* Mobile menu */}
-                <div className={`sm:hidden ${isMobileMenuOpen ? 'z-50' : ''}`} id="mobile-menu" >
-                    {/* <div className="space-y-1 px-2 pb-3 pt-2 flex flex-col items-start"> */}
-                    <div className={`space-y-1 px-2 pb-3 pt-2 flex flex-col items-start ${isMobileMenuOpen ? 'block' : 'hidden'}`} >
-
-                        {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                        <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Home</a>
-                        <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Store</a>
-                        <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Live TV</a>
-                        <a href="#" className="text-gray-300 hover-bg-gray-700 hover-text-white  rounded-md px-3 py-2 text-base font-medium">Categories</a>
+                <div className="sm:hidden">
+                    <div className="space-y-1 px-2 pb-3 pt-2">
+                        {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover-bg-gray-700 hover-text-white" */}
+                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                            <span><AiFillHome className='mt-1 mr-1' /></span>
+                            Home
+                        </a>
+                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                            <span><CgToolbox className='mt-1 mr-1' /></span>
+                            Stores
+                        </a>
+                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                            <span><MdLiveTv className='mt-1 mr-1' /></span>
+                            Live TV
+                        </a>
+                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                            <span><TbCategory className='mt-1 mr-1' /></span>
+                            Categories
+                        </a>
                     </div>
                 </div>
-            </nav >
+            </nav>
         </>
     );
 };

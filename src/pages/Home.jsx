@@ -1,42 +1,46 @@
 import React from 'react'
 import Header from "../components/header/Header"
-import ContentDetails from '../components/ContentDetails'
+import Banner from '../components/home/Banner'
+import CardOne from '../components/home/CardOne'
 
-// import BannerProfitPage from '../components/PrimeProfits/BannerProfitPage'
-// import CardsProfit from '../components/PrimeProfits/CardsProfit'
-// import CardOne from '../components/CardOne'
-// import Banner from '../components/Banner'
-// import WatchList from '../components/WatchList'
-// import SearchList from '../components/SearchList'
-// import SignIn from '../components/userLogin/SignIn'
-// import SignUp from '../components/userLogin/SignUp'
-// import Footer from '../components/Footer'
-// import Landingpage from '../components/Landingpage'
+import BannerProfitPage from '../components/PrimeProfits/Bannerprofitpage'
+import CardsProfit from '../components/PrimeProfits/CardsProfit'
+import SignUp from '../components/userLogin/SignUp'
+import SignIn from '../components/userLogin/SignIn'
+import Useredit from '../components/userLogin/Useredit'
+import Userprofile from '../components/userLogin/Userprofile'
+import Landingpage from '../components/Landingpage'
+import SearchList from '../components/SearchList'
+import WatchList from '../components/WatchList'
+import Footer from '../components/Footer'
+
+import CategoryList from '../components/header/CatergoryList'
+import UserList from '../components/header/UserList'
+
+import Contentdetails from '../components/home/content/Contentdetails'
 
 const Home = () => {
     return (
         <div>
             <Header />
-            <ContentDetails />
-            {/* <BannerProfitPage />
-            <CardsProfit /> */}
 
-            {/* <Banner />
+            <Banner />
+            <Contentdetails />
             <CardOne title='movie' />
             <CardOne title='short film' />
             <CardOne title='tv show' />
             <CardOne title='web series' />
-            <CardOne title='video song' /> */}
-            {/* <WatchList />
-            <SearchList />
+            <CardOne title='video song' />
+            {/* <BannerProfitPage />
+            <CardsProfit />
+            <SignUp />
             <SignIn />
-            <SignUp />  */}
-            {/* <Landingpage /> */}
-            {/* <Landingpage /> */}
-            {/* <Footer /> */}
-
-
-
+            <Useredit />
+            <Userprofile />
+            <Landingpage />
+            <SearchList />
+            <WatchList />
+            <Footer /> */}
         </div>
     )
 }

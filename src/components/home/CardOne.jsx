@@ -1,8 +1,8 @@
 import React from 'react'
 import Flickity from 'react-flickity-component'
-import "../styles/cardone.css";
+import "../../styles/cardone.css";
 import { FiChevronRight } from "react-icons/fi";
-import checkbox from '../assets/images/checkbox.png'
+import checkbox from '../../assets/images/checkbox.png'
 import { useEffect, useState } from 'react';
 
 const flickityOptions = {
@@ -84,10 +84,7 @@ const CardOne = (props) => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                 ))}
 
             </Flickity>
