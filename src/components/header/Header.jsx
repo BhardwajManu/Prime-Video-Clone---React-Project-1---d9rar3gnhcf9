@@ -7,7 +7,7 @@ import { CgToolbox } from "react-icons/cg";
 import { FiChevronDown } from "react-icons/fi";
 import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
 
-import profile from '../../assets/images/LoginImage.png';
+import profile from '../../assets/images/loginimage.png';
 import CategoriesList from './CatergoryList';
 import SearchButton from './SearchButton';
 import UserList from './UserList';
