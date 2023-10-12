@@ -2,7 +2,7 @@ import Flickity from 'react-flickity-component'
 import primeprofit1 from '../../assets/images/BenefitBigImage1.jpeg';
 import primeprofit2 from '../../assets/images/benefitBigimg2.jpeg';
 import primeprofit3 from '../../assets/images/benefitBigImg3.jpeg';
-import primeprofit4 from '../../assets/images/BenefitBigImg4.jpeg';
+import primeprofit4 from '../../assets/images/BenefitbigImg4.jpeg';
 import primeprofit5 from '../../assets/images/BenefitBigImg5.jpeg';
 import "../../styles/bannerProfit.css";
 import primelogo1 from '../../assets/images/LoginLogo.png'
