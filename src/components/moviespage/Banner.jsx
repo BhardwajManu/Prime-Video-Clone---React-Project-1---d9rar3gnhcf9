@@ -25,7 +25,7 @@ import adipurushlogo from '../../assets/images/adipurushLogo.png'
 import kgflogo from '../../assets/images/kgfLogo.png'
 import spidermanlogo from '../../assets/images/spidermanLogo.png'
 import spylogo from '../../assets/images/spyLogo.png'
-import Satyapremlogo from '../../assets/images/satyaPremLogo.png'
+import Satyapremlogo from '../../assets/images/satyapremLogo.png'
 
 import { useEffect, useState } from 'react';
 
