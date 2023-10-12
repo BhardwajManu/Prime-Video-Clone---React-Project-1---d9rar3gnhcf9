@@ -8,7 +8,7 @@ import Neeyat from '../../assets/images/neeyat.jpeg';
 import Aadipurush from '../../assets/images/adipurush.jpeg';
 import Meg2 from '../../assets/images/meg2.jpeg';
 import Satyaprem from '../../assets/images/satyaprem.jpeg';
-import kgf from '../../assets/images/KGF.jpeg';
+import kgf from '../../assets/images/kgf.jpeg';
 import Spiderman from '../../assets/images/spiderman.jpeg';
 import Spy from '../../assets/images/spy.jpeg';
 import "../../styles/banner.css";
