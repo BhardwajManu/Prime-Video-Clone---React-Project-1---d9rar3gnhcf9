@@ -1,5 +1,5 @@
 import React from 'react'
-import loginlogo from '../../assets/images/LoginLogo.png'
+import loginlogo from '../../assets/images/login.png'
 import { BiSolidRightArrow } from "react-icons/bi";
 
 

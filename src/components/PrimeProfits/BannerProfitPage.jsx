@@ -5,7 +5,7 @@ import primeprofit3 from '../../assets/images/benefitBigImg3.jpeg';
 import primeprofit4 from '../../assets/images/BenefitbigImg4.jpeg';
 import primeprofit5 from '../../assets/images/BenefitBigImg5.jpeg';
 import "../../styles/bannerProfit.css";
-import primelogo1 from '../../assets/images/LoginLogo.png'
+import primelogo1 from '../../assets/images/login.png'
 import primelogo2 from '../../assets/images/primeBenefitLogo1.png'
 import primelogo3 from '../../assets/images/primeBenefitLogo2.png'
 import primelogo4 from '../../assets/images/primeBenefitLogo3.png'
