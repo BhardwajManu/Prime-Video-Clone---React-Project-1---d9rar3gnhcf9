@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import loginlogo from '../../assets/images/LoginLogo.png'
+import loginlogo from '../../assets/images/loginlogo.png'
 import { BiSolidRightArrow } from "react-icons/bi";
 
 
