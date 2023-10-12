@@ -80,10 +80,6 @@ export default function BannerProfitPage() {
                 ))}
 
             </Flickity>
-
-
-
-
         </>
     )
 }

@@ -18,13 +18,15 @@ const Home = () => {
     return (
         <div>
             <Header />
+
             <Banner />
-            <Contentdetails />
             <CardOne title='movie' />
             <CardOne title='short film' />
             <CardOne title='tv show' />
             <CardOne title='web series' />
             <CardOne title='video song' />
+            <Contentdetails />
+
 
             <BannerProfitPage />
             <CardsProfit />
