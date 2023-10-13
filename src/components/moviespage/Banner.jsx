@@ -26,8 +26,10 @@ import kgflogo from '../../assets/images/kgfLogo.png'
 import spidermanlogo from '../../assets/images/spidermanLogo.png'
 import spylogo from '../../assets/images/spyLogo.png'
 import Satyapremlogo from '../../assets/images/satyapremLogo.png'
+import { Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
+import CardOne from './CardOne';
 
 
 
@@ -120,8 +122,8 @@ export default function Banner() {
                                 </div>
 
                                 <div className=' lg:flex gap-0.5 hidden mb-8 mt-4'>
-                                    <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-xl py-2 px-[21px]
-                            rounded-lg text-left opacity-[1] mr-6 font-semibold  min-h-[62px] cursor-pointer'>More details</button>
+                                    <Link to="/moviedetails"> <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-xl py-2 px-[21px]
+                            rounded-lg text-left opacity-[1] mr-6 font-semibold  min-h-[62px] cursor-pointer'>More details</button></Link>
                                     <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
                                         <PiPlusBold className='cursor-pointer h-[33px] w-[33px] text-white' />
                                     </button>
@@ -132,6 +134,11 @@ export default function Banner() {
                 ))}
 
             </Flickity>
+            <CardOne title='movie' />
+            <CardOne title='short film' />
+            <CardOne title='tv show' />
+            <CardOne title='web series' />
+            <CardOne title='video song' />
         </>
     )
 }

@@ -1,43 +1,40 @@
 import React from 'react'
-import Header from "../components/header/Header"
-import BannerProfitPage from "../components/PrimeProfits/BannerProfitPage";
-import CardsProfit from "../components/PrimeProfits/CardsProfit";
-import SignUp from '../components/userLogin/SignUp'
-import SignIn from '../components/userLogin/SignIn'
-import Useredit from '../components/userLogin/Useredit'
-import Userprofile from '../components/userLogin/Userprofile'
+import { Route, Routes } from 'react-router-dom'
 import Landingpage from '../components/Landingpage'
-import SearchList from '../components/SearchList'
-import WatchList from '../components/WatchList'
-import Footer from '../components/Footer'
 import Banner from '../components/moviespage/Banner'
-import CardOne from '../components/moviespage/CardOne'
+import Anonymus from '../components/Anonymus'
+import Header from '../components/header/Header'
+import Footer from '../components/Footer'
+import WatchList from '../components/myStuff/WatchList'
+import Rent from '../components/myStuff/Rent'
+import BannerProfitPage from '../components/PrimeProfits/BannerProfitPage'
+import Userprofile from '../components/userLogin/Userprofile'
+import Useredit from '../components/userLogin/Useredit'
+import SignIn from '../components/userLogin/SignIn'
+import SignUp from '../components/userLogin/SignUp'
 import Contentdetails from '../components/moviespage/content/Contentdetails'
+
 
 const Home = () => {
     return (
         <div>
             <Header />
-
-            <Banner />
-            <CardOne title='movie' />
-            <CardOne title='short film' />
-            <CardOne title='tv show' />
-            <CardOne title='web series' />
-            <CardOne title='video song' />
-            <Contentdetails />
-
-
-            <BannerProfitPage />
-            <CardsProfit />
-            <SignUp />
-            <SignIn />
-            <Useredit />
-            <Userprofile />
-            <Landingpage />
-            <SearchList />
-            <WatchList />
+            <Routes>
+                <Route path='/' element={<Landingpage />} />
+                <Route path='/home' element={<Landingpage />} />
+                <Route path='/banner' element={<Banner />} />
+                <Route path='/anonymous' element={<Anonymus />} />
+                <Route path='/watchlist' element={<WatchList />} />
+                <Route path='/rent' element={<Rent />} />
+                <Route path='/primeprofits' element={<BannerProfitPage />} />
+                <Route path='/manageprofiles' element={<Userprofile />} />
+                <Route path='/editprofile' element={<Useredit />} />
+                <Route path='/signinpage' element={<SignIn />} />
+                <Route path='/signuppage' element={<SignUp />} />
+                <Route path='/moviedetails' element={<Contentdetails />} />
+            </Routes>
             <Footer />
+
         </div>
     )
 }

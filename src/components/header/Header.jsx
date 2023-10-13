@@ -11,6 +11,7 @@ import profile from '../../assets/images/loginpic.png';
 import CategoriesList from './CatergoryList';
 import SearchButton from './SearchButton';
 import UserList from './UserList';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -87,41 +88,43 @@ const Header = () => {
                         </div>
                         <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                             <div className="flex flex-shrink-0 items-center">
-                                <img className="h-5 w-auto" src={headerLogo} alt="Your Company" />
+                                <Link to="/">
+                                    <img className="h-5 w-auto cursor-pointer" src={headerLogo} alt="Your Company" />
+                                </Link>
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
                                 <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                                     <div className='parent-homelist' onMouseEnter={handleHomeHover} onMouseLeave={handleHomeHover}>
-                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
+                                        <Link to="/home" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
                                             <span style={{ whiteSpace: 'nowrap' }}>Home</span>
                                             <span className={`mt-2 transform ${isHomeHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
-                                        </a>
+                                        </Link>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isHomeHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
-                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Movies</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>TV shows</a></li>
+                                                <li><Link to="/home" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</Link></li>
+                                                <li><Link to="/banner" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Movies</Link></li>
+                                                <li><Link to="/anonymous" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>TV shows</Link></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className='parent-homelist' onMouseEnter={handleStoreHover} onMouseLeave={handleStoreHover}>
-                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
+                                        <Link to="/anonymous" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
                                             <span style={{ whiteSpace: 'nowrap' }}>Store</span>
                                             <span className={`mt-2 transform ${isStoreHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
-                                        </a>
+                                        </Link>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isStoreHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
-                                                <li><a href="#" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Watchlist</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rentals</a></li>
+                                                <li><Link to="/anonymous" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</Link></li>
+                                                <li><Link to="/anonymous" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rent</Link></li>
+                                                <li><Link to="/anonymous" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Channels</Link></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Live TV<span className='mt-2'></span></a>
+                                        <Link to="/anonymous" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Live TV<span className='mt-2'></span></Link>
                                     </div>
                                     <div className='parent-homelist' onMouseEnter={handleCategoriesHover} onMouseLeave={handleCategoriesHover}>
-                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Categories<span className={`mt-2 transform ${isCategoriesHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></a>
+                                        <Link to="/anonymous" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Categories<span className={`mt-2 transform ${isCategoriesHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></Link>
                                         <div className="z-50 absolute mt-[38px] w-auto right-0 top-0 rounded-sm bg-[#191E25] ">
                                             <div className={`${isCategoriesHovered ? 'block' : 'hidden'}`}>
 
@@ -131,12 +134,12 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <div className='parent-homelist' onMouseEnter={handleMyStuffHover} onMouseLeave={handleMyStuffHover}>
-                                        <a href="#" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>My Stuff<span className={`mt-2 transform ${isMyStuffHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></a>
+                                        <Link to="/watchlist" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>My Stuff<span className={`mt-2 transform ${isMyStuffHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></Link>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isMyStuffHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
-                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Movies</a></li>
-                                                <li><a href="#" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>TV shows</a></li>
+                                                <li><Link to="/watchlist" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</Link></li>
+                                                <li><Link to="/watchlist" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Watchlist</Link></li>
+                                                <li><Link to="/rent" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rental</Link></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -13,6 +13,7 @@ import primelogo5 from '../../assets/images/primeBenefitLogo4.png'
 
 
 import { useEffect, useState } from 'react';
+import CardsProfit from './CardsProfit';
 
 
 const flickityOptions = {
@@ -80,6 +81,8 @@ export default function BannerProfitPage() {
                 ))}
 
             </Flickity>
+            <CardsProfit />
+
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import loginlogo from '../../assets/images/login.png'
 import { BiSolidRightArrow } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 
 
@@ -31,7 +32,7 @@ const SignIn = () => {
                         <span className='w-1/3 text-center'>New to Amazon?</span>
                         <span className='w-1/3 h-[1px] bg-zinc-400 inline-flex'></span>
                     </p>
-                    <button onClick={(e) => e.preventDefault()} className='w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t from-white to-white hover:bg-gradient-to-b border  border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>Create your Amazon account</button>
+                    <Link to="/signuppage"><button className='w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t from-white to-white hover:bg-gradient-to-b border  border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>Create your Amazon account</button></Link>
                 </form>
                 <div className='w-full mt-4 bg-gradient-to-t from-white via-white to bg-gray-50 flex flex-col items-center justify-center py-10'>
                     <div className='flex flex-col gap-6 items-center justify-center'>

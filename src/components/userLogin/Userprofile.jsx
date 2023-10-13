@@ -3,6 +3,7 @@ import headerLogo from '../../assets/images/Logo-min.png'
 import profile from '../../assets/images/user.png'
 import profilekid from '../../assets/images/profileImage.png'
 import { PiPlusBold } from "react-icons/pi";
+import { Link } from 'react-router-dom';
 
 const Userprofile = () => {
     return (
@@ -27,7 +28,7 @@ const Userprofile = () => {
                     </div>
 
                     <div>
-                        <button className='text-[#FFFFFF] bg-[#425265] w-[115.14px] h-[48px] rounded'>Edit profile</button>
+                        <Link to="/editprofile"><button className='text-[#FFFFFF] bg-[#425265] w-[115.14px] h-[48px] rounded'>Edit profile</button></Link>
                     </div>
 
                 </div>

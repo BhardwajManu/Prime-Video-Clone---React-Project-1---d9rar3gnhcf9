@@ -1,6 +1,7 @@
 import React from 'react'
 import firstImage from '../assets/images/firstimage.jpg'
 import smallImage from '../assets/images/small.jpg'
+import { Link } from 'react-router-dom'
 
 
 const Landingpage = () => {
@@ -22,7 +23,7 @@ const Landingpage = () => {
                     <h1 className='font-medium text-[44px] mb-4'>Welcome to Prime Video</h1>
                     <p className='hidden md:block  text-2xl'>Watch the latest movies, TV shows, and award-winning Amazon Originals</p>
                     <p className='md:hidden text-xl align-middle'>Watch the latest movies, TV shows, and award-winning Amazon Originals</p>
-                    <button className='rounded font-semibold py-3 px-5 text-[17px] hover:bg-[#00a0d6] bg-[#0f79af] w-full md:w-72 mt-2'>Sign in to join Prime</button>
+                    <Link to="signinpage"><button className='rounded font-semibold py-3 px-5 text-[17px] hover:bg-[#00a0d6] bg-[#0f79af] w-full md:w-72 mt-2'>Sign in to join Prime</button></Link>
                     <div className='flex flex-col'>
                         <button className='rounded py-3 px-5 text-lg font-semibold hover:bg-[#00a0d6] bg-[#0f79af] w-full md:w-72 mt-2 leading-tight'>Start your 30-day Prime free trial</button>
                         <div className='mt-2.5 mb-7 ml-16'>
@@ -37,6 +38,7 @@ const Landingpage = () => {
 
                 </div>
             </div>
+
         </>
     )
 }
