@@ -1,12 +1,15 @@
 import React from 'react'
-import firstImage from '../assets/images/firstimage.jpg'
-import smallImage from '../assets/images/small.jpg'
+import firstImage from '../../assets/images/firstimage.jpg'
+import smallImage from '../../assets/images/small.jpg'
 import { Link } from 'react-router-dom'
+import Firstheader from './Firstheader'
+import Firstfooter from './Firstfooter'
 
 
 const Landingpage = () => {
     return (
         <>
+
             <div className='h-screen relative'>
                 <div className="hidden md:block  min-h-screen w-screen bg-no-repeat bg-cover bg-right-top " style={{
                     backgroundImage: `linear-gradient( to right, #000 40%, transparent 58% ), 
@@ -38,6 +41,7 @@ const Landingpage = () => {
 
                 </div>
             </div>
+
 
         </>
     )

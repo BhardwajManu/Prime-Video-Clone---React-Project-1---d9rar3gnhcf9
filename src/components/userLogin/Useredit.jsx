@@ -1,6 +1,7 @@
 import React from 'react';
 import headerLogo from '../../assets/images/Logo-min.png';
 import profile from '../../assets/images/user.png';
+import { Link } from 'react-router-dom';
 
 const Useredit = () => {
     return (
@@ -8,7 +9,7 @@ const Useredit = () => {
 
             {/* Header */}
             <div className='px-6 sm:px-10 py-6 w-full sm:w-[13vw] text-[#FFFFFF]'>
-                <img src={headerLogo} alt='' />
+                <Link to="/"><img src={headerLogo} alt='' /></Link>
             </div>
 
             <div className='flex flex-col items-center justify-center gap-1'>

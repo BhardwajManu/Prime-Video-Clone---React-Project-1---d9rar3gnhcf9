@@ -10,10 +10,11 @@ import primelogo2 from '../../assets/images/primeBenefitLogo1.png'
 import primelogo3 from '../../assets/images/primeBenefitLogo2.png'
 import primelogo4 from '../../assets/images/primeBenefitLogo3.png'
 import primelogo5 from '../../assets/images/primeBenefitLogo4.png'
-
-
 import { useEffect, useState } from 'react';
 import CardsProfit from './CardsProfit';
+import Header from '../header/Header';
+import Footer from '../Footer';
+import { Link } from 'react-router-dom';
 
 
 const flickityOptions = {
@@ -50,6 +51,7 @@ export default function BannerProfitPage() {
 
     return (
         <>
+
             <Flickity
                 className={'carousel'} // default ''
                 elementType={'div'} // default 'div'
@@ -72,8 +74,8 @@ export default function BannerProfitPage() {
                             </div>
 
                             <div className=' lg:flex gap-0.5 hidden my-10 mx-10'>
-                                <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-[1.3vw]  px-[21px] mb-14
-                            rounded-lg text-left opacity-[1]  font-semibold  min-h-[62px] cursor-pointer'>More details</button>
+                                <Link to="https://www.amazon.in/events/greatindianfestival?ref_=atv_me_pri_c_eiVJLU_zMbofx_1_1"> <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-[1.3vw]  px-[21px] mb-14
+                            rounded-lg text-left opacity-[1]  font-semibold  min-h-[62px] cursor-pointer'>More details</button></Link>
                             </div>
 
                         </section>

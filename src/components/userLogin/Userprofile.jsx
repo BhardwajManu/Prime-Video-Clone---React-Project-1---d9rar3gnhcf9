@@ -10,7 +10,7 @@ const Userprofile = () => {
         <div className='bg-[#0F171e] min-h-screen'>
 
             <div className='px-6 sm:px-10 py-6 w-[13vw] text-[#FFFFFF]'>
-                <img src={headerLogo} alt='' />
+                <Link to="/"><img src={headerLogo} alt='' /></Link>
             </div>
 
             <div className='flex flex-col items-center justify-around gap-6 sm:gap-10 lg:gap-12'>

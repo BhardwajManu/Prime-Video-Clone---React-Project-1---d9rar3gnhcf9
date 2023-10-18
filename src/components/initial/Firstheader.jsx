@@ -8,40 +8,24 @@ import { FiChevronDown } from "react-icons/fi";
 import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
 
 import profile from '../../assets/images/loginpic.png';
-import CategoriesList from './CatergoryList';
-import SearchButton from './SearchButton';
-import UserList from './UserList';
+import CategoriesList from '../header/CatergoryList';
+import SearchButton from '../header/SearchButton';
+import UserList from '../header/UserList';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../../Context/AuthContext';
 
 
-const Header = () => {
+const Firstheader = () => {
     const [isHomeHovered, setIsHomeHovered] = useState(false);
     const [isStoreHovered, setIsStoreHovered] = useState(false);
     const [isMyStuffHovered, setIsMyStuffHovered] = useState(false);
     const [isCategoriesHovered, setCategoriesHovered] = useState(false);
     const [isSearchComponentVisible, setSearchComponentVisible] = useState(false);
+    const [isSearchActive, setSearchActive] = useState(false);
+
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-    const { authenticated } = useAuthContext()
 
-    // Add a scroll event listener to track scrolling
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     // Toggle mobile menu
     // const toggleMobileMenu = () => {
     //     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -67,19 +51,14 @@ const Header = () => {
 
     // function that control the search button
 
-    const openSearch = () => {
-        setSearchComponentVisible(true);
+    const handleSearchIconClick = () => {
+        setSearchActive(!isSearchActive);
+        setSearchComponentVisible(!isSearchComponentVisible);
     };
-    const closeSearch = (e) => {
-        e.stopPropagation()
-        setSearchComponentVisible(false)
-
-    }
 
     return (
         <>
-            <nav className={`top-0 bg-[#000] z-[1000]  w-full ${isScrolled ? 'fixed rounded-lg  mt-4 ml-64 max-w-5xl' : 'relative'}
-                 ${isMobileMenuOpen ? '' : ''}`}>
+            <nav className="top-0 bg-[#000]">
                 <div className="mx-auto max-w-[65rem] h-12 sm:px-6 lg:px-8">
                     <div className="relative flex h-12 items-center justify-between max-w-[100%] max-h-[100%] flex-1">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -138,7 +117,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {authenticated && <div className='parent-homelist' onMouseEnter={handleMyStuffHover} onMouseLeave={handleMyStuffHover}>
+                                    <div className='parent-homelist' onMouseEnter={handleMyStuffHover} onMouseLeave={handleMyStuffHover}>
                                         <Link to="/watchlist" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>My Stuff<span className={`mt-2 transform ${isMyStuffHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></Link>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isMyStuffHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
@@ -147,24 +126,24 @@ const Header = () => {
                                                 <li><Link to="/rent" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rental</Link></li>
                                             </ul>
                                         </div>
-                                    </div>}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                             <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button type="button" className='z-50 relative rounded-full p-4 text-gray-400 hover:text-white '>
-                                    {isSearchComponentVisible ? (
-                                        <HiOutlineX onClick={closeSearch} className="h-7 w-7 mr-[72px]" />
+                                <button type="button" onClick={handleSearchIconClick} className='relative rounded-full p-4 text-gray-400 hover:text-white '>
+                                    {isSearchActive ? (
+                                        <HiOutlineX className="h-7 w-7 mr-[72px]" />
                                     ) : (
-                                        <HiOutlineSearch onClick={openSearch} className="h-7 w-7 mr-[72px]" />
+                                        <HiOutlineSearch className="h-7 w-7 mr-[72px]" />
                                     )}
                                 </button>
                                 {/* Conditional rendering of SearchComponent */}
                                 {isSearchComponentVisible && (
-
-                                    <SearchButton closeSearch={closeSearch} />
-
+                                    <span className='fixed top-12 left-0 right-0 z-50'>
+                                        <SearchButton />
+                                    </span>
                                 )}
                             </div>
                             {/* Profile dropdown */}
@@ -178,27 +157,18 @@ const Header = () => {
                                 <div className="absolute home-list right-0 z-50 origin-top-right rounded-md bg-[#191E25] flex flex-col">
 
                                     {/* <ProfileCategories/> fixed at the bottom */}
-                                    {authenticated ? <div className="self-end">
+                                    <div className="self-end">
                                         <UserList />
                                     </div>
-                                        : <div>
-                                            <ul className='home-list'>
-                                                <li><Link to="/signinpage" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>SignIn</Link></li>
-                                                <li><Link to="/help" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Help</Link></li>
-                                                <li><Link to="/anonymous" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Watch Anywhere</Link></li>
-                                            </ul>
-
-                                        </div>
-                                    }
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 {/* Mobile menu */}
-                {/* <div className="sm:hidden">
+                <div className="sm:hidden">
                     <div className="space-y-1 px-2 pb-3 pt-2">
+                        {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover-bg-gray-700 hover-text-white" */}
                         <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
                             <span><AiFillHome className='mt-1 mr-1' /></span>
                             Home
@@ -216,10 +186,10 @@ const Header = () => {
                             Categories
                         </a>
                     </div>
-                </div> */}
+                </div>
             </nav>
         </>
     );
 };
 
-export default Header;
+export default Firstheader;

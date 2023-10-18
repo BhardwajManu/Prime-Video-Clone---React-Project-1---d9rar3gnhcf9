@@ -2,7 +2,7 @@ import React from 'react'
 
 const Anonymus = () => {
     return (
-        <div>Anonymus</div>
+        <div className='bg-white'>Anonymous</div>
     )
 }
 

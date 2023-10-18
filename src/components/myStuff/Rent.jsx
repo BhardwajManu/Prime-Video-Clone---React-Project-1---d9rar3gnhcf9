@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../header/Header';
+import Footer from '../Footer';
 
 const Rent = () => {
     return (
         <>
+
             <div className='w-screen h-screen text-[#00050D] flex flex-col gap-16'>
 
                 <div className='font-bold leading-3 text-4xl py-5 px-11 ml-10 mt-16'>
@@ -19,6 +22,7 @@ const Rent = () => {
                 </div>
 
             </div>
+
         </>
     )
 }

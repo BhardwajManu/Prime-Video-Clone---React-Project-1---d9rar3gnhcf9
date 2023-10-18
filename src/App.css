@@ -10,6 +10,9 @@ body {
 
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
 .gradientToRight {
     background: linear-gradient(to right, #000 0%, transparent 60%);
@@ -56,8 +59,8 @@ body {
 }
 
 .parent-card:hover {
-    z-index: 50;
-    transform: scale(1.05);
+    z-index: 30;
+    transform: scale3d(1.2, 1.2, 1) perspective(500px);
 }
 
 .parent-card .child-card {
@@ -73,7 +76,7 @@ body {
 
 .child-card {
     display: block;
-    z-index: 50;
+    /* z-index: 30; */
 }
 
 .parent-card:hover .child-card {

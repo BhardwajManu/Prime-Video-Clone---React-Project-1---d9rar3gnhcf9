@@ -1,10 +1,20 @@
 import React from 'react'
 import kidprofile from '../../assets/images/kidProfile.png'
 import { PiPlusBold } from "react-icons/pi";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../Context/AuthContext';
 
 
 const UserList = () => {
+
+    const { logoutUser } = useAuthContext()
+    const navigate = useNavigate()
+
+    const handleSignOut = () => {
+        logoutUser()
+        navigate("/")
+    }
+
     return (
         <>
             <div className='bg-[#191E25] py-2 h-auto w-full md:w-[430px]'>
@@ -17,7 +27,7 @@ const UserList = () => {
                             <Link to="/anonymous"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Watch Anywhere</li></Link>
                             <Link to="/anonymous"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Account & Settings</li></Link>
                             <Link to="/primeprofits"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Prime Benefits</li></Link>
-                            <Link to="/"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Sign out</li></Link>
+                            <li onClick={handleSignOut} className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1 cursor-pointer'>Sign out</li>
                         </div>
                     </div>
 

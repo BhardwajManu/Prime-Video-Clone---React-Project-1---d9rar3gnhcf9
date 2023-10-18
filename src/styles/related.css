@@ -11,14 +11,9 @@ https://flickity.metafizzy.co
 }
 
 .flickity-viewport {
-    overflow: visible !important;
+    overflow: hidden;
     position: relative;
     height: 100%;
-}
-
-.flickity-viewport:hover {
-    z-index: 50;
-
 }
 
 .flickity-slider {
@@ -56,13 +51,11 @@ https://flickity.metafizzy.co
     background: hsla(0, 0%, 100%, 0.75);
     border: none;
     color: #333;
-    z-index: 50;
 }
 
 .flickity-button:hover {
     background: #333;
     cursor: pointer;
-
 }
 
 .flickity-button:focus {

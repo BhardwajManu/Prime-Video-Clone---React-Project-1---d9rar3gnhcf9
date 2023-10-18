@@ -12,7 +12,7 @@ import kgf from '../../assets/images/kgf.jpeg';
 import Spiderman from '../../assets/images/spiderman.jpeg';
 import Spy from '../../assets/images/spy.jpeg';
 import "../../styles/banner.css";
-import { PiPlusBold } from "react-icons/pi";
+import { TfiVideoClapper } from "react-icons/tfi";
 import rokyranilogo from '../../assets/images/rokyraniLogo.png'
 import checkbox from '../../assets/images/checkbox.png'
 import saptalogo from '../../assets/images/saptaLogo.png'
@@ -30,6 +30,8 @@ import { Link } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 import CardOne from './CardOne';
+import Header from '../header/Header';
+import Footer from '../Footer';
 
 
 
@@ -68,7 +70,7 @@ export default function Banner() {
         fetch("https://academics.newtonschool.co/api/v1/ott/show?limit=12", requestOptions)
             .then(response => response.json())
             .then(result => {
-                console.log(result.data)
+                // console.log(result.data)
                 setData(result.data)
             })
             .catch(error => console.log('error', error));
@@ -76,6 +78,7 @@ export default function Banner() {
 
     return (
         <>
+
             <div>
                 <h1 className='text-[#FFFFFF] text-[2.5vw] px-[72px]  mb-3
                  font-bold tracking-wide  flex justify-start cursor-default'>Movies</h1>
@@ -125,7 +128,7 @@ export default function Banner() {
                                     <Link to="/moviedetails"> <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-xl py-2 px-[21px]
                             rounded-lg text-left opacity-[1] mr-6 font-semibold  min-h-[62px] cursor-pointer'>More details</button></Link>
                                     <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
-                                        <PiPlusBold className='cursor-pointer h-[33px] w-[33px] text-white' />
+                                        <TfiVideoClapper className='cursor-pointer h-[33px] w-[33px] text-white' />
                                     </button>
                                 </div>
                             </div>
@@ -139,6 +142,7 @@ export default function Banner() {
             <CardOne title='tv show' />
             <CardOne title='web series' />
             <CardOne title='video song' />
+
         </>
     )
 }

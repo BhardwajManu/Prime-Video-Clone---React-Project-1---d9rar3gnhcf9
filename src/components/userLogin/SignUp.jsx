@@ -1,90 +1,100 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import loginlogo from '../../assets/images/login.png'
 import { BiSolidRightArrow } from "react-icons/bi";
+import useFetch from '../../Hooks/useFetch';
+import { useAuthContext } from '../../Context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
 
+const initialData = {
+    name: "",
+    email: "",
+    password: "",
+    cPassword: "",
 
+}
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
 
 const SignUp = () => {
-    const [clientName, setClientName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [cPassword, setCPassword] = useState("");
 
-    const [errClientName, setErrClientName] = useState("");
-    const [errEmail, setErrEmail] = useState("");
-    const [errPassword, setErrPassword] = useState("");
-    const [errCPassword, setErrCPassword] = useState("");
+    const [errors, setErrors] = useState(initialData)
+    const [formData, setFormData] = useState(initialData)
+    const { data, post } = useFetch({})
+    const { signUser, authenticated } = useAuthContext()
+    const navigate = useNavigate()
 
-    // Handle function start
-    const handleName = (e) => {
-        setClientName(e.target.value)
-        setErrClientName("");
-    }
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-        setErrEmail("");
-    }
-    const handlepassword = (e) => {
-        setPassword(e.target.value)
-        setErrPassword("");
-    }
-    const handleCpassword = (e) => {
-        setCPassword(e.target.value)
-        setErrCPassword("");
+
+
+    const getErrors = (name, value) => {
+        let errorMessage = "";
+        if (!value) {
+            errorMessage = `Enter ${name}`
+        } else if (name === "email" && !validateEmail(value)) {
+            errorMessage = "Enter a valid email"
+        } else if (name === "password" && value.length < 6) {
+            errorMessage = "Password must be atleast 6 characters"
+        } else if (name === 'cPassword' && formData.password != value) {
+            errorMessage = "password not matched"
+        }
+        return errorMessage;
     }
 
-    // email validation function
-    const emailValidation = (email) => {
-        return String(email).toLowerCase.match(/^\w+([-]?\w+)*@\w+([-]?\W+)*(\.\w{2,3})+$/);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+
+        }))
+        setErrors(prev => ({
+            ...prev,
+            [name]: getErrors(name, value)
+
+        }))
     }
 
-    // Submit button start
-    const handleRegistration = (e) => {
+
+    const handleOnBlur = (e) => {
+        const { name, value } = e.target;
+        setErrors(prev => ({
+            ...prev,
+            [name]: getErrors(name, value)
+
+        }))
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        if (!clientName) {
-            setErrClientName("Enter a name")
+        if (Object.values(errors).join("") || Object.values(formData).some(val => val === "")) {
+            console.log(Object.values(errors).join(""))
+            return
         }
-        if (!email) {
-            setErrEmail("Enter a email")
-        }
-        // else{
-        //   if(!emailValidation(email)){
-        //     setErrEmail("Enter a valid email");
-        //   }
-        // }
-        if (!password) {
-            setErrPassword("Enter a password")
-        }
-        else {
-            if (password.length < 6) {
-                setErrPassword("Password must be atleast 6 characters")
-            }
-        }
-        if (!cPassword) {
-            setErrCPassword("Confirm your password")
-        }
-        else {
-            if (!cPassword == password) {
-                setErrCPassword("password not matched")
-            }
-        }
+        console.log(formData)
+        await post("/user/signup", { ...formData, appType: "ott" })
+        // console.log("sign", data)
     }
+    useEffect(() => {
+        if (data.data) {
+            signUser(data.data)
+        }
+    }, [data])
 
-    if (clientName && email && emailValidation(email) && password && password.length >= 6 && cPassword && cPassword === password) {
-        clientName("")
-        email("")
-        password("")
-        cPassword("")
-        console.log(clientName, email, password, cPassword);
-    }
+    useEffect(() => {
+        if (authenticated) {
+            navigate("/")
+        }
 
+    }, [authenticated])
 
 
 
     return (
         <div className='w-full '>
             <div className='wid-full bg-white py-5'>
-                <form className='w-[370px] mx-auto flex flex-col items-center'>
+                <form onSubmit={handleSubmit} className='w-[370px] mx-auto flex flex-col items-center'>
                     <img className='w-32' src={loginlogo} alt='' />
                     <div className='w=full border border-zinc-200 p-6'>
                         <h2 className='font-titleFont text-3xl font-medium mb-4'>Create account</h2>
@@ -93,49 +103,88 @@ const SignUp = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Your name</p>
-                                <input className='w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100' type='name' placeholder='First and last name' onChange={handleName} />
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.name ? "border-red-600" : ""}`}
+                                    type='text'
+                                    name="name"
+                                    value={formData.name}
+                                    placeholder='First and last name'
+                                    onChange={handleChange}
+                                    onBlur={handleOnBlur}
+                                />
                                 {
-                                    errClientName && (
-                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'><span className='italic text-red-600 text-xs font-semibold '>!</span>{errClientName}</p>
+                                    errors.name && (
+                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'>
+                                            <span className='italic text-red-600 text-xs font-semibold '>!</span>
+                                            {errors.name}
+                                        </p>
                                     )
                                 }
                             </div>
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Email</p>
-                                <input className='w-full lowercase py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100' type='email ' onChange={handleEmail} />
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.email ? "border-red-600" : ""}`}
+
+                                    type='email'
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    onBlur={handleOnBlur}
+                                />
                                 {
-                                    errEmail && (
-                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'><span className='italic text-red-600 text-xs font-semibold '>!</span>{errEmail}</p>
+                                    errors.email && (
+                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'>
+                                            <span className='italic text-red-600 text-xs font-semibold '>!</span>
+                                            {errors.email}
+                                        </p>
                                     )
                                 }
                             </div>
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Password</p>
-                                <input className='w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100' type='password ' placeholder='At least 6 characters' onChange={handlepassword} />
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.password ? "border-red-600" : ""}`}
+
+                                    type='password'
+                                    name='password'
+                                    value={formData.password}
+                                    placeholder='At least 6 characters'
+                                    onChange={handleChange}
+                                    onBlur={handleOnBlur}
+                                />
                                 {
-                                    errPassword && (
-                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'><span className='italic text-red-600 text-xs font-semibold '>!</span>{errPassword}</p>
+                                    errors.password && (
+                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'>
+                                            <span className='italic text-red-600 text-xs font-semibold '>!</span>
+                                            {errors.password}
+                                        </p>
                                     )
                                 }
                             </div>
 
-                            <div>
-                                <p className='text-xs text-gray-400'>Passwords must be at least 6 characters</p>
-                            </div>
+
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Re-enter Password</p>
-                                <input className='w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100' type='password ' onChange={handleCpassword} />
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.cPassword ? "border-red-600" : ""}`}
+
+                                    type='password'
+                                    name='cPassword'
+                                    value={formData.cPassword}
+                                    onChange={handleChange}
+                                    onBlur={handleOnBlur}
+                                />
                                 {
-                                    errCPassword && (
-                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'><span className='italic text-red-600 text-xs font-semibold '>!</span>{errCPassword}</p>
+                                    errors.cPassword && (
+                                        <p className='text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2'>
+                                            <span className='italic text-red-600 text-xs font-semibold '>!</span>
+                                            {errors.cPassword}
+                                        </p>
                                     )
                                 }
                             </div>
 
-                            <button onClick={handleRegistration} className='w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border  border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>Continue</button>
+                            <button className='w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border  border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>Continue</button>
                         </div>
 
                         <p className='text-[14px] test-black leading-4 mt-4'>By creating an account, you agree to the Amazon</p>
@@ -145,7 +194,12 @@ const SignUp = () => {
                         <span className='w-full h-[1px] bg-zinc-100'></span>
                     </p>
                     <div>
-                        <p className='text-[14px] text-black flex justify-start gap-2'>Already have an account?<span className='text-blue-600 hover:text-orange-600 hover:underline underline-offset-1 cursor-pointer duration-100'>Sign in</span><span><BiSolidRightArrow className='w-2 mt-[4px] ml-[1px] group' /></span></p>
+                        <p className='text-[14px] text-black flex justify-start gap-2'>Already have an account?
+                            <Link to="/signinpage"
+                                className='text-blue-600 hover:text-orange-600 hover:underline underline-offset-1 cursor-pointer duration-100'>Sign in
+                            </Link>
+                            <span><BiSolidRightArrow className='w-2 mt-[4px] ml-[1px] group' /></span>
+                        </p>
                     </div>
                 </form>
             </div>

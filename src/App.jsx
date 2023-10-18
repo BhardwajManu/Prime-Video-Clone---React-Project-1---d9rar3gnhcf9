@@ -1,6 +1,8 @@
 
 import './App.css'
-import Home from './pages/Home'
+import AuthContextProvider from './Context/AuthContext'
+import WatchlistContextProvider from './Context/WatchlistContext'
+import Routing from './components/Routes'
 
 
 
@@ -8,7 +10,11 @@ function App() {
 
   return (
     <>
-      <Home />
+      <AuthContextProvider>
+        <WatchlistContextProvider>
+          <Routing />
+        </WatchlistContextProvider>
+      </AuthContextProvider>
     </>
   )
 }

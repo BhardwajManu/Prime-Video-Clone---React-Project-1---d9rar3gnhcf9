@@ -1,33 +1,54 @@
-import React from 'react'
-import checkbox from "../../../assets/images/checkbox.png"
+import React, { useEffect, useState } from 'react'
+import { LuDot } from "react-icons/lu";
 import { PiPlusBold } from "react-icons/pi";
 import { MdCelebration } from "react-icons/md";
 import { TfiVideoClapper } from "react-icons/tfi";
 import { FiShare2 } from "react-icons/fi";
-import { LuDot } from "react-icons/lu";
-import rokiBig from "../../../assets/images/contentRokibig.jpeg"
-import rokiSmall from "../../../assets/images/contentRokismall.jpeg"
+import checkbox from '../../assets/images/checkbox.png'
 
-import Tabsforcontent from './Tabsforcontent';
-import Header from '../../header/Header';
-import Footer from '../../Footer';
-
+import Tabsforcontent from './content/Tabsforcontent';
+import Header from '../header/Header';
+import Footer from '../Footer';
+import { useParams } from 'react-router-dom';
 
 
-const Contentdetails = () => {
+const Carddetail = () => {
+    const [data, setData] = useState([]);
+    const { id } = useParams();
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch(
+                    `https://academics.newtonschool.co/api/v1/ott/show/${id}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            projectID: "knjxpr9vh9wr",
+                        },
+                    }
+                );
+                const json = await response.json();
+                console.log(json, "here");
+                setData(json.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        fetchData();
+    }, [id]);
+
+
 
     return (
         <>
 
-            <div className='h-screen relative'>
-                <div className='hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top' style={{ backgroundImage: `linear-gradient( to right, #000 40%, transparent 78% ),url(${rokiBig})` }}></div>
-                <div className='aspect-video md:hidden bg-no-repeat bg-cover w-screen' style={{ backgroundImage: `linear-gradient( to top, #000 0%, transparent 20% ),url(${rokiSmall})` }}></div>
+            <div key={data?._id} className='h-screen relative'>
+                <div className='hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top'
+                    style={{ backgroundImage: `linear-gradient( to right, #000 40%, transparent 78% ),url(${data?.thumbnail})` }}></div>
 
-                <div className='flex flex-col gap-4 justify-start items-start ml-20 mt-20 h-max relative pb-10 md:absolute  md:w-1/2 top-0 left-0'>
-                    <h1 className='text-[#FFFFFF] text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>Rocky Aur Rani Kii Prem Kahaani</h1>
-                    <span className='text-[#FFFFFF] hidden sm:block text-xl mt-5 font-bold max-w-4xl'>A rollercoaster journey taking you through an epic love story in a new-age era, topped with hearty
-                        laughs and posing questions about love, family and the meaning of breaking away from generations of family
-                        traditions in the name of love.</span>
+                <div className='flex flex-col gap-6 justify-start items-start ml-20 mt-24 h-max relative pb-10 md:absolute  md:w-1/2 top-0 left-0'>
+                    <h1 className='text-[#FFFFFF] text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>{data?.title}</h1>
+                    <span className='text-[#FFFFFF] hidden sm:block text-xl mt-5 font-bold max-w-4xl'>{data?.description}</span>
 
                     <div className='text-white flex gap-3 '>
                         <span className='text-[#999999] text-xl font-semibold '>IMBD 6.0</span>
@@ -41,14 +62,17 @@ const Contentdetails = () => {
                     </div>
 
                     <div className='flex text-[#FFFFFF] text-xl underline font-semibold'>
-                        <span className=''>Drama</span>
-                        <span className='text-[#999999] flex justify-center items-center'><LuDot /></span>
-                        <span className=''>Fantasy</span>
-                        <span className='text-[#999999] flex justify-center items-center'><LuDot /></span>
-                        <span className=''>Adventure</span>
-                        <span className='text-[#999999] flex justify-center items-center'><LuDot /></span>
-                        <span className=''>Action</span>
+                        {data?.keywords?.map((keyword, index) => (
+                            <React.Fragment key={index}>
+                                <span>{keyword}</span>
+                                {index !== data?.keywords.length - 1 && (
+                                    <span className='text-[#999999] flex justify-center items-center'><LuDot /></span>
+                                )}
+                            </React.Fragment>
+                        ))}
                     </div>
+
+
 
                     <div className='flex  font-semibold'>
                         <div className='flex'>
@@ -79,11 +103,11 @@ const Contentdetails = () => {
                     <span className='text-[#AAAAAA] text-lg font-semibold'>Rentals include 30 days to start watching this video and 48 hours to finish once started.</span>
                 </div>
             </div>
+            ))}
 
             <Tabsforcontent />
 
         </>
     )
 }
-
-export default Contentdetails
+export default Carddetail;
