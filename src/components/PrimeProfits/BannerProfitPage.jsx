@@ -12,8 +12,6 @@ import primelogo4 from '../../assets/images/primeBenefitLogo3.png'
 import primelogo5 from '../../assets/images/primeBenefitLogo4.png'
 import { useEffect, useState } from 'react';
 import CardsProfit from './CardsProfit';
-import Header from '../header/Header';
-import Footer from '../Footer';
 import { Link } from 'react-router-dom';
 
 

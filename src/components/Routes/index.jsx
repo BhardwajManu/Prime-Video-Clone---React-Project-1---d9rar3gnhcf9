@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Landingpage from "../initial/Landingpage"
 import Banner from '../moviespage/Banner'
 import Anonymus from '../Anonymus'
 import WatchList from '../myStuff/WatchList'
@@ -15,6 +14,10 @@ import Carddetail from '../moviespage/Carddetail'
 import Search from '../../pages/Search'
 import Layout from './Layout'
 import { useAuthContext } from '../../Context/AuthContext'
+import Landingpage from '../landingpage/Landingpage'
+import Help from '../userLogin/Help'
+import MoreMovies from '../../pages/MoreMovies'
+import LearnMore from '../userLogin/LearnMore'
 
 
 const Routing = () => {
@@ -29,7 +32,6 @@ const Routing = () => {
         <Layout>
             <Routes>
                 <Route path='/' element={<Landingpage />} />
-
                 <Route path='/banner' element={<Banner />} />
                 <Route path='/anonymous' element={<Anonymus />} />
                 <Route path='/watchlist' element={<WatchList />} />
@@ -42,8 +44,10 @@ const Routing = () => {
                 <Route path='/moviedetails' element={<Contentdetails />} />
                 <Route path='/details/:id' element={<Carddetail />} />
                 <Route path='/search/:query' element={<Search />} />
+                <Route path='/moremovies' element={<MoreMovies />} />
                 <Route path="*" element={<Landingpage />} />
-
+                <Route path="/learnmore" element={<LearnMore />} />
+                <Route path='/help' element={<Help />} />
             </Routes>
         </Layout>
     )

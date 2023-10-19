@@ -1,23 +1,6 @@
-// import React from 'react'
-
-// const Relateddetail = () => {
-//     return (
-//         <div>
-//             <div>
-//                 <span className='text-[#FFFFFF] ml-20 text-xl font-bold tracking-wide '>Customers also watched</span>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Relateddetail
-
 import React, { useEffect, useState } from 'react'
 import Flickity from 'react-flickity-component'
 import "../../../styles/related.css";
-import checkbox from '../../../assets/images/checkbox.png'
-import { BsCheck2 } from "react-icons/bs";
-import { CiMenuKebab } from "react-icons/ci";
 import Card from '../../Card';
 
 
@@ -30,7 +13,7 @@ const flickityOptions = {
 }
 
 
-const Related = () => {
+const Relateddetail = () => {
     const [data, setData] = useState([]);
     const id = "";
     useEffect(() => {
@@ -80,4 +63,4 @@ const Related = () => {
     )
 }
 
-export default Related;
+export default Relateddetail;

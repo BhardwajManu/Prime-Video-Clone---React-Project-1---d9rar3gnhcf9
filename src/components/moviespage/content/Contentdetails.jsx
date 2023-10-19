@@ -7,23 +7,19 @@ import { FiShare2 } from "react-icons/fi";
 import { LuDot } from "react-icons/lu";
 import rokiBig from "../../../assets/images/contentRokibig.jpeg"
 import rokiSmall from "../../../assets/images/contentRokismall.jpeg"
-
 import Tabsforcontent from './Tabsforcontent';
-import Header from '../../header/Header';
-import Footer from '../../Footer';
+import { Link } from 'react-router-dom';
 
 
 
 const Contentdetails = () => {
-
     return (
         <>
-
             <div className='h-screen relative'>
                 <div className='hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top' style={{ backgroundImage: `linear-gradient( to right, #000 40%, transparent 78% ),url(${rokiBig})` }}></div>
                 <div className='aspect-video md:hidden bg-no-repeat bg-cover w-screen' style={{ backgroundImage: `linear-gradient( to top, #000 0%, transparent 20% ),url(${rokiSmall})` }}></div>
 
-                <div className='flex flex-col gap-4 justify-start items-start ml-20 mt-20 h-max relative pb-10 md:absolute  md:w-1/2 top-0 left-0'>
+                <div className=' cursor-default flex flex-col gap-4 justify-start items-start ml-20 mt-20 h-max relative pb-10 md:absolute  md:w-1/2 top-0 left-0'>
                     <h1 className='text-[#FFFFFF] text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>Rocky Aur Rani Kii Prem Kahaani</h1>
                     <span className='text-[#FFFFFF] hidden sm:block text-xl mt-5 font-bold max-w-4xl'>A rollercoaster journey taking you through an epic love story in a new-age era, topped with hearty
                         laughs and posing questions about love, family and the meaning of breaking away from generations of family
@@ -58,9 +54,9 @@ const Contentdetails = () => {
                     </div>
 
                     <div className='flex gap-3'>
-                        <button className='bg-[#FFFFFF] text-[#00050D] text-lg sm:text-xl py-1 px-[15px] rounded-lg text-left opacity-[1] mr-6 font-semibold min-h-[62px] cursor-pointer'>
+                        <Link to="/"><button className='bg-[#FFFFFF] text-[#00050D] text-lg sm:text-xl py-1 px-[15px] rounded-lg text-left opacity-[1] mr-6 font-semibold min-h-[62px] cursor-pointer'>
                             Watch with Prime<br /> Start your 30-day free trial
-                        </button>
+                        </button></Link>
                         <div className='flex gap-3'>
                             <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
                                 <TfiVideoClapper className='cursor-pointer h-[33px] w-[33px] text-white' />
@@ -79,9 +75,7 @@ const Contentdetails = () => {
                     <span className='text-[#AAAAAA] text-lg font-semibold'>Rentals include 30 days to start watching this video and 48 hours to finish once started.</span>
                 </div>
             </div>
-
             <Tabsforcontent />
-
         </>
     )
 }

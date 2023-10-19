@@ -2,13 +2,15 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsCheck2 } from "react-icons/bs";
-import { CiMenuKebab } from "react-icons/ci";
+import { TfiVideoClapper } from "react-icons/tfi";
 import { IoMdAdd } from "react-icons/io";
 import checkbox from '../assets/images/checkbox.png'
 import useFetch from '../Hooks/useFetch';
 import { useWatchlistContext } from '../Context/WatchlistContext';
+import { useAuthContext } from '../Context/AuthContext';
 
 const Card = ({ movie }) => {
+    const { authenticated } = useAuthContext()
 
     const { data, patch } = useFetch([])
     const { data: { watchlist }, get } = useFetch([])
@@ -46,7 +48,7 @@ const Card = ({ movie }) => {
     console.log(data)
 
     const toggleSelection = () => {
-        // setIsSelected(!isSelected);
+        setIsSelected(!isSelected);
         patch("/ott/watchlist/like", { showId: movie._id })
     };
 
@@ -61,7 +63,7 @@ const Card = ({ movie }) => {
 
                         <img className='object-cover object-top aspect-[7/5]  rounded-lg h-[145px] w-full ' src={movie.thumbnail} alt='' />
                     </Link>
-                    <div className='px-2'>
+                    <div className='px-5 cursor-default'>
                         <div className='flex items-center gap-1 py-1'>
                             <img className='w-5 h-5' src={checkbox} alt='' />
                             <h3 className='flex text-white'>Watch with a free prime trial</h3>
@@ -70,17 +72,26 @@ const Card = ({ movie }) => {
                         <div className='flex justify-between py-2'>
                             <h3 className='text-white '>{movie.title}</h3>
                             <div className='flex justify-between gap-2'>
-                                <span className=' cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
-                                    onClick={toggleSelection}>
-                                    {isAddedToWatchlist ? <BsCheck2 /> : <IoMdAdd />}
-                                </span>
-                                <span className='rounded-full bg-[#33373D]  w-[40px] h-[40px] text-white flex justify-center movies-center items-center'><CiMenuKebab /></span>
+                                {authenticated ?
+                                    <span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
+                                        onClick={toggleSelection}>
+                                        {isAddedToWatchlist ? <BsCheck2 /> : <IoMdAdd />}
+                                    </span>
+                                    : <Link to="/signinpage"><span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
+                                        onClick={toggleSelection}>
+                                        {isAddedToWatchlist ? <BsCheck2 /> : <IoMdAdd />}
+                                    </span></Link>
+                                }
+                                <Link to={`/details/${movie._id}`}>
+                                    <span className='rounded-full bg-[#33373D]  w-[40px] h-[40px] text-white flex justify-center movies-center items-center'><TfiVideoClapper />
+                                    </span>
+                                </Link>
                             </div>
                         </div>
 
                         <div className='flex movies-start justify-between py-2 gap-2'>
-                            <h2 className='text-[#AAAAAA]'>2023</h2>
-                            <h2 className='text-[#AAAAAA]'>2h 28min</h2>
+                            <h2 className='text-[#AAA]'>2023</h2>
+                            <h2 className='text-[#AAA]'>2h 28min</h2>
                             <span className='text-white bg-[#33373D] px-2 whitespace-nowrap flex items-center justify-end'>U/A 13+</span>
                         </div>
 

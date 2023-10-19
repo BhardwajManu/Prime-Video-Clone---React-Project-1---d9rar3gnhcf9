@@ -8,7 +8,6 @@ const initialData = {
     isAddedToWatchlist: false,
     alreadyFetchedWatchlist: false,
     shows: []
-
 }
 
 const WatchlistContextProvider = ({ children }) => {

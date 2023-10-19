@@ -3,14 +3,10 @@ import React from 'react'
 import Flickity from 'react-flickity-component'
 import "../../styles/cardone.css";
 import { FiChevronRight } from "react-icons/fi";
-import { BsCheck2 } from "react-icons/bs";
-import { CiMenuKebab } from "react-icons/ci";
-import { IoMdAdd } from "react-icons/io";
-import checkbox from '../../assets/images/checkbox.png'
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import Card from '../Card';
 import useFetch from '../../Hooks/useFetch';
+import { Link } from 'react-router-dom';
 
 const flickityOptions = {
     initialIndex: 0,
@@ -33,14 +29,14 @@ const CardOne = (props) => {
     return (
         <>
             <div>
-                <section className='text-[#FFF] mt-14 ml-[4.5%]'>
+                <section className='text-[#FFF] mt-14 ml-[4.5%] cursor-default'>
                     <h2 className='flex  pb-4 text-xl'>
                         <div>
                             <span className='font-bold text-[#1A98FF]'>Prime</span>
                             <span className='font-bold ml-3'>{props.title}</span>
                         </div>
                         <div className='flex items-center justify-center'>
-                            <span className='ml-8 font-medium'>See more </span>
+                            <Link to="/moremovies"> <span className='ml-8 font-medium'>See more </span></Link>
                             <span className='ml-1 mt-1'><FiChevronRight /></span>
                         </div>
                     </h2>

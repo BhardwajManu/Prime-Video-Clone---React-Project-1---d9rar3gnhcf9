@@ -120,7 +120,7 @@ const Header = () => {
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isStoreHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
                                                 <li><Link to="/anonymous" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</Link></li>
-                                                <li><Link to="/anonymous" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rent</Link></li>
+                                                <li><Link to="/rent" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rent</Link></li>
                                                 <li><Link to="/anonymous" className="block px-[17px] py-3 text-[18px] font-semibold text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Channels</Link></li>
                                             </ul>
                                         </div>
@@ -138,7 +138,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {authenticated && <div className='parent-homelist' onMouseEnter={handleMyStuffHover} onMouseLeave={handleMyStuffHover}>
+                                    {authenticated ? <div className='parent-homelist' onMouseEnter={handleMyStuffHover} onMouseLeave={handleMyStuffHover}>
                                         <Link to="/watchlist" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>My Stuff<span className={`mt-2 transform ${isMyStuffHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></Link>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isMyStuffHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
@@ -147,7 +147,11 @@ const Header = () => {
                                                 <li><Link to="/rent" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Rental</Link></li>
                                             </ul>
                                         </div>
-                                    </div>}
+                                    </div>
+                                        : <div>
+                                            <Link to="/signinpage" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex" style={{ whiteSpace: 'nowrap' }}>Try for free<span className='mt-2'></span></Link>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -183,7 +187,7 @@ const Header = () => {
                                     </div>
                                         : <div>
                                             <ul className='home-list'>
-                                                <li><Link to="/signinpage" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>SignIn</Link></li>
+                                                <li><Link to="/signinpage" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Sign In</Link></li>
                                                 <li><Link to="/help" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Help</Link></li>
                                                 <li><Link to="/anonymous" className="block px-[17px] py-3 font-semibold text-[#AAAAAA] text-[18px] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>Watch Anywhere</Link></li>
                                             </ul>

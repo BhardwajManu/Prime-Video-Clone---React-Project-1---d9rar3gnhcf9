@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import SearchList from '../components/myStuff/Filters'
+import Filters from "../components/myStuff/Filters"
 import useFetch from '../Hooks/useFetch';
 import { useNavigate, useParams } from 'react-router-dom';
 import Card from '../components/Card';
@@ -9,13 +9,13 @@ const Search = () => {
     const { query } = useParams()
     useEffect(() => {
         get(`/ott/show?search={"title" : "${query}"}&limit=10`)
-
-
     }, []);
     console.log(data)
+
+
     return (
         <div className='px-20'>
-            <SearchList />
+            <Filters />
             <div>
                 <h1 className='text-[1.3vw] font-bold text-white  py-6'>Result for "{query}".</h1>
             </div>

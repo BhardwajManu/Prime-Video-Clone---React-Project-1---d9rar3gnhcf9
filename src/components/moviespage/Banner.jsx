@@ -27,11 +27,8 @@ import spidermanlogo from '../../assets/images/spidermanLogo.png'
 import spylogo from '../../assets/images/spyLogo.png'
 import Satyapremlogo from '../../assets/images/satyapremLogo.png'
 import { Link } from 'react-router-dom';
-
 import { useEffect, useState } from 'react';
 import CardOne from './CardOne';
-import Header from '../header/Header';
-import Footer from '../Footer';
 
 
 
@@ -107,7 +104,7 @@ export default function Banner() {
                                 }
                                 <a>
                                     <div className=' w-[40%]'>
-                                        <img className='object-contain object-bottom w-full aspect-square' src={images[i].smallImg} alt='rokyranilogo' />
+                                        <Link to="/moviedetails"><img className='object-contain object-bottom w-full aspect-square' src={images[i].smallImg} alt='rokyranilogo' /></Link>
                                     </div>
                                 </a>
                             </div>
@@ -127,16 +124,18 @@ export default function Banner() {
                                 <div className=' lg:flex gap-0.5 hidden mb-8 mt-4'>
                                     <Link to="/moviedetails"> <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-xl py-2 px-[21px]
                             rounded-lg text-left opacity-[1] mr-6 font-semibold  min-h-[62px] cursor-pointer'>More details</button></Link>
-                                    <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
+                                    <Link to="/moviedetails"> <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
                                         <TfiVideoClapper className='cursor-pointer h-[33px] w-[33px] text-white' />
                                     </button>
+                                    </Link>
                                 </div>
                             </div>
                         </section>
                     </div>
-                ))}
+                ))
+                }
 
-            </Flickity>
+            </Flickity >
             <CardOne title='movie' />
             <CardOne title='short film' />
             <CardOne title='tv show' />
