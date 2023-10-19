@@ -11,7 +11,7 @@ import profile from '../../assets/images/loginpic.png';
 import CategoriesList from './CatergoryList';
 import SearchButton from './SearchButton';
 import UserList from './UserList';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuthContext } from '../../Context/AuthContext';
 
 
@@ -101,7 +101,8 @@ const Header = () => {
                                 <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                                     <div className='parent-homelist' onMouseEnter={handleHomeHover} onMouseLeave={handleHomeHover}>
                                         <Link to="/home" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
-                                            <span style={{ whiteSpace: 'nowrap' }}>Home</span>
+                                            <NavLink style={({ isActive }) => ({ color: isActive ? "white" : "black" })}>
+                                                <span style={{ whiteSpace: 'nowrap' }}>Home</span></NavLink>
                                             <span className={`mt-2 transform ${isHomeHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
                                         </Link>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isHomeHovered ? 'block' : 'hidden'}`}>

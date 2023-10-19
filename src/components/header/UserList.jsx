@@ -25,7 +25,7 @@ const UserList = () => {
                         <div className='flex flex-col gap-3 '>
                             <Link to="/help"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Help</li></Link>
                             <Link to="/anonymous"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Watch Anywhere</li></Link>
-                            <Link to="/signinpage"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Account & Settings</li></Link>
+                            <Link to="/usersettings"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Account & Settings</li></Link>
                             <Link to="/primeprofits"><li className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1'>Prime Benefits</li></Link>
                             <li onClick={handleSignOut} className='hover:bg-white hover:text-black hover:rounded-lg py-2 px-1 cursor-pointer'>Sign out</li>
                         </div>

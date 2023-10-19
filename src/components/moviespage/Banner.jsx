@@ -61,25 +61,23 @@ var requestOptions = {
 };
 
 export default function Banner() {
-    const [data, setData] = useState([]);
+    const [usedata, setUsedata] = useState([]);
 
     useEffect(() => {
         fetch("https://academics.newtonschool.co/api/v1/ott/show?limit=12", requestOptions)
             .then(response => response.json())
             .then(result => {
                 // console.log(result.data)
-                setData(result.data)
+                setUsedata(result.data)
             })
             .catch(error => console.log('error', error));
     }, [])
 
     return (
         <>
-
             <div>
                 <h1 className='text-[#FFFFFF] text-[2.5vw] px-[72px]  mb-3
                  font-bold tracking-wide  flex justify-start cursor-default'>Movies</h1>
-
             </div>
             <Flickity
                 className={'carousel'} // default ''
@@ -89,7 +87,7 @@ export default function Banner() {
                 reloadOnUpdate // default false
                 static // default false
             >
-                {data.map((item, i) => (
+                {usedata.map((item, i) => (
 
                     <div key={item._id} className='w-[93vw] m-auto  relative overflow-hidden'>
                         <div className='absolute inset-0 gradientToRight'></div>

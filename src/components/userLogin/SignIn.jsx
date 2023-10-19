@@ -147,7 +147,7 @@ const SignIn = () => {
                                 Continue</button>
                         </div>
                         <p className='text-xs sm:text-sm text-black leading-4 mt-4'>By continuing, you agree to the Amazon <Link to="/learnmore"><span className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Conditions of Use and Privacy Notice.</span></Link></p>
-                        <p className='text-xs sm:text-sm text-gray-600 mt-4 cursor-pointer flex items-center gap-1 group'><BiSolidRightArrow /><span className='text-xs sm:text-sm text-blue-600 group-hover:text-orange-700 group-hover:underline underline-offset-1'>Forget your password?</span></p>
+                        <p className='text-xs sm:text-sm text-gray-600 mt-4 cursor-pointer flex items-center gap-1 group'><BiSolidRightArrow /><Link to="/help"><span className='text-xs sm:text-sm text-blue-600 group-hover:text-orange-700 group-hover:underline underline-offset-1'>Need help</span></Link></p>
                     </div>
                     <p className='w-full text-xs sm:text-sm text-gray-400 mt-4 flex items-center'>
                         <span className='w-1/3 h-[1px] bg-zinc-400 inline-flex'></span>

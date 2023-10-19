@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useContext, useState } from 'react'
 import { createContext } from 'react'
 
@@ -52,8 +51,16 @@ const AuthContextProvider = ({ children }) => {
         }
     }
 
+    const setProfileImage = (url) => {
+        localStorage.setItem("prime_user", JSON.stringify({ ...authData.user, profileImage: url }))
+        const user = JSON.parse(localStorage.getItem("prime_user"))
+        setAuthData(prev => ({
+            ...prev,
+            user,
+        }))
+    }
     return (
-        <authContext.Provider value={{ signUser, logoutUser, isUserLoggedIn, authenticated: authData.authenticated, user: authData.user }}>
+        <authContext.Provider value={{ signUser, logoutUser, isUserLoggedIn, authenticated: authData.authenticated, user: authData.user, setProfileImage }}>
             {children}
         </authContext.Provider>
     )
@@ -62,5 +69,3 @@ const AuthContextProvider = ({ children }) => {
 export default AuthContextProvider
 
 export const useAuthContext = () => useContext(authContext)
-
-

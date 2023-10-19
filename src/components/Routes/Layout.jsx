@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import { useLocation } from 'react-router-dom'
 
 
-const layout = ["anonymous", "signinpage", "signuppage", "editprofile", "manageprofiles"]
+const layout = ["anonymous", "signinpage", "signuppage", "editprofile", "manageprofiles", "usersettings"]
 const comparePath = (pathname) => {
     for (let i = 0; i < layout.length; i++) {
         if (pathname.includes(layout[i])) {

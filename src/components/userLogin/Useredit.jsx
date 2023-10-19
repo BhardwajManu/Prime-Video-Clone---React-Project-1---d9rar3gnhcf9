@@ -52,9 +52,9 @@ const Useredit = () => {
                             </p>
                         </div>
                         <div>
-                            <button className='text-[#FFFFFF] bg-[#425265] w-[100px] h-[48px] rounded'>
+                            <Link to="/usersettings"><button className='text-[#FFFFFF] bg-[#425265] w-[100px] h-[48px] rounded'>
                                 Manage
-                            </button>
+                            </button></Link>
                         </div>
                     </div>
 

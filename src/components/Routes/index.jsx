@@ -18,6 +18,7 @@ import Landingpage from '../landingpage/Landingpage'
 import Help from '../userLogin/Help'
 import MoreMovies from '../../pages/MoreMovies'
 import LearnMore from '../userLogin/LearnMore'
+import UseSetting from '../userLogin/Settings/UseSetting'
 
 
 const Routing = () => {
@@ -48,6 +49,7 @@ const Routing = () => {
                 <Route path="*" element={<Landingpage />} />
                 <Route path="/learnmore" element={<LearnMore />} />
                 <Route path='/help' element={<Help />} />
+                <Route path='/usersettings' element={<UseSetting />} />
             </Routes>
         </Layout>
     )
