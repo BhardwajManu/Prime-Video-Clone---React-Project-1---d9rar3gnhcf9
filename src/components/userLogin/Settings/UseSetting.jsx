@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import loginlogo from '../../../assets/images/Login.png';
+import loginlogo from '../../../assets/images/login.png';
 import { Link } from 'react-router-dom';
 import { BiSolidRightArrow } from 'react-icons/bi';
 import { useAuthContext } from '../../../Context/AuthContext';

@@ -1,0 +1,45 @@
+/* Add these styles to your CSS or use a CSS-in-JS solution like styled-components */
+
+/* Styles for the modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for the modal */
+.modal-2 {
+    background: #565859;
+    border-radius: 10px;
+    max-width: 30vw;
+    color: #FFFFFF;
+    position: relative;
+}
+
+/* Styles for the modal content */
+.modal-content {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font: bolder;
+}
+
+/* Styles for the close button */
+.close-button {
+    cursor: pointer;
+    background: #425265;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 17px;
+    margin-left: auto;
+}
