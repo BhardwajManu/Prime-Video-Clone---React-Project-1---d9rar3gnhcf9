@@ -18,7 +18,7 @@ import Landingpage from '../landingpage/Landingpage'
 import Help from '../userLogin/Help'
 import MoreMovies from '../../pages/MoreMovies'
 import LearnMore from '../userLogin/LearnMore'
-import UseSetting from '../userLogin/Settings/UseSetting'
+import UserSetting from '../userLogin/Settings/UserSetting'
 
 
 const Routing = () => {
@@ -45,11 +45,11 @@ const Routing = () => {
                 <Route path='/moviedetails' element={<Contentdetails />} />
                 <Route path='/details/:id' element={<Carddetail />} />
                 <Route path='/search/:query' element={<Search />} />
-                <Route path='/moremovies' element={<MoreMovies />} />
+                <Route path='/moremovies/:type' element={<MoreMovies />} />
                 <Route path="*" element={<Landingpage />} />
                 <Route path="/learnmore" element={<LearnMore />} />
                 <Route path='/help' element={<Help />} />
-                <Route path='/usersettings' element={<UseSetting />} />
+                <Route path='/usersettings' element={<UserSetting />} />
             </Routes>
         </Layout>
     )

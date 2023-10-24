@@ -11,28 +11,21 @@
     background: rgba(0, 0, 0, 0.7);
 }
 
-/* Styles for the modal */
 .modal {
     background: #565859;
     padding: 10px;
-    max-width: 80%;
+    max-width: 30%;
     border-radius: 10px;
     color: #FFFFFF;
+    padding: 20px;
 }
 
-/* Styles for the modal header */
 .modal-header {
     display: flex;
     justify-content: flex-end;
+
 }
 
-/* Styles for the modal content */
 .modal-content {
     text-align: center;
 }
-
-.cross-button {
-    margin: 20px;
-}
-
-/* Add any additional styles you need */

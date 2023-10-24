@@ -100,11 +100,11 @@ const Header = () => {
                             <div className="hidden sm:ml-6 sm:block">
                                 <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                                     <div className='parent-homelist' onMouseEnter={handleHomeHover} onMouseLeave={handleHomeHover}>
-                                        <Link to="/home" className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
-                                            <NavLink style={({ isActive }) => ({ color: isActive ? "white" : "black" })}>
+                                        <div className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
+                                            <NavLink to="/home" style={({ isActive }) => ({ color: isActive ? "white" : "#AAAAAA" })}>
                                                 <span style={{ whiteSpace: 'nowrap' }}>Home</span></NavLink>
                                             <span className={`mt-2 transform ${isHomeHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
-                                        </Link>
+                                        </div>
                                         <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isHomeHovered ? 'block' : 'hidden'}`}>
                                             <ul className='home-list'>
                                                 <li><Link to="/home" className="block px-[17px] py-3 font-semibold text-[18px] text-[#AAAAAA] hover:bg-white hover:text-black" style={{ whiteSpace: 'nowrap' }}>All</Link></li>

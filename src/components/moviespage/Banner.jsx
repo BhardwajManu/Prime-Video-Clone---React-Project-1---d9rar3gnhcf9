@@ -100,11 +100,11 @@ export default function Banner() {
                                         #1 in India
                                     </span>
                                 }
-                                <a>
-                                    <div className=' w-[40%]'>
-                                        <Link to="/moviedetails"><img className='object-contain object-bottom w-full aspect-square' src={images[i].smallImg} alt='rokyranilogo' /></Link>
-                                    </div>
-                                </a>
+
+                                <div className=' w-[40%]'>
+                                    <Link to="/moviedetails"><img className='object-contain object-bottom w-full aspect-square' src={images[i].smallImg} alt='rokyranilogo' /></Link>
+                                </div>
+
                             </div>
                             <div >
                                 <div className='flex mt-[2vw]  items-center cursor-default'>
@@ -133,7 +133,7 @@ export default function Banner() {
                 ))
                 }
 
-            </Flickity >
+            </Flickity>
             <CardOne title='movie' />
             <CardOne title='short film' />
             <CardOne title='tv show' />

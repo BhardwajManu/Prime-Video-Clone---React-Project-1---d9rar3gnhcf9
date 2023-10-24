@@ -5,7 +5,6 @@ import { createContext } from 'react'
 
 const watchlistContext = createContext()
 const initialData = {
-    isAddedToWatchlist: false,
     alreadyFetchedWatchlist: false,
     shows: []
 }
@@ -13,13 +12,7 @@ const initialData = {
 const WatchlistContextProvider = ({ children }) => {
     const [watchlistData, setWatchlistData] = useState(initialData)
 
-    const isAdded = (id) => {
-        const check = watchlistData.shows.some(({ _id }) => id === _id)
-        setWatchlistData((prev) => ({
-            ...prev,
-            isAddedToWatchlist: check
-        }))
-    }
+
 
     const isFetch = () => {
         setWatchlistData((prev) => ({
@@ -28,19 +21,35 @@ const WatchlistContextProvider = ({ children }) => {
         }))
     }
 
+    const createWatchlist = (payload) => {
+        // console.log("payload", payload)
+        setWatchlistData((prev) => ({
+            ...prev,
+            shows: payload?.data?.shows,
+        }))
+
+    }
+
+
     const updateWatchlist = (payload) => {
-        console.log("payload", payload)
-        // setWatchlistData((prev) => ({
-        //     ...prev,
-        //    shows: payload.shows,
-        // }))
+        let shows = payload?.data?.shows;
+        if (!payload?.message?.includes("add")) {
+            shows = watchlistData?.shows?.filter(({ _id }) => {
+                return shows?.includes(_id)
+            })
+
+        }
+        setWatchlistData((prev) => ({
+            ...prev,
+            shows,
+        }))
 
     }
 
     return (
         <watchlistContext.Provider value={{
-            isAdded, updateWatchlist, isFetch, isAddedToWatchlist: watchlistData.isAddedToWatchlist,
-            alreadyFetchedWatchlist: watchlistData.alreadyFetchedWatchlist
+            updateWatchlist, isFetch, createWatchlist, alreadyFetchedWatchlist: watchlistData.alreadyFetchedWatchlist,
+            shows: watchlistData.shows
         }}>
             {children}
         </watchlistContext.Provider>

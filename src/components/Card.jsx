@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsCheck2 } from "react-icons/bs";
 import { TfiVideoClapper } from "react-icons/tfi";
@@ -8,47 +8,56 @@ import checkbox from '../assets/images/checkbox.png'
 import useFetch from '../Hooks/useFetch';
 import { useWatchlistContext } from '../Context/WatchlistContext';
 import { useAuthContext } from '../Context/AuthContext';
+import api from '../Api';
+
+
+const isAdded = (shows, id) => {
+    return typeof shows != "string" && shows?.some(({ _id }) => id === _id)
+}
 
 const Card = ({ movie }) => {
     const { authenticated } = useAuthContext()
-
+    const { updateWatchlist, alreadyFetchedWatchlist, isFetch, shows, createWatchlist } = useWatchlistContext()
     const { data, patch } = useFetch([])
-    const { data: { watchlist }, get } = useFetch([])
+    const [watchdata, setWatchData] = useState([])
 
-    const { isAddedToWatchlist, updateWatchlist, alreadyFetchedWatchlist, isFetch, isAdded } = useWatchlistContext()
+
+    const fetchData = async () => {
+        try {
+            const response = await api.get("/ott/watchlist/like")
+            setWatchData(response?.data)
+
+        } catch (error) {
+            console.log(error)
+
+        }
+    }
 
 
     useEffect(() => {
-        if (alreadyFetchedWatchlist) {
-            get("/ott/watchlist/like")
+
+        if (!alreadyFetchedWatchlist) {
+            fetchData()
             isFetch()
         }
-
-        isAdded(movie._id)
     }, [])
-    console.log("watchlist", data, watchlist)
 
     useEffect(() => {
-        if (data) {
+        if (watchdata?.data?.shows) {
+            createWatchlist(watchdata)
+            // console.log("create", watchdata)
+        }
+
+    }, [watchdata])
+
+
+    useEffect(() => {
+        if (data?.data?.shows) {
             updateWatchlist(data)
         }
     }, [data])
 
-    useEffect(() => {
-        if (watchlist) {
-            updateWatchlist(watchlist)
-        }
-    }, [watchlist])
-
-
-
-
-
-
-    console.log(data)
-
     const toggleSelection = () => {
-        setIsSelected(!isSelected);
         patch("/ott/watchlist/like", { showId: movie._id })
     };
 
@@ -75,11 +84,11 @@ const Card = ({ movie }) => {
                                 {authenticated ?
                                     <span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
                                         onClick={toggleSelection}>
-                                        {isAddedToWatchlist ? <BsCheck2 /> : <IoMdAdd />}
+                                        {isAdded(shows, movie._id) ? <BsCheck2 /> : <IoMdAdd />}
                                     </span>
                                     : <Link to="/signinpage"><span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
-                                        onClick={toggleSelection}>
-                                        {isAddedToWatchlist ? <BsCheck2 /> : <IoMdAdd />}
+                                    >
+                                        <IoMdAdd />
                                     </span></Link>
                                 }
                                 <Link to={`/details/${movie._id}`}>

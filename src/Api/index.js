@@ -6,12 +6,11 @@ const api = axios.create({
         projectId: "knjxpr9vh9wr",
 
     }
-
 })
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem("prime_token")
-    console.log(token)
+    // console.log(token)
     if (token) {
         config.headers.Authorization = `Bearer ${token}`
     }

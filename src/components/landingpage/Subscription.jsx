@@ -26,7 +26,7 @@ const Subscription = () => {
 
             {modal && (
                 <div className="modal-container">
-                    <div className="modal-2">
+                    <div className="modal">
                         <div className="modal-header">
                             <span onClick={toggleModal} className='cross-button'>
                                 <TfiClose />
@@ -34,7 +34,7 @@ const Subscription = () => {
                         </div>
                         <div className="modal-content">
                             <div className="flex items-center justify-center">
-                                <h1 className="text-3xl text-white font-bold">Prime Plans</h1>
+                                <h1 className="text-3xl text-white font-bold pb-8">Prime Plans</h1>
                             </div>
 
                             <div className="plans mb-6 font-bold">

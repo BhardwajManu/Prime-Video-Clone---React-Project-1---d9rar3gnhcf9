@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import headerLogo from '../../assets/images/Logo-min.png';
 import profile from '../../assets/images/user.png';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 
 const Useredit = () => {
+    const [name, setName] = useState("")
+
+    const handleNameChange = (event) => {
+        console.log(event)
+        setName(event.target.value)
+    }
+
     return (
         <>
 
@@ -37,8 +44,11 @@ const Useredit = () => {
                     {/* Input Field */}
                     <input
                         type='text'
-                        className='bg-[#0000004D] px-[11px] py-[11px] w-full sm:w-[320px] h-[48.2px] mt-10 border-2 border-solid border-[#425265] rounded'
+                        name='name'
+                        className='bg-[#0000004D] text-white px-[11px] py-[11px] w-full sm:w-[320px] h-[48.2px] mt-10 border-2 border-solid border-[#425265] rounded'
+                        value={name}
                         placeholder='Your Name'
+                        onChange={handleNameChange}
                     />
 
                     {/* Account PIN and Locks */}

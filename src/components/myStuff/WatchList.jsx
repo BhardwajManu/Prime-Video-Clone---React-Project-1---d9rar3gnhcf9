@@ -2,17 +2,28 @@ import React, { useEffect } from 'react'
 import useFetch from '../../Hooks/useFetch';
 import Card from "../Card"
 import { Link } from 'react-router-dom';
+import { useWatchlistContext } from '../../Context/WatchlistContext';
 
 
 const WatchList = () => {
-    const { data, get, patch } = useFetch([])
+    const { alreadyFetchedWatchlist, createWatchlist, isFetch, shows } = useWatchlistContext()
+    const { data, get } = useFetch([])
 
     useEffect(() => {
-        get("/ott/watchlist/like")
-
+        if (!alreadyFetchedWatchlist) {
+            get("/ott/watchlist/like")
+            isFetch()
+        }
     }, [])
 
-    console.log(data)
+    useEffect(() => {
+        if (data?.data?.shows) {
+            createWatchlist(data)
+        }
+
+    }, [data])
+
+    // console.log("shows", shows)
 
     return (
         <>
@@ -28,11 +39,11 @@ const WatchList = () => {
                         <Link to="/watchlist"><button className='text-[1.3vw] bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>TV shows</button></Link>
                     </div>
 
-                    <Link to="/moremovies"> <button className='text-[1.3vw] flex justify-center items-center bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>Most recent addition <span className='mt-1 ml-1 font-bold'></span></button></Link>
+                    <Link to="/moremovies/movie"> <button className='text-[1.3vw] flex justify-center items-center bg-[#FFFFFF33] py-[12px] px-[21px] text-[#FFFFFF] rounded-lg font-medium hover:bg-white hover:text-black'>Most recent addition <span className='mt-1 ml-1 font-bold'></span></button></Link>
                 </div>
                 <div className='grid gap-2 md:gap-4 py-10 pb-36 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'>
                     {
-                        data?.data?.shows?.map((movie) => (
+                        shows?.map((movie) => (
                             <Card key={movie._id} movie={movie} />
                         ))
                     }

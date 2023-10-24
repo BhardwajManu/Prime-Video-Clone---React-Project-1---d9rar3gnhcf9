@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../header/Header'
 import Footer from '../Footer'
 import { useLocation } from 'react-router-dom'
+import { useWatchlistContext } from '../../Context/WatchlistContext'
+import useFetch from '../../Hooks/useFetch'
 
 
 const layout = ["anonymous", "signinpage", "signuppage", "editprofile", "manageprofiles", "usersettings"]
@@ -16,6 +18,7 @@ const comparePath = (pathname) => {
 }
 
 const Layout = ({ children }) => {
+
 
     const { pathname } = useLocation()
     // console.log(pathname)

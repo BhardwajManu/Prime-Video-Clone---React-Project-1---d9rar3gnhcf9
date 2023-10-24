@@ -17,10 +17,10 @@ const flickityOptions = {
 
 
 const CardOne = (props) => {
-    const { data, loading, error, get } = useFetch([]);
+    const { data, get } = useFetch([]);
 
     useEffect(() => {
-        get(`/ott/show?filter={"type":"${props.title}"}&limit=20`)
+        get(`/ott/show?filter={"type":"${props.title}"}&limit=12`)
 
     }, []);
     // console.log("c1", data)
@@ -36,7 +36,7 @@ const CardOne = (props) => {
                             <span className='font-bold ml-3'>{props.title}</span>
                         </div>
                         <div className='flex items-center justify-center'>
-                            <Link to="/moremovies"> <span className='ml-8 font-medium'>See more </span></Link>
+                            <Link to={`/moremovies/${props.title}`}> <span className='ml-8 font-medium'>See more </span></Link>
                             <span className='ml-1 mt-1'><FiChevronRight /></span>
                         </div>
                     </h2>
@@ -56,6 +56,7 @@ const CardOne = (props) => {
 
                     <Card key={item._id} movie={item} />
                 ))}
+
 
             </Flickity>
         </>

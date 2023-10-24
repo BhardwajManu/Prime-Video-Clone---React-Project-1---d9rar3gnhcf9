@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import loginlogo from '../../../assets/images/login.png';
 import { Link } from 'react-router-dom';
-import { BiSolidRightArrow } from 'react-icons/bi';
 import { useAuthContext } from '../../../Context/AuthContext';
 import useFetch from '../../../Hooks/useFetch'
 
 
 
-const UseSetting = () => {
+const UserSetting = () => {
     const { user } = useAuthContext()
     const [currentPassword, setCurrentPassword] = useState('');
     const [password, setPassword] = useState('');
@@ -98,4 +97,4 @@ const UseSetting = () => {
         </div>
     );
 };
-export default UseSetting;
+export default UserSetting;
