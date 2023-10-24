@@ -103,7 +103,9 @@ const SignUp = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Your name</p>
-                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.name ? "border-red-600" : ""}`}
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none 
+                                focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 
+                                ${errors.name ? "border-red-600" : ""}`}
                                     type='text'
                                     name="name"
                                     value={formData.name}
@@ -123,7 +125,9 @@ const SignUp = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Email</p>
-                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.email ? "border-red-600" : ""}`}
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none
+                                 focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 
+                                 ${errors.email ? "border-red-600" : ""}`}
 
                                     type='email'
                                     name="email"
@@ -143,7 +147,9 @@ const SignUp = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Password</p>
-                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.password ? "border-red-600" : ""}`}
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none
+                                 focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 
+                                 ${errors.password ? "border-red-600" : ""}`}
 
                                     type='password'
                                     name='password'
@@ -166,7 +172,9 @@ const SignUp = () => {
 
                             <div className='flex flex-col gap-2'>
                                 <p className='text-sm font-medium'>Re-enter Password</p>
-                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.cPassword ? "border-red-600" : ""}`}
+                                <input className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none 
+                                focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 
+                                ${errors.cPassword ? "border-red-600" : ""}`}
 
                                     type='password'
                                     name='cPassword'
@@ -184,11 +192,13 @@ const SignUp = () => {
                                 }
                             </div>
 
-                            <button className='w-full py-1.5 text-sm font-normal rounded-lg bg-[#F7CA00] hover:bg-gradient-to-b border  border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>Continue</button>
+                            <button className='w-full py-1.5 text-sm font-normal rounded-lg bg-[#F7CA00] hover:bg-gradient-to-b border 
+                             border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>Continue</button>
                         </div>
 
                         <p className='text-[14px] test-black leading-4 mt-4'>By creating an account, you agree to the Amazon</p>
-                        <Link to="/learnmore"><p className='text-blue-600 text-[12px] hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Conditions of Use and Privacy Notice.</p></Link>
+                        <Link to="/learnmore"><p className='text-blue-600 text-[12px] hover:text-orange-700 hover:underline 
+                        underline-offset-1 cursor-pointer'>Conditions of Use and Privacy Notice.</p></Link>
                     </div>
                     <p className='w-full text-[2px] text-gray-400 mt-4'>
                         <span className='w-full h-[1px] bg-zinc-100'></span>
@@ -196,7 +206,9 @@ const SignUp = () => {
                     <div>
                         <p className='text-[14px] text-black flex justify-start gap-2'>Already have an account?
                             <Link to="/signinpage"
-                                className='text-blue-600 hover:text-orange-600 hover:underline underline-offset-1 cursor-pointer duration-100'>Sign in
+                                className='text-blue-600 hover:text-orange-600 hover:underline underline-offset-1 cursor-pointer 
+                                duration-100'>
+                                Sign in
                             </Link>
                             <span><BiSolidRightArrow className='w-2 mt-[4px] ml-[1px] group' /></span>
                         </p>
@@ -206,9 +218,21 @@ const SignUp = () => {
             <div className='w-full bg-gradient-to-t from-white via-white to bg-gray-50 flex flex-col items-center justify-center py-6'>
                 <div className='flex flex-col gap-6 items-center justify-center'>
                     <div className='flex items-center gap-6'>
-                        <Link to="/learnmore"> <p className='text-blue-600 text-xs hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Terms and Privacy Notice</p></Link>
-                        <Link to="/signinpage"><p className='text-blue-600 text-xs hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Send us feedback</p></Link>
-                        <Link to="/help"> <p className='text-blue-600 text-xs hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Help</p></Link>
+                        <Link to="/learnmore">
+                            <p className='text-blue-600 text-xs hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>
+                                Terms and Privacy Notice
+                            </p>
+                        </Link>
+                        <Link to="/signinpage">
+                            <p className='text-blue-600 text-xs hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>
+                                Send us feedback
+                            </p>
+                        </Link>
+                        <Link to="/help">
+                            <p className='text-blue-600 text-xs hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>
+                                Help
+                            </p>
+                        </Link>
                     </div>
                     <div>
                         <p className='text-xs text-gray-600'>© 1996-2023, Amazon.com, Inc. or its affiliates</p>

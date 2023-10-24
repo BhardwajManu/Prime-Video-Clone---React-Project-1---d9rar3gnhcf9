@@ -65,12 +65,20 @@ const Card = ({ movie }) => {
         <div key={movie._id} className='ml-[1.6%]  grandparent-card shadow-md hover:z-50'>
             <div className='parent-card group relative'>
                 <Link to={`/details/${movie._id}`}>
-                    <img className='object-cover object-top aspect-[3/2] rounded-lg h-[145px] w-full ' src={movie.thumbnail} alt='' />
+                    <img
+                        className='object-cover object-top aspect-[3/2] rounded-lg h-[145px] w-full '
+                        src={movie.thumbnail}
+                        alt=''
+                    />
                 </Link>
-                <div className='card hidden w-[130%] max-w-[300px] z-[50] group-hover:block font-bold absolute top-0 left-0 bg-black rounded-lg'>
+                <div className='card hidden w-[130%] max-w-[300px] z-[50] group-hover:block font-bold absolute top-0 left-0
+                 bg-black rounded-lg'>
                     <Link to={`/details/${movie._id}`}>
-
-                        <img className='object-cover object-top aspect-[7/5]  rounded-lg h-[145px] w-full ' src={movie.thumbnail} alt='' />
+                        <img
+                            className='object-cover object-top aspect-[7/5]  rounded-lg h-[145px] w-full '
+                            src={movie.thumbnail}
+                            alt=''
+                        />
                     </Link>
                     <div className='px-5 cursor-default'>
                         <div className='flex items-center gap-1 py-1'>
@@ -82,17 +90,21 @@ const Card = ({ movie }) => {
                             <h3 className='text-white '>{movie.title}</h3>
                             <div className='flex justify-between gap-2'>
                                 {authenticated ?
-                                    <span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
+                                    <span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white 
+                                    flex justify-center movies-center items-center'
                                         onClick={toggleSelection}>
                                         {isAdded(shows, movie._id) ? <BsCheck2 /> : <IoMdAdd />}
                                     </span>
-                                    : <Link to="/signinpage"><span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white flex justify-center movies-center items-center'
-                                    >
-                                        <IoMdAdd />
-                                    </span></Link>
+                                    : <Link to="/signinpage">
+                                        <span className='cursor-pointer rounded-full bg-[#33373D] w-[40px] h-[40px] text-white 
+                                    flex justify-center movies-center items-center'
+                                        >
+                                            <IoMdAdd />
+                                        </span></Link>
                                 }
                                 <Link to={`/details/${movie._id}`}>
-                                    <span className='rounded-full bg-[#33373D]  w-[40px] h-[40px] text-white flex justify-center movies-center items-center'><TfiVideoClapper />
+                                    <span className='rounded-full bg-[#33373D]  w-[40px] h-[40px] text-white flex justify-center
+                                     movies-center items-center'><TfiVideoClapper />
                                     </span>
                                 </Link>
                             </div>

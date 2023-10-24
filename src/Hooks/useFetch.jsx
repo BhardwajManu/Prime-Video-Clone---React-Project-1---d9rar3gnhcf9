@@ -5,13 +5,14 @@ import api from '../Api';
 const useFetch = (initialData) => {
     const [data, setData] = useState(initialData);
     const [moreData, setMoreData] = useState([])
-
     const [tempData, setTempData] = useState(null)
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         setTempData(data)
     }, [data])
+
     async function get(url) {
         try {
             setLoading(true)

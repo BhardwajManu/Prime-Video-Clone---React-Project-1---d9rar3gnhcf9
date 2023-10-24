@@ -29,14 +29,16 @@ const CardOne = (props) => {
     return (
         <>
             <div>
-                <section className='text-[#FFF] mt-14 ml-[4.5%] cursor-default'>
+                <section className='text-[#FFF] mt-14 ml-[4%] cursor-default'>
                     <h2 className='flex  pb-4 text-xl'>
                         <div>
                             <span className='font-bold text-[#1A98FF]'>Prime</span>
-                            <span className='font-bold ml-3'>{props.title}</span>
+                            <span className='font-bold ml-3 '>{props.title}</span>
                         </div>
                         <div className='flex items-center justify-center'>
-                            <Link to={`/moremovies/${props.title}`}> <span className='ml-8 font-medium'>See more </span></Link>
+                            <Link to={`/moremovies/${props.title}`}>
+                                <span className='ml-8 font-medium'>See more </span>
+                            </Link>
                             <span className='ml-1 mt-1'><FiChevronRight /></span>
                         </div>
                     </h2>
@@ -53,7 +55,6 @@ const CardOne = (props) => {
 
 
                 {data?.data?.map((item) => (
-
                     <Card key={item._id} movie={item} />
                 ))}
 

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import "../../styles/subscription.css";
+import { subscriptions } from "../../styles/tailwindClasses"
 
 const Subscription = () => {
     const [modal, setModal] = useState(false);
@@ -28,7 +29,8 @@ const Subscription = () => {
                 <div className="modal-container">
                     <div className="modal">
                         <div className="modal-header">
-                            <span onClick={toggleModal} className='cross-button'>
+                            <span onClick={toggleModal}
+                                className='cross-button'>
                                 <TfiClose />
                             </span>
                         </div>
@@ -38,13 +40,13 @@ const Subscription = () => {
                             </div>
 
                             <div className="plans mb-6 font-bold">
-                                <div className="plan flex items-center p-4 rounded border border-gray-100 mb-4">
+                                <div className={`${subscriptions}`}>
                                     <h2 className="bg-blue-500 text-white py-1 px-2 rounded">30-Days Free trial*</h2>
                                 </div>
-                                <div className="plan flex items-center p-4 rounded border border-gray-100 mb-4">
+                                <div className={`${subscriptions}`}>
                                     <h2 className="text-white text-lg">₹599/month</h2>
                                 </div>
-                                <div className="plan flex items-center p-4 rounded border border-gray-100 mb-4">
+                                <div className={`${subscriptions}`}>
                                     <h2 className="text-white text-lg">₹1,499/year</h2>
                                 </div>
                             </div>
@@ -59,7 +61,7 @@ const Subscription = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div >
             )}
         </>
     );

@@ -18,7 +18,6 @@ const MoreMovies = () => {
     useEffect(() => {
         get(`/ott/show?limit=30&page=${page}`)
         get(`/ott/show?filter={"type":"${type}"}&limit=30&page=${page}`)
-
     }, [page]);
 
     useEffect(() => {

@@ -7,6 +7,7 @@
 
 body {
     background-color: #000;
+    overflow-x: hidden;
 
 }
 
@@ -80,4 +81,25 @@ body {
 
 .parent-homelist:hover .home-list {
     display: block !important;
+}
+
+
+.change-button {
+    background-image: linear-gradient(-225deg,
+            #231557 0%,
+            #44107a 29%,
+            #AAAAAA 67%,
+            #FFFFFF 100%);
+    background-clip: border-box;
+    background-size: 200% auto;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 1.5s linear infinite;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
 }

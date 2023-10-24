@@ -91,25 +91,36 @@ export default function Banner() {
 
                     <div key={item._id} className='w-[93vw] m-auto  relative overflow-hidden'>
                         <div className='absolute inset-0 gradientToRight'></div>
-                        <img className='aspect-[16/9] md:aspect-[18/6] lg:w-[91.2vw] w-full m-auto block cursor-pointer object-cover object-top leading-7 rounded-lg' src={images[i].bigImg} />
-                        <section className='w-full lg:w-[40%] h-full absolute left-1 top-3 border-5 border-solid border-red md:pl-12 px-2 flex flex-col justify-around'>
+                        <img className='aspect-[16/9] md:aspect-[18/6] lg:w-[91.2vw] w-full m-auto block 
+                        cursor-pointer object-cover object-top leading-7 rounded-lg'
+                            src={images[i].bigImg} />
+                        <section className='w-full lg:w-[40%] h-full absolute left-1 top-3 border-5 
+                        border-solid border-red md:pl-12 px-2 flex flex-col justify-around'>
                             <div>
                                 {
                                     i == 0 &&
-                                    <span className='text-[#FFFFFF] hidden text-2xl mb-[1.3vw]  cursor-default font-bold pt-[2vw] lg:flex justify-start leading-7'>
+                                    <span className='text-[#FFFFFF] hidden text-2xl mb-[1.3vw]  cursor-default
+                                     font-bold pt-[2vw] lg:flex justify-start leading-7'>
                                         #1 in India
                                     </span>
                                 }
 
                                 <div className=' w-[40%]'>
-                                    <Link to="/moviedetails"><img className='object-contain object-bottom w-full aspect-square' src={images[i].smallImg} alt='rokyranilogo' /></Link>
+                                    <Link to="/moviedetails">
+                                        <img
+                                            className='object-contain object-bottom w-full aspect-square'
+                                            src={images[i].smallImg}
+                                            alt='rokyranilogo' />
+                                    </Link>
                                 </div>
 
                             </div>
                             <div >
                                 <div className='flex mt-[2vw]  items-center cursor-default'>
                                     <span>
-                                        <img className='w-[22px] h-[22px] mr-2 ' src={checkbox} />
+                                        <img
+                                            className='w-[22px] h-[22px] mr-2 '
+                                            src={checkbox} />
                                     </span>
                                     <span className='text-white w-[247.59px] h-[25px] md:text-lg font-bold '>
                                         Watch with a free Prime trial
@@ -120,11 +131,15 @@ export default function Banner() {
                                 </div>
 
                                 <div className=' lg:flex gap-0.5 hidden mb-8 mt-4'>
-                                    <Link to="/moviedetails"> <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-xl py-2 px-[21px]
-                            rounded-lg text-left opacity-[1] mr-6 font-semibold  min-h-[62px] cursor-pointer'>More details</button></Link>
-                                    <Link to="/moviedetails"> <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
-                                        <TfiVideoClapper className='cursor-pointer h-[33px] w-[33px] text-white' />
-                                    </button>
+                                    <Link to="/moviedetails">
+                                        <button className='bg-[#FFFFFF] text-[#00050D] w-[155.48px] h-[62px] text-xl py-2 px-[21px]
+                                         rounded-lg text-left opacity-[1] mr-6 font-semibold  min-h-[62px] cursor-pointer'>
+                                            More details</button>
+                                    </Link>
+                                    <Link to="/moviedetails">
+                                        <button className='bg-[#FFFFFF33] w-[61px] h-[61px] rounded-[50%] flex items-center justify-center'>
+                                            <TfiVideoClapper className='cursor-pointer h-[33px] w-[33px] text-white' />
+                                        </button>
                                     </Link>
                                 </div>
                             </div>
@@ -132,14 +147,12 @@ export default function Banner() {
                     </div>
                 ))
                 }
-
             </Flickity>
             <CardOne title='movie' />
             <CardOne title='short film' />
             <CardOne title='tv show' />
             <CardOne title='web series' />
             <CardOne title='video song' />
-
         </>
     )
 }

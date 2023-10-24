@@ -104,7 +104,9 @@ const SignIn = () => {
                             <div className='flex flex-col gap-2'>
                                 <p className='text-xs sm:text-sm font-medium'>Email or mobile phone number</p>
                                 <input
-                                    className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.email ? "border-red-600" : ""}`}
+                                    className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none
+                                     focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 
+                                     ${errors.email ? "border-red-600" : ""}`}
                                     type='email'
                                     name='email'
                                     value={formData.email}
@@ -124,7 +126,9 @@ const SignIn = () => {
                             <div className='flex flex-col gap-2'>
                                 <p className='text-xs sm:text-sm font-medium'>Password</p>
                                 <input
-                                    className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 ${errors.password ? "border-red-600" : ""}`}
+                                    className={`w-full py-1 border border-zinc-400 px-2 text-base rounded-md outline-none
+                                     focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100 
+                                     ${errors.password ? "border-red-600" : ""}`}
                                     type='password'
                                     name='password'
                                     value={formData.password}
@@ -143,11 +147,20 @@ const SignIn = () => {
                             </div>
                             <button
                                 type='submit'
-                                className='w-full py-1.5 text-sm font-normal rounded-lg bg-[#F7CA00] hover:bg-gradient-to-b border  border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>
+                                className='w-full py-1.5 text-sm font-normal rounded-lg bg-[#F7CA00] hover:bg-gradient-to-b border 
+                                 border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>
                                 Continue</button>
                         </div>
-                        <p className='text-xs sm:text-sm text-black leading-4 mt-4'>By continuing, you agree to the Amazon <Link to="/learnmore"><span className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Conditions of Use and Privacy Notice.</span></Link></p>
-                        <p className='text-xs sm:text-sm text-gray-600 mt-4 cursor-pointer flex items-center gap-1 group'><BiSolidRightArrow /><Link to="/help"><span className='text-xs sm:text-sm text-blue-600 group-hover:text-orange-700 group-hover:underline underline-offset-1'>Need help</span></Link></p>
+                        <p className='text-xs sm:text-sm text-black leading-4 mt-4'>
+                            By continuing, you agree to the Amazon
+                            <Link to="/learnmore"><span className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 
+                        cursor-pointer'>Conditions of Use and Privacy Notice.</span>
+                            </Link>
+                        </p>
+                        <p className='text-xs sm:text-sm text-gray-600 mt-4 cursor-pointer flex items-center gap-1 group'>
+                            <BiSolidRightArrow />
+                            <Link to="/help"><span className='text-xs sm:text-sm text-blue-600 group-hover:text-orange-700
+                         group-hover:underline underline-offset-1'>Need help</span></Link></p>
                     </div>
                     <p className='w-full text-xs sm:text-sm text-gray-400 mt-4 flex items-center'>
                         <span className='w-1/3 h-[1px] bg-zinc-400 inline-flex'></span>
@@ -155,17 +168,28 @@ const SignIn = () => {
                         <span className='w-1/3 h-[1px] bg-zinc-400 inline-flex'></span>
                     </p>
                     <Link to="/signuppage">
-                        <button className='w-full py-1 sm:py-1 px-4 mt-4   font-normal rounded-md  hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>
+                        <button className='w-full py-1 sm:py-1 px-4 mt-4   font-normal rounded-md  hover:bg-gradient-to-b border
+                         border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>
                             Create your Amazon account
                         </button>
                     </Link>
                 </form>
-                <div className='w-full mt-4 bg-gradient-to-t from-white via-white to bg-gray-100 flex flex-col items-center justify-center py-10'>
+                <div className='w-full mt-4 bg-gradient-to-t from-white via-white to bg-gray-100 flex flex-col items-center 
+                justify-center py-10'>
                     <div className='flex flex-col gap-6 items-center'>
                         <div className='flex items-center gap-6'>
-                            <Link to="/learnmore"> <p className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Terms and Privacy Notice</p></Link>
-                            <Link to="/signinpage"> <p className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Send us feedback</p></Link>
-                            <Link to="/help"><p className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>Help</p></Link>
+                            <Link to="/learnmore">
+                                <p className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>
+                                    Terms and Privacy Notice</p>
+                            </Link>
+                            <Link to="/signinpage">
+                                <p className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>
+                                    Send us feedback</p>
+                            </Link>
+                            <Link to="/help">
+                                <p className='text-blue-600 hover:text-orange-700 hover:underline underline-offset-1 cursor-pointer'>
+                                    Help</p>
+                            </Link>
                         </div>
                         <div>
                             <p className='text-xs text-gray-600'>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
