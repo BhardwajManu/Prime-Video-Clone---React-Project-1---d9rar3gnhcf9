@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsCheck2 } from "react-icons/bs";
-import { TfiVideoClapper } from "react-icons/tfi";
+import { BiSolidVideos } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
 import checkbox from '../assets/images/checkbox.png'
 import useFetch from '../Hooks/useFetch';
@@ -104,7 +104,7 @@ const Card = ({ movie }) => {
                                 }
                                 <Link to={`/details/${movie._id}`}>
                                     <span className='rounded-full bg-[#33373D]  w-[40px] h-[40px] text-white flex justify-center
-                                     movies-center items-center'><TfiVideoClapper />
+                                     movies-center items-center'><BiSolidVideos />
                                     </span>
                                 </Link>
                             </div>

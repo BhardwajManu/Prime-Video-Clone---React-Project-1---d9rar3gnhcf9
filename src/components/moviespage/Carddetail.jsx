@@ -89,10 +89,10 @@ const Carddetail = () => {
                     </div>
 
                     <div className='flex gap-3'>
-                        <Link to="/">
+                        <Link to={`/videoplay/${data?._id}`}>
                             <button className='bg-[#FFFFFF] text-[#00050D] text-lg sm:text-xl py-1 px-[15px] 
                         rounded-lg text-left opacity-[1] mr-6 font-semibold min-h-[62px] cursor-pointer'>
-                                Watch with Prime<br /> Start your 30-day free trial
+                                Watch Video
                             </button>
                         </Link>
                         <div className='flex gap-3'>
@@ -112,8 +112,8 @@ const Carddetail = () => {
                     </div>
                     <span className='text-[#AAAAAA] text-lg font-semibold'>
                         Rentals include 30 days to start watching this video and 48 hours to finish once started.</span>
-                </div>
-            </div>
+                </div >
+            </div >
             <Tabsforcontent />
         </>
     )

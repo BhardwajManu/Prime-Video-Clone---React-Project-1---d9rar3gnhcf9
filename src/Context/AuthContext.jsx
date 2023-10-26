@@ -1,3 +1,4 @@
+
 import { useContext, useState } from 'react'
 import { createContext } from 'react'
 
@@ -51,8 +52,9 @@ const AuthContextProvider = ({ children }) => {
         }
     }
 
-    const setProfileImage = (url) => {
-        localStorage.setItem("prime_user", JSON.stringify({ ...authData.user, profileImage: url }))
+    const setUser = ({ data }) => {
+        console.log(data, 'here');
+        localStorage.setItem("prime_user", JSON.stringify({ ...data }))
         const user = JSON.parse(localStorage.getItem("prime_user"))
         setAuthData(prev => ({
             ...prev,
@@ -60,10 +62,7 @@ const AuthContextProvider = ({ children }) => {
         }))
     }
     return (
-        <authContext.Provider value={{
-            signUser, logoutUser, isUserLoggedIn, authenticated: authData.authenticated,
-            user: authData.user, setProfileImage
-        }}>
+        <authContext.Provider value={{ signUser, logoutUser, isUserLoggedIn, authenticated: authData.authenticated, user: authData.user, setUser }}>
             {children}
         </authContext.Provider>
     )

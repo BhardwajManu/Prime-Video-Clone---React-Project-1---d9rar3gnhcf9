@@ -24,6 +24,7 @@ const UserSetting = () => {
         })
         console.log(data);
     };
+
     return (
         <div className='w-full'>
             <div className='w-full min-h-screen bg-white py-5'>

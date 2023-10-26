@@ -4,10 +4,9 @@ import smallImage from '../../assets/images/firstimgsmall.jpg'
 import secondimg from '../../assets/images/secondimgbig.jpg'
 import secondimgsmall from '../../assets/images/secondimgsmall.jpg'
 import thirdimgsmall from '../../assets/images/thirdimgsmall.jpg'
+import kidimgsmall from '../../assets/images/kidimgsmall.jpg'
+import kidimgbig from '../../assets/images/kidimgbig.jpg'
 import thirdimgbig from '../../assets/images/thirdimgbig.jpg'
-
-
-
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../Context/AuthContext'
 import PlanDetails from './Plandetails'
@@ -59,7 +58,7 @@ const Landingpage = () => {
             url(${secondimgsmall})`
                 }}>
                 </div>
-                <div className='md:p-10 p-4 md:absolute text-white  md:w-1/2 top-0 left-0'>
+                <div className='md:p-10 p-4 md:absolute text-white  md:w-1/2 top-16 left-0'>
                     <h1 className="font-medium text-[44px] mb-4">Movie rentals on Prime Video</h1>
                     <p className='hidden md:block  text-2xl'>Early Access to new movies, before digital subscription</p>
                     <p className='md:hidden text-xl align-middle'>WEarly Access to new movies, before digital subscription</p>
@@ -69,25 +68,47 @@ const Landingpage = () => {
 
             <div className='h-screen relative'>
                 <div className="hidden md:block  min-h-screen w-screen bg-no-repeat bg-cover bg-left-top " style={{
+                    backgroundImage: `url(${thirdimgbig} )`
+                }}>
+                </div>
+                <div className='aspect-video  md:hidden bg-no-repeat bg-cover  w-screen' style={{
+                    backgroundImage: `url( ${thirdimgsmall})`
+
+                }}>
+                </div>
+                <div className='md:p-10 p-4 md:absolute text-white  md:w-1/2 top-20 right-0 '>
+                    <h1 className="font-medium text-[40px] mb-4 ">Even better with Fire TV Stick</h1>
+                    <p className='hidden md:block  text-xl'>The biggest movies and TV shows are always better on a big screen.
+                        Simply plug in your Amazon Fire TV Stick and stream on any HDTV.
+                        Press the voice button on the remote and say the name of the title you want to watch to find it in seconds.</p>
+                    <p className='md:hidden text-xl align-middle'>The biggest movies and TV shows are always better on a big screen.
+                        Simply plug in your Amazon Fire TV Stick and stream on any HDTV.
+                        Press the voice button on the remote and say the name of the title you want to watch to find it in seconds.</p>
+                    <Link to="/anonymous"><button className={`${plansButton}text-[17px] mt-4`}>Get started</button></Link>
+                </div>
+            </div>
+
+            <div className='h-screen relative'>
+                <div className="hidden md:block  min-h-screen w-screen bg-no-repeat bg-cover bg-right-top " style={{
                     backgroundImage: `linear-gradient( to right, #000 40%, transparent 58% ), 
-            url(${thirdimgbig})`
+            url(${kidimgbig})`
                 }}>
                 </div>
                 <div className='aspect-video  md:hidden bg-no-repeat bg-cover  w-screen' style={{
                     backgroundImage:
                         `linear-gradient( to top, #000 0%, transparent 20% ), 
-            url(${thirdimgsmall})`
+            url(${kidimgsmall})`
                 }}>
                 </div>
-                <div className='md:p-10 p-4 md:absolute text-white  md:w-1/2 top-0 left-0'>
-                    <h1 className="font-medium text-[44px] mb-4">Movie rentals on Prime Video</h1>
-                    <p className='hidden md:block  text-2xl'>Early Access to new movies, before digital subscription</p>
-                    <p className='md:hidden text-xl align-middle'>WEarly Access to new movies, before digital subscription</p>
-                    <Link to="/rent"><button className={`${plansButton}text-[17px] mt-4`}>Rent now</button></Link>
+                <div className='md:p-10 p-4 md:absolute text-white  md:w-1/2 top-44 left-0'>
+                    <h1 className="font-medium text-[40px] mb-4">Family Friendly</h1>
+                    <p className='hidden md:block  text-xl'>With easy to use Parental Controls and a dedicated kids page, enjoy secure, ad-free kids entertainment.
+                        Kids can enjoy popular TV shows like Peppa Pig, Powerpuff Girls, and Chhota Bheem.</p>
+                    <p className='md:hidden text-xl align-middle'>With easy to use Parental Controls and a dedicated kids page, enjoy secure, ad-free kids entertainment.
+                        Kids can enjoy popular TV shows like Peppa Pig, Powerpuff Girls, and Chhota Bheem.</p>
+                    <Link to="/anonymous"><button className={`${plansButton}text-[17px] mt-4`}>Get started</button></Link>
                 </div>
             </div>
-
-
         </>
     )
 }

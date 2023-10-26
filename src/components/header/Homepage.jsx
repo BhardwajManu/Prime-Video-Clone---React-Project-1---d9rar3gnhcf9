@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FiChevronDown } from "react-icons/fi";
 import { headerlistTag } from '../../styles/tailwindClasses'
+import useFetch from '../../Hooks/useFetch';
 
 
-const Homepage = () => {
+const Homepage = (props) => {
     const [isHomeHovered, setIsHomeHovered] = useState(false);
+    const { data, get } = useFetch([]);
+
 
     const handleHomeHover = () => {
         setIsHomeHovered(!isHomeHovered);
@@ -28,11 +31,11 @@ const Homepage = () => {
                     <ul className='home-list'>
                         <li><Link to="/home" className={`${headerlistTag}`} >All</Link></li>
                         <li><Link to="/banner" className={`${headerlistTag}`} >Movies</Link></li>
-                        <li><Link to="/anonymous" className={`${headerlistTag}`}>TV shows</Link></li>
+                        <li><Link to={`/moremovies/${props.title}`} className={`${headerlistTag}`}>TV shows</Link></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

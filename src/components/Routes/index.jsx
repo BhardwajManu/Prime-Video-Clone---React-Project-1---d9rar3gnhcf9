@@ -19,6 +19,7 @@ import Help from '../userLogin/Help'
 import MoreMovies from '../../pages/MoreMovies'
 import LearnMore from '../userLogin/LearnMore'
 import UserSetting from '../userLogin/Settings/UserSetting'
+import VideoBanner from '../moviespage/VideoBanner'
 
 
 const Routing = () => {
@@ -50,6 +51,7 @@ const Routing = () => {
                 <Route path="/learnmore" element={<LearnMore />} />
                 <Route path='/help' element={<Help />} />
                 <Route path='/usersettings' element={<UserSetting />} />
+                <Route path='/videoplay/:id' element={<VideoBanner />} />
             </Routes>
         </Layout>
     )

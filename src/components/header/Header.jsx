@@ -8,16 +8,15 @@ import UserList from './UserList';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../Context/AuthContext';
 import { headerlistTag } from '../../styles/tailwindClasses'
-import Homepage from './homepage';
 import Store from './Store';
 import Mystuff from './Mystuff';
+import Homepage from './Homepage';
 
 const Header = () => {
-    const [userInfo, setUserInfo] = useState(JSON.parse(localStorage.getItem("prime_user")) || "")
     const [isSearchComponentVisible, setSearchComponentVisible] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const { authenticated } = useAuthContext()
+    const { user, authenticated } = useAuthContext()
 
     // Add a scroll event listener to track scrolling
     useEffect(() => {
@@ -50,9 +49,9 @@ const Header = () => {
 
     return (
         <>
-            <nav className={`top-0 bg-[#000] z-[1000]  w-full ${isScrolled ? 'fixed rounded-lg  mt-4 ml-64 max-w-[67rem]' : 'relative'}
+            <nav className={`top-0 bg-[#000] z-[1000]  w-full ${isScrolled ? 'fixed rounded-lg  mt-4 ml-56 max-w-[70rem]' : 'relative'}
                  ${isMobileMenuOpen ? '' : ''}`}>
-                <div className="mx-auto max-w-[68rem] h-12 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-[70rem] h-12 sm:px-6 lg:px-8">
                     <div className="relative flex h-12 items-center justify-between max-w-[100%] max-h-[100%] flex-1">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                             {/* Mobile menu button */}
@@ -124,11 +123,11 @@ const Header = () => {
                                         {authenticated &&
                                             <span
                                                 className='text-[#AAA] text-xl mr-3 font-semibold hover:bg-[#191E25] hover:text-white flex items-center '>
-                                                {userInfo.name}</span>
+                                                {user.name}</span>
                                         }
                                         <img
-                                            className="h-8 w-8"
-                                            src={profile}
+                                            className="h-8 w-8 rounded-full"
+                                            src={user?.profileImage}
                                             alt="" />
                                     </span>
                                 </div>
@@ -143,9 +142,9 @@ const Header = () => {
                                     </div>
                                         : <div>
                                             <ul className='home-list'>
-                                                <li><Link to="/signinpage" className={`${headerlistTag}`}>Sign In</Link></li>
-                                                <li><Link to="/help" className={`${headerlistTag}`}>Help</Link></li>
-                                                <li><Link to="/anonymous" className={`${headerlistTag}`}>Watch Anywhere</Link></li>
+                                                <li><Link to="/signinpage" className={`${headerlistTag}`} style={{ whiteSpace: "nowrap" }}>Sign In</Link></li>
+                                                <li><Link to="/help" className={`${headerlistTag}`} style={{ whiteSpace: "nowrap" }} >Help</Link></li>
+                                                <li><Link to="/anonymous" className={`${headerlistTag}`} style={{ whiteSpace: "nowrap" }}>Watch Anywhere</Link></li>
                                             </ul>
                                         </div>
                                     }
