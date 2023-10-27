@@ -12,7 +12,6 @@ import amc from '../../assets/images/amcc.png'
 import docubay from '../../assets/images/docubay.jpg'
 import erosnow from '../../assets/images/erosnow.jpg'
 import hoi from '../../assets/images/hoi.jpg'
-import stingray from '../../assets/images/stingray.png'
 import vjl from '../../assets/images/vjl.png'
 import mubi from '../../assets/images/mubi.jpg'
 import chaupal from '../../assets/images/chaupal.png'
@@ -38,7 +37,6 @@ const Landingpage = () => {
         { gridImg: manorama },
         { gridImg: chaupal },
         { gridImg: vjl },
-        { gridImg: stingray },
         { gridImg: hoi },
         { gridImg: docubay },
         { gridImg: mubi },
