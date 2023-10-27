@@ -44,7 +44,7 @@ const CardOne = (props) => {
                     </h2>
                 </section>
             </div>
-            <div className='ml-5 md:ml-14'>
+            <div className='ml-5 md:ml-14 '>
                 <Flickity
                     className={'carousel'} // default ''
                     elementType={'div'} // default 'div'

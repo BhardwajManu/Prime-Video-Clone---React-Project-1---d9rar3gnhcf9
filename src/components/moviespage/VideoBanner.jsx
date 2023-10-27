@@ -32,7 +32,7 @@ const VideoBanner = () => {
 
         <div className="w-full">
             <div key={data?._id} className="w-full">
-                <video className='md:h-[75vh] sm:h[100vh]  w-full sticky' controls>
+                <video className='md:h-[75vh] h-[75vh]  w-full sticky' controls>
                     <source src={data?.video_url} type="video/mp4" />
                 </video>
             </div>

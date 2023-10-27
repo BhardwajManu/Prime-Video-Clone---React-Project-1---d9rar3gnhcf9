@@ -28,7 +28,7 @@ import spylogo from '../../assets/images/spyLogo.png'
 import Satyapremlogo from '../../assets/images/satyapremLogo.png'
 import { Link } from 'react-router-dom';
 import CardOne from './CardOne';
-
+import { ImHome3 } from 'react-icons/im'
 
 
 const flickityOptions = {
@@ -57,8 +57,21 @@ export default function Banner() {
 
     return (
         <>
+            <div className='text-white flex font-medium pl-5 md:px-[72px] gap-6 mt-2 lg:hidden block'>
+                <Link to="/">
+                    <span><ImHome3 className='text-white text-base mt-1' />
+                    </span>
+                </Link>
+                <Link to="/banner">
+                    <span>Movies</span>
+                </Link>
+                <Link to="/moremovies/Tv shows">
+                    <span>Tv shows</span>
+                </Link>
+            </div>
+
             <div>
-                <h1 className='text-[#FFFFFF] text-4xl px-[72px] my-7 mb-3
+                <h1 className='text-[#FFFFFF] text-4xl px-5 md:px-[72px] my-7 mb-3
                  font-bold tracking-wide  flex justify-start cursor-default'>Movies</h1>
             </div>
             <Flickity

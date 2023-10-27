@@ -5,11 +5,13 @@ import { MdLiveTv } from "react-icons/md";
 import { CgToolbox } from "react-icons/cg";
 import headerLogo from '../../assets/images/Logo-min.png';
 import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
+import { FcVip } from "react-icons/fc";
+import { RiLogoutBoxRLine, RiLoginBoxLine } from "react-icons/ri";
 import profile from '../../assets/images/loginpic.png';
 import CategoriesList from './CatergoryList';
 import SearchButton from './SearchButton';
 import UserList from './UserList';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../Context/AuthContext';
 import { headerlistTag, menutoggle } from '../../styles/tailwindClasses'
 import Store from './Store';
@@ -18,9 +20,10 @@ import Homepage from './Homepage';
 
 const Header = () => {
     const [isSearchComponentVisible, setSearchComponentVisible] = useState(false);
+    const navigate = useNavigate()
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const { user, authenticated } = useAuthContext()
+    const { user, authenticated, logoutUser } = useAuthContext()
 
     // Add a scroll event listener to track scrolling
     useEffect(() => {
@@ -51,6 +54,10 @@ const Header = () => {
         e.stopPropagation()
         setSearchComponentVisible(false)
 
+    }
+    const handleSignout = () => {
+        logoutUser()
+        navigate("/")
     }
 
     return (
@@ -165,21 +172,40 @@ const Header = () => {
                         </Link>
                         <Link to="/banner" className={`${menutoggle}`}>
                             <span><CgToolbox className='mt-1 mr-1' /></span>
-                            Stores
-                        </Link>
-                        <Link to="/anonymous" className={`${menutoggle}`}>
-                            <span><MdLiveTv className='mt-1 mr-1' /></span>
-                            Live TV
-                        </Link>
-                        <Link to="/anonymous" className={`${menutoggle}`}>
-                            <span><TbCategory className='mt-1 mr-1' /></span>
-                            Categories
+                            Movies
                         </Link>
 
-                        <Link to="/watchlist" className={`${menutoggle}`}>
-                            <span><TbCategory className='mt-1 mr-1' /></span>
-                            My stuff
+
+                        {authenticated ? (
+                            <>
+                                <Link to="/watchlist" className={`${menutoggle}`}>
+                                    <span><MdLiveTv className='mt-1 mr-1' /></span>
+                                    My Stuff
+                                </Link>
+                                <Link to="/primeprofits" className={`${menutoggle}`}>
+                                    <span><FcVip className='mt-1 mr-1' /></span>
+                                    Prime benefits
+                                </Link>
+
+                                <Link to="/manageprofiles" className={`${menutoggle}`}>
+                                    <span><TbCategory className='mt-1 mr-1' /></span>
+                                    Manage profile
+                                </Link>
+                            </>
+                        ) : (
+                            <Link to="/signinpage" className={`${menutoggle}`}>
+                                <span><RiLoginBoxLine className='mt-1 mr-1' /></span>
+                                Sign in
+                            </Link>
+                        )}
+
+                        {authenticated ? <Link to="" onClick={handleSignout} className={`${menutoggle}`}>
+                            <span><RiLogoutBoxRLine className='mt-1 mr-1' /></span>
+                            Sign out
                         </Link>
+                            :
+                            ""
+                        }
                     </div>
                 </div>
             </nav>

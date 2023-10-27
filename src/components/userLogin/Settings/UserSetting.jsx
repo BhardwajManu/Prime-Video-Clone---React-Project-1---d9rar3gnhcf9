@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import loginlogo from '../../../assets/images/login.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../../Context/AuthContext';
 import useFetch from '../../../Hooks/useFetch'
 
 
 
 const UserSetting = () => {
-    const { user } = useAuthContext()
+    const { user, authenticated } = useAuthContext()
     const [currentPassword, setCurrentPassword] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const { data, patch } = useFetch(null)
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (!(!!currentPassword && password === confirmPassword)) {
@@ -24,6 +25,9 @@ const UserSetting = () => {
         })
         console.log(data);
     };
+
+
+
 
     return (
         <div className='w-full'>
