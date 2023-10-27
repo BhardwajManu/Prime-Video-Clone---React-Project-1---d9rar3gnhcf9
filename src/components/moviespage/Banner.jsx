@@ -27,7 +27,6 @@ import spidermanlogo from '../../assets/images/spidermanLogo.png'
 import spylogo from '../../assets/images/spyLogo.png'
 import Satyapremlogo from '../../assets/images/satyapremLogo.png'
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import CardOne from './CardOne';
 
 
@@ -51,32 +50,15 @@ const images = [
     { smallImg: spylogo, bigImg: Spy },
 ]
 
-var myHeaders = new Headers();
-myHeaders.append("projectId", "knjxpr9vh9wr");
 
-var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-
-};
 
 export default function Banner() {
-    const [usedata, setUsedata] = useState([]);
 
-    useEffect(() => {
-        fetch("https://academics.newtonschool.co/api/v1/ott/show?limit=12", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                // console.log(result.data)
-                setUsedata(result.data)
-            })
-            .catch(error => console.log('error', error));
-    }, [])
 
     return (
         <>
             <div>
-                <h1 className='text-[#FFFFFF] text-[2.5vw] px-[72px]  mb-3
+                <h1 className='text-[#FFFFFF] text-4xl px-[72px] my-7 mb-3
                  font-bold tracking-wide  flex justify-start cursor-default'>Movies</h1>
             </div>
             <Flickity
@@ -87,9 +69,9 @@ export default function Banner() {
                 reloadOnUpdate // default false
                 static // default false
             >
-                {usedata.map((item, i) => (
+                {images.map((item, i) => (
 
-                    <div key={item._id} className='w-[93vw] m-auto  relative overflow-hidden'>
+                    <div key={i} className='w-[93vw] m-auto  relative overflow-hidden'>
                         <div className='absolute inset-0 gradientToRight'></div>
                         <img className='aspect-[16/9] md:aspect-[18/6] lg:w-[91.2vw] w-full m-auto block 
                         cursor-pointer object-cover object-top leading-7 rounded-lg'
@@ -125,7 +107,7 @@ export default function Banner() {
                                     <span className='text-white w-[247.59px] h-[25px] md:text-lg font-bold '>
                                         Watch with a free Prime trial
                                     </span>
-                                    <span className='text-white bg-[#33373D] text-sm md:text-base px-[7px] py[3px] ml-3.5 font-bold'>
+                                    <span className='text-white bg-[#33373D] text-sm md:text-base px-[7px] py[3px] ml-3.5 hidden sm:block font-bold'>
                                         U/A 13+
                                     </span>
                                 </div>

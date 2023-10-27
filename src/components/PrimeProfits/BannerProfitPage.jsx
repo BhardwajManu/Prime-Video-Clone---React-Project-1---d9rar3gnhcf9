@@ -10,7 +10,6 @@ import primelogo2 from '../../assets/images/primeBenefitLogo1.png'
 import primelogo3 from '../../assets/images/primeBenefitLogo2.png'
 import primelogo4 from '../../assets/images/primeBenefitLogo3.png'
 import primelogo5 from '../../assets/images/primeBenefitLogo4.png'
-import { useEffect, useState } from 'react';
 import CardsProfit from './CardsProfit';
 import { Link } from 'react-router-dom';
 
@@ -25,31 +24,13 @@ const images = [
     { smallImg: primelogo4, bigImg: primeprofit4 },
     { smallImg: primelogo5, bigImg: primeprofit5 },
 ]
-var myHeaders = new Headers();
-myHeaders.append("projectId", "knjxpr9vh9wr");
 
-var requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-
-};
 
 export default function BannerProfitPage() {
-    const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetch("https://academics.newtonschool.co/api/v1/ott/show?limit=5", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                console.log(result.data)
-                setData(result.data)
-            })
-            .catch(error => console.log('error', error));
-    }, [])
 
     return (
         <>
-
             <Flickity
                 className={'carousel'} // default ''
                 elementType={'div'} // default 'div'
@@ -58,8 +39,8 @@ export default function BannerProfitPage() {
                 reloadOnUpdate // default false
                 static // default false
             >
-                {data.map((item, i) => (
-                    <div key={item._id} className='w-[94vw] m-auto  relative overflow-hidden '>
+                {images.map((item, i) => (
+                    <div key={i} className='w-[94vw] m-auto  relative overflow-hidden '>
                         <div className='absolute inset-0 gradientToRight'></div>
                         <img className='aspect-[16/9] md:aspect-[18/6] lg:w-[91vw] w-full  m-auto block cursor-pointer object-cover 
                         object-top leading-7 rounded-lg'

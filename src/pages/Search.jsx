@@ -17,10 +17,10 @@ const Search = () => {
         <div className='px-20'>
             <Filters />
             <div>
-                <h1 className='text-[1.3vw] font-bold text-white  py-6'>Result for "{query}".</h1>
+                <h1 className='text-2xl font-bold text-white  py-6'>Result for "{query}".</h1>
             </div>
             <div>
-                <h1 className='text-[1.3vw] font-bold text-white  pt-6'>More videos</h1>
+                <h1 className='text-2xl font-bold text-white  pt-6'>More videos</h1>
             </div>
             <div className='grid gap-2 md:gap-4 py-10  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'>
                 {

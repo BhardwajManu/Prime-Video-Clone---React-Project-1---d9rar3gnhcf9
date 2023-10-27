@@ -21,13 +21,13 @@ const PlanDetails = () => {
             <div className="mt-2.5 mb-2.5 ml-16">
                 <span
                     onClick={toggleModal}
-                    className=" text-lg font-semibold underline hover:no-underline py-1 px-2 cursor-pointer">
+                    className=" text-lg font-semibold underline hover:no-underline py-1 px-2 cursor-pointer hidden sm:block">
                     ⓘ Plan details
                 </span>
             </div>
 
             {modal && (
-                <div className="modal-overlay">
+                <div className="modal-overlay z-50">
                     <div className="modal-plan">
                         <div className="modal-container-plan-detail">
                             <TfiClose
@@ -52,4 +52,3 @@ const PlanDetails = () => {
 };
 
 export default PlanDetails;
-

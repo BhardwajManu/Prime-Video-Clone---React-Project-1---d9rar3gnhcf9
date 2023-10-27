@@ -13,6 +13,9 @@ import { imbdTags, uaXray, movieIconBtn, movieIcons } from "../../styles/tailwin
 const Carddetail = () => {
     const [data, setData] = useState([]);
     const { id } = useParams();
+
+
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -40,7 +43,7 @@ const Carddetail = () => {
     return (
         <>
 
-            <div key={data?._id} className='h-screen relative'>
+            <div key={data?._id} className='relative'>
                 <div className='hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top'
                     style={{
                         backgroundImage: `linear-gradient( to right, #000 40%, transparent 78% ),
@@ -48,10 +51,17 @@ const Carddetail = () => {
                     }}>
 
                 </div>
+                <div className='aspect-video md:hidden bg-no-repeat bg-cover w-screen'
+                    style={{
+                        backgroundImage: `linear-gradient( to top, #000 10%, transparent 78% ),
+                    url(${data?.thumbnail})`
+                    }}>
 
-                <div className='cursor-default flex flex-col gap-6 justify-start items-start ml-20 mt-24 
+                </div>
+
+                <div className='cursor-default flex flex-col gap-6 justify-start items-start mx-9  md:ml-20 md:mt-24 mt-14
                 h-max relative pb-10 md:absolute  md:w-1/2 top-0 left-0'>
-                    <h1 className='text-[#FFFFFF] text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>{data?.title}</h1>
+                    <h1 className='text-[#FFFFFF] text-4xl md:text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>{data?.title}</h1>
                     <span className='text-[#FFFFFF] hidden sm:block text-xl mt-5 font-bold max-w-4xl'>{data?.description}</span>
 
                     <div className='text-white flex gap-3 '>
@@ -99,21 +109,19 @@ const Carddetail = () => {
                             <button className={`${movieIconBtn}`}>
                                 <TfiVideoClapper className={`${movieIcons}`} />
                             </button>
-                            <button className={`${movieIconBtn}`}>
-                                <PiPlusBold className={`${movieIcons}`} />
-                            </button>
-                            <button className={`${movieIconBtn}`}>
+
+                            <button className={`${movieIconBtn} `}>
                                 <MdCelebration className={`${movieIcons}`} />
                             </button>
-                            <button className={`${movieIconBtn}`}>
+                            <button className={`${movieIconBtn} `}>
                                 <FiShare2 className={`${movieIcons}`} />
                             </button>
                         </div>
                     </div>
                     <span className='text-[#AAAAAA] text-lg font-semibold'>
                         Rentals include 30 days to start watching this video and 48 hours to finish once started.</span>
-                </div >
-            </div >
+                </div>
+            </div>
             <Tabsforcontent />
         </>
     )

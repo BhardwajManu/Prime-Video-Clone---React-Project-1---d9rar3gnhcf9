@@ -11,6 +11,10 @@ body {
 
 }
 
+.active-link {
+    color: white;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }

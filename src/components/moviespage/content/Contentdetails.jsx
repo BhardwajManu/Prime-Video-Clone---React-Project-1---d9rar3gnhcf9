@@ -18,15 +18,15 @@ import { imbdTags, uaXray, movieIconBtn, movieIcons, ludot } from "../../../styl
 const Contentdetails = () => {
     return (
         <>
-            <div className='h-screen relative'>
+            <div className=' relative'>
                 <div className='hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top'
                     style={{ backgroundImage: `linear-gradient( to right, #000 40%, transparent 78% ),url(${rokiBig})` }}></div>
                 <div className='aspect-video md:hidden bg-no-repeat bg-cover w-screen'
-                    style={{ backgroundImage: `linear-gradient( to top, #000 0%, transparent 20% ),url(${rokiSmall})` }}></div>
+                    style={{ backgroundImage: `linear-gradient( to right, #000 5%, transparent 70% ),url(${rokiSmall})` }}></div>
 
-                <div className=' cursor-default flex flex-col gap-4 justify-start items-start ml-20 mt-20 h-max relative pb-10 
-                md:absolute  md:w-1/2 top-0 left-0'>
-                    <h1 className='text-[#FFFFFF] text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>
+                <div className=' cursor-default flex flex-col gap-4 justify-start items-start mx-9 md:ml-20 md:mt-24 mt-14 h-max relative
+                 pb-10 md:absolute  md:w-1/2 top-0 left-0'>
+                    <h1 className='text-[#FFFFFF] text-4xl md:text-5xl font-extrabold tracking-wide max-w-lg leading-normal'>
                         Rocky Aur Rani Kii Prem Kahaani</h1>
                     <span className='text-[#FFFFFF] hidden sm:block text-xl mt-5 font-bold max-w-4xl'>
                         A rollercoaster journey taking you through an epic love story in a new-age era, topped with hearty
@@ -69,7 +69,7 @@ const Contentdetails = () => {
 
                     <div className='flex gap-3'>
                         <Link to="/">
-                            <button className='bg-[#FFFFFF] text-[#00050D] text-lg sm:text-xl py-1 px-[15px] rounded-lg text-left 
+                            <button className='bg-[#FFFFFF] text-[#00050D] hidden sm:block text-lg sm:text-xl py-1 px-[15px] rounded-lg text-left 
                         opacity-[1] mr-6 font-semibold min-h-[62px] cursor-pointer'>
                                 Watch with Prime<br /> Start your 30-day free trial
                             </button>

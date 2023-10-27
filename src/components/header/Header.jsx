@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { AiFillHome } from "react-icons/ai";
+import { TbCategory } from "react-icons/tb";
+import { MdLiveTv } from "react-icons/md";
+import { CgToolbox } from "react-icons/cg";
 import headerLogo from '../../assets/images/Logo-min.png';
 import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
 import profile from '../../assets/images/loginpic.png';
@@ -7,7 +11,7 @@ import SearchButton from './SearchButton';
 import UserList from './UserList';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../Context/AuthContext';
-import { headerlistTag } from '../../styles/tailwindClasses'
+import { headerlistTag, menutoggle } from '../../styles/tailwindClasses'
 import Store from './Store';
 import Mystuff from './Mystuff';
 import Homepage from './Homepage';
@@ -33,10 +37,12 @@ const Header = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    // Toggle mobile menu
-    // const toggleMobileMenu = () => {
-    //     setIsMobileMenuOpen(!isMobileMenuOpen);
-    // };
+
+    //Toggle mobile menu
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
 
     const openSearch = () => {
         setSearchComponentVisible(true);
@@ -49,20 +55,22 @@ const Header = () => {
 
     return (
         <>
-            <nav className={`top-0 bg-[#000] z-[1000]  w-full ${isScrolled ? 'fixed rounded-lg  mt-4 ml-56 max-w-[70rem]' : 'relative'}
-                 ${isMobileMenuOpen ? '' : ''}`}>
+            <nav className={`top-0 bg-[#000] z-[1000] w-full ${isScrolled ? 'fixed :relative' : 'relative'} rounded-lg 
+        ${isScrolled ? 'mt-5  max-w-[70rem] md:ml-56' : ''} ${isMobileMenuOpen ? '' : ''}`}>
+
                 <div className="mx-auto max-w-[70rem] h-12 sm:px-6 lg:px-8">
                     <div className="relative flex h-12 items-center justify-between max-w-[100%] max-h-[100%] flex-1">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                             {/* Mobile menu button */}
                             <button
+                                onClick={toggleMobileMenu}
                                 type="button"
                                 className="relative inline-flex items-center justify-center rounded-md p-2
                              text-gray-400 hover:bg-gray-700 hover:text-white">
                                 <span className="absolute -inset-0.5"></span>
                                 <span className="sr-only">Open main menu</span>
                                 {/* Icon when the menu is closed */}
-                                <span className="tracking-[1px] font-semibold text-[16px] text-[#AAA]">Menu</span>
+                                <span className="tracking-[1px] font-semibold text-[16px] text-white">Menu</span>
                             </button>
                         </div>
                         <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -78,7 +86,6 @@ const Header = () => {
                                 <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                                     <Homepage />
                                     <Store />
-
                                     <div>
                                         <Link to="/anonymous"
                                             className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex"
@@ -117,19 +124,15 @@ const Header = () => {
                             {/* Profile dropdown */}
                             <div className="relative ml-3 px-2 parent-homelist hover:bg-[#191E25] cursor-pointer">
                                 <div>
-                                    <span
-                                        type="button"
-                                        className="relative flex rounded-full text-sm">
-                                        {authenticated &&
-                                            <span
-                                                className='text-[#AAA] text-xl mr-3 font-semibold hover:bg-[#191E25] hover:text-white flex items-center '>
-                                                {user.name}</span>
-                                        }
-                                        <img
-                                            className="h-8 w-8 rounded-full"
-                                            src={user?.profileImage}
-                                            alt="" />
-                                    </span>
+                                    {authenticated ? (
+                                        <span type="button" className="relative flex rounded-full text-sm">
+                                            <span className='text-[#AAA] hidden change-button sm:block text-xl mr-2 font-semibold
+                                             hover:bg-[#191E25] hover:text-white items-center'>
+                                                {user.name}
+                                            </span>
+                                            <img className="h-8 w-8 rounded-full" src={user?.profileImage} alt="" />
+                                        </span>
+                                    ) : <img className="h-8 w-8 rounded-full" src={profile} alt="" />}
                                 </div>
 
                                 {/* Dropdown menu */}
@@ -154,27 +157,33 @@ const Header = () => {
                     </div>
                 </div>
                 {/* Mobile menu */}
-                {/* <div className="sm:hidden">
+                <div className={`sm:hidden ${isMobileMenuOpen ? '' : 'hidden'}`}>
                     <div className="space-y-1 px-2 pb-3 pt-2">
-                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                        <Link to="/" className={`${menutoggle}`}>
                             <span><AiFillHome className='mt-1 mr-1' /></span>
                             Home
-                        </a>
-                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                        </Link>
+                        <Link to="/banner" className={`${menutoggle}`}>
                             <span><CgToolbox className='mt-1 mr-1' /></span>
                             Stores
-                        </a>
-                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                        </Link>
+                        <Link to="/anonymous" className={`${menutoggle}`}>
                             <span><MdLiveTv className='mt-1 mr-1' /></span>
                             Live TV
-                        </a>
-                        <a href="#" className="text-gray-300  hover-bg-gray-700 hover-text-white text-[17px] rounded-md px-3 py-2 text-base font-small flex">
+                        </Link>
+                        <Link to="/anonymous" className={`${menutoggle}`}>
                             <span><TbCategory className='mt-1 mr-1' /></span>
                             Categories
-                        </a>
+                        </Link>
+
+                        <Link to="/watchlist" className={`${menutoggle}`}>
+                            <span><TbCategory className='mt-1 mr-1' /></span>
+                            My stuff
+                        </Link>
                     </div>
-                </div> */}
+                </div>
             </nav>
+
         </>
     );
 };

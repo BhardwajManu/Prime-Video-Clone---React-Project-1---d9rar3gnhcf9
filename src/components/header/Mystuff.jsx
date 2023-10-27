@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useAuthContext } from '../../Context/AuthContext'
 import { headerlistTag } from '../../styles/tailwindClasses'
 import { FiChevronDown } from "react-icons/fi";
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const Mystuff = () => {
@@ -23,12 +23,13 @@ const Mystuff = () => {
                     onMouseEnter={handleMyStuffHover}
                     onMouseLeave={handleMyStuffHover}
                 >
-                    <Link to="/watchlist"
+                    <NavLink to="/watchlist"
+                        style={({ isActive }) => ({ color: isActive ? "white" : "#AAAAAA" })}
                         className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex"
-                        style={{ whiteSpace: 'nowrap' }}>
+                    >
                         My Stuff
                         <span className={`mt-2 transform ${isMyStuffHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
-                    </Link>
+                    </NavLink>
                     <div
                         className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isMyStuffHovered ? 'block' : 'hidden'}`}>
                         <ul className='home-list'>

@@ -27,9 +27,9 @@ const SearchButton = ({ closeSearch }) => {
         <div
             className='fixed inset-0 bg-[rgba(0,0,0,0.7)]'
             onClick={closeSearchBar}>
-            <div className='relative top-12 left-0 right-0 z-[100]'>
-                <div className='bg-[#191E25] mx-auto p-5 ml-64   max-w-[64rem] rounded-lg mt-2'>
-                    <div className='flex flex-col  w-[60rem] bg-[#33373D] rounded-lg'>
+            <div className='relative top-11 left-0 right-0 z-[100]'>
+                <div className='bg-[#191E25] mx-auto p-5  sm:ml-4 md:ml-24 lg:ml-64  max-w-[64rem] rounded-lg mt-2'>
+                    <div className='flex flex-col sm:w-full  bg-[#33373D] rounded-lg'>
                         <form
                             onSubmit={handleSubmit}
                             className='relative'

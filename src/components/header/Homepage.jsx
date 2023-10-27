@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FiChevronDown } from "react-icons/fi";
 import { headerlistTag } from '../../styles/tailwindClasses'
-import useFetch from '../../Hooks/useFetch';
 
 
-const Homepage = (props) => {
+const Homepage = () => {
     const [isHomeHovered, setIsHomeHovered] = useState(false);
-    const { data, get } = useFetch([]);
+
+
 
 
     const handleHomeHover = () => {
@@ -22,20 +22,24 @@ const Homepage = (props) => {
             >
                 <div className="hover:bg-[#191E25] hover:text-white px-4 py-2 flex items-center">
                     <NavLink to="/home"
-                        style={({ isActive }) => ({ color: isActive ? "white" : "#AAAAAA" })}>
-                        <span>Home</span>
+                        style={({ isActive }) => ({ color: isActive ? "white" : "#AAAAAA" })}
+
+                    >
+                        Home
                     </NavLink>
                     <span className={`mt-2 transform ${isHomeHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span>
                 </div>
                 <div className={`z-50 absolute mt-[38px] w-auto top-0 rounded-sm bg-[#191E25] py-2 ${isHomeHovered ? 'block' : 'hidden'}`}>
+
                     <ul className='home-list'>
                         <li><Link to="/home" className={`${headerlistTag}`} >All</Link></li>
                         <li><Link to="/banner" className={`${headerlistTag}`} >Movies</Link></li>
-                        <li><Link to={`/moremovies/${props.title}`} className={`${headerlistTag}`}>TV shows</Link></li>
+                        <li><Link to="/moremovies/Tv Shows" className={`${headerlistTag}`}>TV shows</Link></li>
                     </ul>
+
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

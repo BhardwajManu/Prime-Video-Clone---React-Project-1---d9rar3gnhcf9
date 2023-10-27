@@ -21,9 +21,9 @@ const CategoryList = () => {
                 <Link to="/anonymous" className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex"
                     style={{ whiteSpace: 'nowrap' }}>Categories
                     <span className={`mt-2 transform ${isCategoriesHovered ? 'rotate-180' : ''}`}><FiChevronDown /></span></Link>
-                <div className="z-50 absolute mt-12 w-auto right-0 top-0 rounded-lg bg-[#191E25] ">
+                <div className="z-50 absolute mt-11 w-auto right-0 top-0 rounded-lg bg-[#191E25] ">
                     <div className={`${isCategoriesHovered ? 'block' : 'hidden'}`}>
-                        <div className='bg-[#191E25] mx-auto max-w-5xl'>
+                        <div className='bg-[#191E25] mx-auto max-w-5xl rounded-lg'>
                             <div className="flex justify-between py-5 w-[65rem]">
                                 <div className="flex flex-col  pl-24">
                                     <h1 className="text-white text-xl font-medium cursor-default">Genres</h1>

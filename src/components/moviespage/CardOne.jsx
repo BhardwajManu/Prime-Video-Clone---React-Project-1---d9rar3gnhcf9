@@ -12,7 +12,7 @@ const flickityOptions = {
     initialIndex: 0,
     groupCells: true,
     pageDots: false,
-    resize: false,
+    cellAlign: 'left'
 }
 
 
@@ -29,7 +29,7 @@ const CardOne = (props) => {
     return (
         <>
             <div>
-                <section className='text-[#FFF] mt-14 ml-[4%] cursor-default'>
+                <section className='text-[#FFF] mt-14 ml-5 md:ml-14 cursor-default'>
                     <h2 className='flex  pb-4 text-xl'>
                         <div>
                             <span className='font-bold text-[#1A98FF]'>Prime</span>
@@ -44,22 +44,24 @@ const CardOne = (props) => {
                     </h2>
                 </section>
             </div>
-            <Flickity
-                className={'carousel'} // default ''
-                elementType={'div'} // default 'div'
-                options={flickityOptions} // takes flickity options {}
-                disableImagesLoaded={false} // default false
-                reloadOnUpdate // default false
-                static // default false
-            >
+            <div className='ml-5 md:ml-14'>
+                <Flickity
+                    className={'carousel'} // default ''
+                    elementType={'div'} // default 'div'
+                    options={flickityOptions} // takes flickity options {}
+                    disableImagesLoaded={false} // default false
+                    reloadOnUpdate // default false
+                    static // default false
+                >
 
 
-                {data?.data?.map((item) => (
-                    <Card key={item._id} movie={item} />
-                ))}
+                    {data?.data?.map((item) => (
+                        <Card key={item._id} movie={item} />
+                    ))}
 
 
-            </Flickity>
+                </Flickity>
+            </div>
         </>
     )
 }

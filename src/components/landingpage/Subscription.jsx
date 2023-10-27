@@ -26,20 +26,20 @@ const Subscription = () => {
             </button>
 
             {modal && (
-                <div className="modal-container">
+                <div className="modal-container z-50">
                     <div className="modal">
                         <div className="modal-header">
                             <span onClick={toggleModal}
-                                className='cross-button'>
+                                className='cross-button '>
                                 <TfiClose />
                             </span>
                         </div>
                         <div className="modal-content">
-                            <div className="flex items-center justify-center">
-                                <h1 className="text-3xl text-white font-bold pb-8">Prime Plans</h1>
+                            <div className="flex items-center justify-center ">
+                                <h1 className="text-3xl text-white font-bold pb-8 hidden sm:block">Prime Plans</h1>
                             </div>
 
-                            <div className="plans mb-6 font-bold">
+                            <div className="plans mb-6 font-bold hidden sm:block">
                                 <div className={`${subscriptions}`}>
                                     <h2 className="bg-blue-500 text-white py-1 px-2 rounded">30-Days Free trial*</h2>
                                 </div>
@@ -51,17 +51,18 @@ const Subscription = () => {
                                 </div>
                             </div>
 
-                            <div className="youth-offer flex items-center mb-4 justify-evenly">
+
+                            <div className="youth-offer  items-center mb-4 justify-evenly">
                                 <p className="text-white bg-pink-400 px-3 py-1 rounded">YOUTH OFFER</p>
                                 <p className="text-xl text-white">50% off on all Prime plans**</p>
                             </div>
 
-                            <div className="note text-sm text-white">
+                            <div className="note text-sm text-white hidden sm:block">
                                 Login to Amazon to check if you're eligible for a 30-Day Free trial of Prime upon successful age verification.
                             </div>
                         </div>
                     </div>
-                </div >
+                </div>
             )}
         </>
     );

@@ -81,7 +81,7 @@ const Moviedetails = () => {
                         <span className={`${extraBold}`}>Support</span>
                         <span className='underline underline-offset-1'>Get Help</span>
                     </div>
-                </div >
+                </div>
             ))}
         </>
     )

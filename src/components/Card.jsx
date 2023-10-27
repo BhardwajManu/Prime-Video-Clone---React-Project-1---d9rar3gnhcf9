@@ -113,7 +113,7 @@ const Card = ({ movie }) => {
                         <div className='flex movies-start justify-between py-2 gap-2'>
                             <h2 className='text-[#AAA]'>2023</h2>
                             <h2 className='text-[#AAA]'>2h 28min</h2>
-                            <span className='text-white bg-[#33373D] px-2 whitespace-nowrap flex items-center justify-end'>U/A 13+</span>
+                            {/* <span className='text-white bg-[#33373D] px-2 whitespace-nowrap flex items-center justify-end'>U/A 13+</span> */}
                         </div>
 
                         <div>

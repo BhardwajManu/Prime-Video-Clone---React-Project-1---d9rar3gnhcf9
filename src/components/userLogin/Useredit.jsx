@@ -18,6 +18,7 @@ const Useredit = () => {
     }
 
     useEffect(() => {
+        // eslint-disable-next-line no-extra-boolean-cast
         if (!!data?.data?.user) {
             setUser({ data: { ...data.data.user } })
             navigate("/manageprofiles")
@@ -50,16 +51,16 @@ const Useredit = () => {
 
     return (
         <>
-            <div className='bg-[#0F171e] min-h-screen'>
+            <div className='bg-[#0F171e] min-h-screen '>
 
                 {/* Header */}
                 <Link to='/'>
-                    <div className='px-6 sm:px-10 py-6 w-full sm:w-[13vw] text-[#FFFFFF]'>
+                    <div className='px-6 sm:px-10 py-6 w-full ml-5  md:w-[15vw] text-[#FFFFFF]'>
                         <img src={headerLogo} alt='' />
                     </div>
                 </Link>
 
-                <div className='flex flex-col items-center justify-center gap-1'>
+                <div className='flex flex-col items-center justify-center sm:px-4 px-4 gap-1'>
 
                     {/* Title */}
                     <h1 className='text-2xl sm:text-3xl font-extrabold text-[#FFFFFF] sm:text-center'>
