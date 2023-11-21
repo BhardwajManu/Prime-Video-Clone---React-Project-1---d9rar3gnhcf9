@@ -8,17 +8,17 @@ import { HiOutlineSearch, HiOutlineX } from "react-icons/hi";
 import { FcVip } from "react-icons/fc";
 import { RiLogoutBoxRLine, RiLoginBoxLine } from "react-icons/ri";
 import profile from "../../assets/images/loginpic.png";
-import CategoriesList from "./CatergoryList";
-import SearchButton from "./SearchButton";
-import UserList from "./UserList";
+import CategoriesList from "../header/CatergoryList";
+import SearchButton from "../header/SearchButton";
+import UserList from "../header/UserList";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../Context/AuthContext";
 import { headerlistTag, menutoggle } from "../../styles/tailwindClasses";
-import Store from "./Store";
-import Mystuff from "./Mystuff";
-import Homepage from "./Homepage";
+import Store from "../header/Store";
+import Mystuff from "../header/Mystuff";
+import Homepage from "../header/Homepage";
 
-const Header = () => {
+const LandingHeader = () => {
   const [isSearchComponentVisible, setSearchComponentVisible] = useState(false);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,11 +62,9 @@ const Header = () => {
     <>
       <nav
         className={`top-0 bg-[#000] z-[1000] w-full ${
-          isScrolled ? "fixed :relative" : "relative"
+          isScrolled ? "relative" : "fixed"
         } rounded-lg 
-        ${isScrolled ? "mt-5  max-w-[70rem] md:ml-56" : ""} ${
-          isMobileMenuOpen ? "" : ""
-        }`}
+        ${isScrolled ? " md:ml-56" : ""} ${isMobileMenuOpen ? "" : ""}`}
       >
         <div className="mx-auto max-w-[70rem] h-12 sm:px-6 lg:px-8">
           <div className="relative flex h-12 items-center justify-between max-w-[100%] max-h-[100%] flex-1">
@@ -275,4 +273,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LandingHeader;
