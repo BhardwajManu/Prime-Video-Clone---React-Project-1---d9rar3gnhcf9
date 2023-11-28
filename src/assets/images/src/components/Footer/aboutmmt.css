@@ -1,0 +1,57 @@
+.about{
+    background-color: #E7E7E7;
+}
+.about-main-div{
+    /* border: 2px solid blue; */
+    display: flex;
+    height: 40vh;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    background-color: #E7E7E7;
+}
+.why-mmt{
+    width: 60%;
+    /* border: 2px solid rebeccapurple; */
+    height: 292px;
+    display: flex;
+    flex-direction: column;
+}
+.why-mmt h3{
+    font-size: 16px;
+    text-align: left;
+}
+.why-mmt p{
+    font-size: 12px;
+    text-align: left;
+}
+.booking-flights{
+    width: 60%;
+    /* border: 2px solid rebeccapurple; */
+    height: 292px;
+    display: flex;
+    flex-direction: column;
+}
+.booking-flights p{
+    font-size: 12px;
+    text-align: left;
+}
+.booking-flights h3{
+    font-size: 16px;
+    text-align: left;
+}
+.domestic-flights{
+    width: 60%;
+    /* border: 2px solid rebeccapurple; */
+    height: 292px;
+    display: flex;
+    flex-direction: column;
+}
+.domestic-flights h3{
+    font-size: 16px;
+    text-align: left;
+}
+.domestic-flights{
+    font-size: 12px;
+    text-align: left;
+}

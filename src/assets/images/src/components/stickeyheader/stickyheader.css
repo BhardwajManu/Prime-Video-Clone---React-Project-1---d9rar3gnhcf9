@@ -1,0 +1,16 @@
+.stickyheadermaindiv{
+    /* border: 2px solid yellow; */
+    height: 7vh;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    display: flex;
+}
+.bluelogodiv img{
+    height: 36px;
+    width: 113px;
+}
+.navlinkslist{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+}

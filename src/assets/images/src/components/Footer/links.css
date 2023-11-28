@@ -1,0 +1,16 @@
+.links{
+    background-color: #F2F2F2;
+}
+.links-main-div{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 40px 0px;
+}
+.links-heading{
+    font-size: 10px;
+    font-weight: bolder;
+}
+.links-para{
+    font-size: 12px;
+}

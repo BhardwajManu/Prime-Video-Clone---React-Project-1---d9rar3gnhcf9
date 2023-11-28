@@ -1,0 +1,96 @@
+.headernav{
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mainheadernav{
+    /* border: 2px solid yellow; */
+    background-color: white;
+    height: 84px;
+    width: 868px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 8px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
+    background-color: #fff;
+    font-size: 14px;
+}
+.headernavlist{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+}
+.headernavlist li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.flightimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -5px -44px;
+    height: 32px;
+    width: 42px;
+    background-size: 260px 400px;
+}
+.hotelimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -60px 0;
+    height: 36px;
+    width: 40px;
+    background-size: 260px 400px;
+}
+.homestaysimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -57px -83px;
+    height: 37px;
+    width: 44px;
+    background-size: 260px 400px;
+}
+.holidayimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -109px -4px;
+    height: 33px;
+    width: 42px;
+    background-size: 260px 400px;
+}
+.trainimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -156.5px -3px;
+    height: 37px;
+    width: 47px;
+    background-size: 260px 400px;
+}
+.busesimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -210.5px -2px;
+    height: 36px;
+    width: 43px;
+    background-size: 260px 400px;
+}
+.cabsimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -110px -82px;
+    height: 37px;
+    width: 39px;
+    background-size: 260px 400px;
+}
+.foreximage{
+    background-image: url("../images/headerimages.png");
+    background-position: -167px -83px;
+    height: 34px;
+    width: 30px;
+    background-size: 260px 400px;
+}
+.travelinsuranceimage{
+    background-image: url("../images/headerimages.png");
+    background-position: -221px -86px;
+    height: 29px;
+    width: 25px;
+    background-size: 260px 400px;
+}

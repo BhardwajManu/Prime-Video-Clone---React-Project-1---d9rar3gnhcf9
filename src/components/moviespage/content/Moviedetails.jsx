@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { extraBold } from "../../../styles/tailwindClasses"
 
 const Moviedetails = () => {
-
     const [data, setData] = useState([]);
     const id = "";
+    
     useEffect(() => {
         async function fetchData() {
             try {

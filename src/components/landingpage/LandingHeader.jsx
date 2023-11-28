@@ -62,7 +62,7 @@ const LandingHeader = () => {
     <>
       <nav
         className={`top-0 bg-[#000] z-[1000] w-full ${
-          isScrolled ? "relative" : "fixed"
+          isScrolled ? "" : "fixed"
         } rounded-lg 
         ${isScrolled ? " md:ml-56" : ""} ${isMobileMenuOpen ? "" : ""}`}
       >
