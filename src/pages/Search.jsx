@@ -7,46 +7,99 @@ import Header from "../components/header/Header";
 import Footer from "../components/Footer";
 import MoreMovies from "./MoreMovies";
 
+// const Search = () => {
+//   const { data, loading, error, get, moreData } = useFetch([]);
+//   const { query } = useParams();
+//   useEffect(() => {
+//     get(`/ott/show?search={"title" : "${query}"}&limit=10`);
+//   }, [query]);
+//   // console.log(data, "Data");
+//   console.log(data, "Query");
+
+//   return (
+//     <>
+//       <Header />
+//       <div className="px-20 h-[75vh]">
+//         <Filters />
+//         {data?.data?.length == 0 && error.status == "fail" ? (
+//           <>
+//             <div>
+//               <h2 className="text-white text-xl font-bold">
+//                 We didn't find any matches for "{query}". Browse our most
+//                 popular TV shows and movies.
+//               </h2>
+//               <div className=" mt-14 text-center  cursor-default text-3xl">
+//                 <span className="font-bold text-[#1A98FF]">Prime</span>
+//                 <span className=" change-button font-bold ml-3 text-white">
+//                   Top TV and movies
+//                 </span>
+//               </div>
+//               <MoreMovies />
+//             </div>
+//           </>
+//         ) : (
+//           <>
+//             <div>
+//               <h1 className="text-2xl font-bold text-white  py-6">
+//                 Result for "{query}".
+//               </h1>
+//             </div>
+//             <div className="grid gap-2 md:gap-4 py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+//               {data.data.map((movie) => (
+//                 <Card key={movie._id} movie={movie} />
+//               ))}
+//             </div>
+//           </>
+//         )}
+//       </div>
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default Search;
+
+// ... (import statements remain the same)
+
 const Search = () => {
-  const { data, loading, error, get, moreData } = useFetch([]);
+  const { data, loading, error, get } = useFetch([]);
   const { query } = useParams();
+
   useEffect(() => {
     get(`/ott/show?search={"title" : "${query}"}&limit=10`);
   }, [query]);
-  // console.log(data, "Data");
-  console.log(data, "Query");
 
   return (
     <>
       <Header />
       <div className="px-20 h-[75vh]">
         <Filters />
-        {data?.data?.length > 0 ? (
-          <>
-            <div>
-              <h1 className="text-2xl font-bold text-white  py-6">
-                Result for "{query}".
-              </h1>
-            </div>
-            <div className="grid gap-2 md:gap-4 py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-              {data.data.map((movie) => (
-                <Card key={movie._id} movie={movie} />
-              ))}
-            </div>
-          </>
-        ) : (
+        {error && (
           <div>
             <h2 className="text-white text-xl font-bold">
               We didn't find any matches for "{query}". Browse our most popular
               TV shows and movies.
             </h2>
-            <div className=" mt-14 text-center  cursor-default text-3xl">
+            <div className="mt-14 text-center cursor-default text-3xl">
               <span className="font-bold text-[#1A98FF]">Prime</span>
-              <span className=" change-button font-bold ml-3 text-white">
+              <span className="change-button font-bold ml-3 text-white">
                 Top TV and movies
               </span>
             </div>
             <MoreMovies />
+          </div>
+        )}
+
+        {!error && data?.data?.length > 0 && (
+          <div>
+            <h1 className="text-2xl font-bold text-white py-6">
+              Result for "{query}".
+            </h1>
+            <div className="grid gap-2 md:gap-4 py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+              {data.data.map((movie) => (
+                <Card key={movie._id} movie={movie} />
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -24,8 +24,8 @@ const useFetch = (initialData) => {
         setMoreData((prev) => [...prev, ...data.data.data]);
       }
     } catch (error) {
-      setError(error);
-      console.log("Error fetching data:", error);
+      setError(error.response.data);
+      // console.log("Error fetching data:", error);
     } finally {
       setLoading(false);
     }
