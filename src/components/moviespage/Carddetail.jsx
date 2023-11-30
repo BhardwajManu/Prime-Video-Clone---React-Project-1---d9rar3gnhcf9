@@ -25,19 +25,19 @@ const Carddetail = () => {
 
   return (
     <>
-      <div key={data?.data._id} className="relative">
+      <div key={data?.data?._id} className="relative">
         <div
           className="hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top"
           style={{
             backgroundImage: `linear-gradient( to right, #000 40%, transparent 78% ),
-                    url(${data?.data.thumbnail})`,
+                    url(${data?.data?.thumbnail})`,
           }}
         ></div>
         <div
           className="aspect-video md:hidden bg-no-repeat bg-cover w-screen"
           style={{
             backgroundImage: `linear-gradient( to top, #000 10%, transparent 78% ),
-                    url(${data?.data.thumbnail})`,
+                    url(${data?.data?.thumbnail})`,
           }}
         ></div>
 
@@ -46,10 +46,10 @@ const Carddetail = () => {
                 h-max relative pb-10 md:absolute  md:w-1/2 top-0 left-0"
         >
           <h1 className="text-[#FFFFFF] text-4xl md:text-5xl font-extrabold tracking-wide max-w-lg leading-normal">
-            {data?.data.title}
+            {data?.data?.title}
           </h1>
           <span className="text-[#FFFFFF] hidden sm:block text-xl mt-5 font-bold max-w-4xl">
-            {data?.data.description}
+            {data?.data?.description}
           </span>
 
           <div className="text-white flex gap-3 ">
@@ -86,7 +86,7 @@ const Carddetail = () => {
           </div>
 
           <div className="flex gap-3">
-            <Link to={`/videoplay/${data?.data._id}`}>
+            <Link to={`/videoplay/${data?.data?._id}`}>
               <button
                 className="bg-[#FFFFFF] text-[#00050D] text-lg sm:text-xl py-1 px-[15px] 
                         rounded-lg text-left opacity-[1] mr-6 font-semibold min-h-[62px] cursor-pointer"
