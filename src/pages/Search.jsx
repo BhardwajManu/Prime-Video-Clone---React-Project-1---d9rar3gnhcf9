@@ -72,7 +72,7 @@ const Search = () => {
   return (
     <>
       <Header />
-      <div className="px-20 h-[75vh]">
+      <div className="px-20">
         <Filters />
         {error && (
           <div>
@@ -103,7 +103,6 @@ const Search = () => {
           </div>
         )}
       </div>
-      <Footer />
     </>
   );
 };

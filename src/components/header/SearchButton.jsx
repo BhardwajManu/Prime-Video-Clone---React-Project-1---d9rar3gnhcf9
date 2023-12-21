@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import Suggestionlist from "./Suggestionlist";
 
 const SearchButton = ({ closeSearch }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => setSearchValue(e.target.value);
 
@@ -20,6 +21,21 @@ const SearchButton = ({ closeSearch }) => {
       closeSearch(e);
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isSearchBarOpen) {
+        // Prevent scrolling when the search bar is closed
+        window.scrollTo(0, 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isSearchBarOpen]);
 
   return (
     <div
