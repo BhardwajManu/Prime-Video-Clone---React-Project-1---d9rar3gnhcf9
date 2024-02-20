@@ -147,7 +147,7 @@ const LandingHeader = () => {
                         className="text-[#AAA] hidden  sm:block text-xl mr-2 font-semibold
                                              hover:bg-[#191E25] hover:text-white items-center"
                       >
-                        {user.name}
+                        {user?.name}
                       </span>
                       <img
                         className="h-8 w-8 rounded-full"

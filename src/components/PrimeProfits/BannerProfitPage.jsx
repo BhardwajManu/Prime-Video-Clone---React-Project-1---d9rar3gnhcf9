@@ -43,7 +43,7 @@ export default function BannerProfitPage() {
         static // default false
       >
         {images.map((item, i) => (
-          <div key={i} className="w-[94vw] m-auto  relative overflow-hidden ">
+          <div key={i} className=" m-auto  relative overflow-hidden ">
             <div className="absolute inset-0 gradientToRight"></div>
             <img
               className="aspect-[16/9] md:aspect-[18/6] lg:w-[91vw] w-full  m-auto block cursor-pointer object-cover 

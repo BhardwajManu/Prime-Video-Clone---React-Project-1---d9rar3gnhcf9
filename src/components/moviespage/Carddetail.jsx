@@ -14,6 +14,7 @@ import {
   movieIcons,
 } from "../../styles/tailwindClasses";
 import useFetch from "../../Hooks/useFetch";
+import Header from "../header/Header";
 
 const Carddetail = () => {
   const { data, get } = useFetch([]);
@@ -25,6 +26,7 @@ const Carddetail = () => {
 
   return (
     <>
+      <Header />
       <div key={data?.data?._id} className="relative">
         <div
           className="hidden md:block min-h-screen w-screen bg-no-repeat bg-cover bg-right-top"

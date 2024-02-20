@@ -19,6 +19,7 @@ import MoreMovies from "../../pages/MoreMovies";
 import LearnMore from "../userLogin/LearnMore";
 import UserSetting from "../userLogin/Settings/UserSetting";
 import VideoBanner from "../moviespage/VideoBanner";
+import { ToastContainer } from "react-toastify";
 
 const Routing = () => {
   const { isUserLoggedIn } = useAuthContext();
@@ -28,27 +29,29 @@ const Routing = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Landingpage />} />
-      <Route path="/banner" element={<Banner />} />
-      <Route path="/anonymous" element={<Anonymus />} />
-      <Route path="/watchlist" element={<WatchList />} />
-      <Route path="/rent" element={<Rent />} />
-      <Route path="/primeprofits" element={<BannerProfitPage />} />
-      <Route path="/manageprofiles" element={<Userprofile />} />
-      <Route path="/editprofile" element={<Useredit />} />
-      <Route path="/signinpage" element={<SignIn />} />
-      <Route path="/signuppage" element={<SignUp />} />
-      <Route path="/moviedetails" element={<Contentdetails />} />
-      <Route path="/details/:id" element={<Carddetail />} />
-      <Route path="/search/:query" element={<Search />} />
-      <Route path="/moremovies/:type" element={<MoreMovies />} />
-      <Route path="*" element={<Landingpage />} />
-      <Route path="/learnmore" element={<LearnMore />} />
-      <Route path="/help" element={<Help />} />
-      <Route path="/usersettings" element={<UserSetting />} />
-      <Route path="/videoplay/:id" element={<VideoBanner />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Landingpage />} />
+        <Route path="/banner" element={<Banner />} />
+        <Route path="/anonymous" element={<Anonymus />} />
+        <Route path="/watchlist" element={<WatchList />} />
+        <Route path="/rent" element={<Rent />} />
+        <Route path="/primeprofits" element={<BannerProfitPage />} />
+        <Route path="/manageprofiles" element={<Userprofile />} />
+        <Route path="/editprofile" element={<Useredit />} />
+        <Route path="/signinpage" element={<SignIn />} />
+        <Route path="/signuppage" element={<SignUp />} />
+        <Route path="/moviedetails" element={<Contentdetails />} />
+        <Route path="/details/:id" element={<Carddetail />} />
+        <Route path="/search/:query" element={<Search />} />
+        <Route path="/moremovies/:type" element={<MoreMovies />} />
+        <Route path="*" element={<Landingpage />} />
+        <Route path="/learnmore" element={<LearnMore />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/usersettings" element={<UserSetting />} />
+        <Route path="/videoplay/:id" element={<VideoBanner />} />
+      </Routes>
+    </>
   );
 };
 export default Routing;
