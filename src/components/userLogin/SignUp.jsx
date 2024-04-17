@@ -32,9 +32,9 @@ const SignUp = () => {
     } else if (name === "email" && !validateEmail(value)) {
       errorMessage = "Enter a valid email";
     } else if (name === "password" && value.length < 6) {
-      errorMessage = "Password must be atleast 6 characters";
+      errorMessage = "Password must be at least 6 characters";
     } else if (name === "cPassword" && formData.password != value) {
-      errorMessage = "password not matched";
+      errorMessage = "Password not matched";
     }
     return errorMessage;
   };
