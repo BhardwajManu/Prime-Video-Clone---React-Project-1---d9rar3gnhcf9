@@ -95,10 +95,10 @@ const LandingHeader = () => {
                 </Link>
               </div>
               <div className="hidden sm:ml-6 sm:block">
-                <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
+                <div className="flex space-x-4 ml-12 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                   <Homepage />
                   <Store />
-                  <div>
+                  {/* <div>
                     <Link
                       to="/anonymous"
                       className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex"
@@ -106,13 +106,13 @@ const LandingHeader = () => {
                     >
                       Live TV<span className="mt-2"></span>
                     </Link>
-                  </div>
+                  </div> */}
                   <CategoriesList className="home-list" />
                   <Mystuff />
                 </div>
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
               <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"

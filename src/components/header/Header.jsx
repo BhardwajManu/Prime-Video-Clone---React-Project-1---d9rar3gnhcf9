@@ -100,7 +100,7 @@ const Header = () => {
                 <div className="flex space-x-4 ml-10 tracking-[1px] font-semibold text-[18.7px] text-[#AAA]">
                   <Homepage />
                   <Store />
-                  <div>
+                  {/* <div>
                     <Link
                       to="/anonymous"
                       className="hover:bg-[#191E25] hover:text-white px-2 py-2 flex"
@@ -108,7 +108,7 @@ const Header = () => {
                     >
                       Live TV<span className="mt-2"></span>
                     </Link>
-                  </div>
+                  </div> */}
                   <CategoriesList className="home-list" />
                   <Mystuff />
                 </div>
